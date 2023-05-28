@@ -1,0 +1,23 @@
+so $VIMRUNTIME/vimrc_example.vim
+
+set ai
+set si
+set cin
+set acd
+set tm=200
+set nu
+set rnu
+set ls=2
+set fdm=marker
+
+set cino=j1,(0,ws,Ws
+
+im jf <ESC>
+im fj <ESC>
+
+nn <C-s> :up<CR>
+nn <Space> za
+
+nn <F9> :make %<<CR>
+
+iab #i #include

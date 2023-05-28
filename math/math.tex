@@ -1,0 +1,60 @@
+\section{数学}
+
+\subsection{线性筛}
+
+欧拉函数不会，所以没写。
+
+\inputminted{cpp}{math/prime/prime.cpp}
+
+\subsection{乘法逆元}
+
+\subsubsection{线性求逆元}
+
+\inputminted{cpp}{math/inv/inv.cpp}
+
+\subsubsection{线性求任意 $n$ 个数的逆元}
+
+\inputminted{cpp}{math/inv/inv_any.cpp}
+
+\subsection{欧几里得算法}
+
+\subsubsection{扩展欧几里得算法}
+
+\inputminted[mathescape]{cpp}{math/gcd/ex_eculid.cpp}
+
+\subsubsection{高速 gcd}
+
+\[
+\gcd\left(a, b\right) = \begin{cases}
+\gcd\left[|a - b|, \min(a, b)\right] & \text{a, b 奇} \\
+\gcd\left(\frac{a}{2}, \frac{b}{2}\right) & \text{a, b 偶} \\
+\gcd\left(a, \frac{b}{2}\right) & \text{a 奇, b 偶} \\
+\gcd\left(\frac{a}{2}, b\right) & \text{a 偶, b 奇} 
+\end{cases}
+\]
+
+\inputminted[mathescape]{cpp}{math/gcd/fast_gcd.cpp}
+
+\subsection{Lucas 定理}
+
+对于质数 $P$，有：
+
+\[
+\binom{n}{m}\bmod P =
+\binom{\left\lfloor\frac{n}{P}\right\rfloor}{\left\lfloor\frac{m}{P}\right\rfloor}
+\cdot \binom{n\bmod P}{m\bmod P}\bmod P
+\]
+
+\subsection{自动取模整形}
+
+不会 barrett 取模优化。
+
+\subsubsection{固定模数}
+
+\inputminted{cpp}{math/modint/static_modint.cpp}
+
+\subsubsection{动态模数}
+
+把固定模数改改就行：
+
+\inputminted{diff}{math/modint/diff}

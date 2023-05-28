@@ -1,0 +1,26 @@
+1c1
+< template <int P> struct static_modint
+---
+> struct dynamic_modint
+3c3,6
+< 	using mint = static_modint;
+---
+> 	using mint = dynamic_modint;
+> 
+> 	static unsigned int P;
+> 
+6c9
+< 	static_modint() : _v(0) {}
+---
+> 	dynamic_modint() : _v(0) {}
+8c11
+< 	static_modint(long long v)
+---
+> 	dynamic_modint(long long v)
+16c19,20
+< 	static constexpr unsigned int mod() { return P; }
+---
+> 	static unsigned int mod() { return P; }
+> 	static void set_mod(int x) { P = x; }
+55a60
+> unsigned int dynamic_modint::P = 998244353;
