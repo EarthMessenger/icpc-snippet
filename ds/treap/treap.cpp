@@ -15,9 +15,7 @@ struct Treap
 
 		pnode_t l, r;
 
-		node_t(int key)
-		    : key(key), rank(mt()), cnt(1), size(1), l(nullptr),
-		      r(nullptr)
+		node_t(int key) : key(key), rank(mt()), cnt(1), size(1), l(nullptr), r(nullptr)
 		{
 		}
 
@@ -32,8 +30,7 @@ struct Treap
 	using pnode_t = node_t::pnode_t;
 
 	template <typename compare>
-	std::tuple<pnode_t, pnode_t> split(pnode_t p, const int key,
-					   compare cmp)
+	std::tuple<pnode_t, pnode_t> split(pnode_t p, const int key, compare cmp)
 	{
 		if (p == nullptr) {
 			return {nullptr, nullptr};

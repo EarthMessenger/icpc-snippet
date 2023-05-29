@@ -14,8 +14,8 @@ struct tarjan_algorithm
 	int scc_cnt;
 
 	tarjan_algorithm(int n)
-	    : n(n), adj(n), dfn(n, -1), low(n), dfn_cnt(0), in_stack(n), scc(n),
-	      scc_cnt(0)
+			: n(n), adj(n), dfn(n, -1), low(n), dfn_cnt(0), in_stack(n), scc(n),
+				scc_cnt(0)
 	{
 	}
 

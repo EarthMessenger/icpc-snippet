@@ -45,16 +45,8 @@
 \cdot \binom{n\bmod P}{m\bmod P}\bmod P
 \]
 
-\subsection{自动取模整形}
-
 不会 barrett 取模优化。
 
-\subsubsection{固定模数}
+\subsection{固定模数}
 
 \inputminted{cpp}{math/modint/static_modint.cpp}
-
-\subsubsection{动态模数}
-
-把固定模数改改就行：
-
-\inputminted{diff}{math/modint/diff}

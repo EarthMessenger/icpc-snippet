@@ -66,9 +66,7 @@ struct dinic_algorithm
 			if (level[v] != level[u] + 1 ||
 			    edges[id].cap - edges[id].flow < 1)
 				continue;
-			int d =
-			    dfs(v, std::min(flow_limit,
-					    edges[id].cap - edges[id].flow));
+			int d = dfs(v, std::min(flow_limit, edges[id].cap - edges[id].flow));
 			if (d == 0) continue;
 			res += d;
 			edges[id].flow += d;
