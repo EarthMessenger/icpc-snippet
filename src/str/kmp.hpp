@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-std::vector<int> prefix_function(std::string s)
+std::vector<int> prefix_function(const std::string &s)
 {
 	const int n = s.size();
 	std::vector<int> p(n);
