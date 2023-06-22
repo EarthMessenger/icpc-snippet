@@ -1,10 +1,10 @@
 LATEXMK=/usr/bin/latexmk
 LATEXMKFLAGS=-xelatex -shell-escape
 
-icpc.pdf: icpc.tex
+doc/icpc.pdf: doc/icpc.tex
 	$(LATEXMK) $(LATEXMKFLAGS) $<
 
-clean:
-	$(LATEXMK) -C
+clean-doc:
+	$(LATEXMK) -C doc/icpc.tex
 
-.PHONY: clean
+.PHONY: clean-doc
