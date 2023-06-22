@@ -14,7 +14,7 @@ jobs:
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: icpc.tex
+        root_file: doc/icpc.tex
         latexmk_use_xelatex: true
         latexmk_shell_escape: true
     - name: Upload compiled document
