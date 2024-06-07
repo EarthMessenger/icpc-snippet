@@ -1,4 +1,5 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum"
+#define PROBLEM                                                                \
+  "https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum"
 
 #include <algorithm>
 #include <iostream>
@@ -12,8 +13,8 @@ using u32 = unsigned int;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
 
-#include "math/static_modint.hpp"
 #include "ds/splay.hpp"
+#include "math/static_modint.hpp"
 
 using mint = static_modint<998'244'353>;
 
@@ -23,10 +24,7 @@ struct SumMonoid
   SumMonoid() : sum(0) {}
   SumMonoid(mint sum) : sum(sum) {}
 
-  SumMonoid operator*(const SumMonoid &s) const
-  {
-    return sum + s.sum;
-  };
+  SumMonoid operator*(const SumMonoid &s) const { return sum + s.sum; };
 };
 
 struct AddTimesMonoid
@@ -45,10 +43,7 @@ struct AddTimesMonoid
     return {s.sum * k + b * size};
   }
 
-  bool is_unit() const
-  {
-    return k.val() == 1 && b.val() == 0;
-  }
+  bool is_unit() const { return k.val() == 1 && b.val() == 0; }
 };
 
 int main()

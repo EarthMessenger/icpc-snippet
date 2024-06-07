@@ -1,5 +1,4 @@
-template <typename S, typename T>
-struct Splay
+template <typename S, typename T> struct Splay
 {
   struct node_t
   {
@@ -14,8 +13,16 @@ struct Splay
     pnode_t fa;
     pnode_t ch[2];
 
-    node_t() : reversed(false), size(0), prod(), m(), tag(), fa(nullptr), ch{nullptr, nullptr} {}
-    node_t(S m) : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr), ch{nullptr, nullptr} {}
+    node_t()
+        : reversed(false), size(0), prod(), m(), tag(), fa(nullptr),
+          ch{nullptr, nullptr}
+    {
+    }
+    node_t(S m)
+        : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr),
+          ch{nullptr, nullptr}
+    {
+    }
 
     void update()
     {
@@ -52,10 +59,7 @@ struct Splay
       tag = T();
     }
 
-    u32 which_child() const
-    {
-      return this->fa->ch[1] == this;
-    }
+    u32 which_child() const { return this->fa->ch[1] == this; }
 
     void rotate()
     {
@@ -81,21 +85,22 @@ struct Splay
 
   Splay() : root(nullptr) {}
   Splay(pnode_t root) : root(root) {}
-  template <typename F>
-    Splay(u32 n, F &&f) : root(build_tree(0, n, f, nullptr)) {}
+  template <typename F> Splay(u32 n, F &&f) : root(build_tree(0, n, f, nullptr))
+  {
+  }
 
   template <typename F>
-    static pnode_t build_tree(u32 l, u32 r, F &&f, pnode_t fa)
-    {
-      if (r - l == 0) return nullptr;
-      u32 mid = l + (r - l) / 2;
-      auto p = new node_t(f(mid));
-      p->ch[0] = build_tree(l, mid, f, p);
-      p->ch[1] = build_tree(mid + 1, r, f, p);
-      p->fa = fa;
-      p->update();
-      return p;
-    }
+  static pnode_t build_tree(u32 l, u32 r, F &&f, pnode_t fa)
+  {
+    if (r - l == 0) return nullptr;
+    u32 mid = l + (r - l) / 2;
+    auto p = new node_t(f(mid));
+    p->ch[0] = build_tree(l, mid, f, p);
+    p->ch[1] = build_tree(mid + 1, r, f, p);
+    p->fa = fa;
+    p->update();
+    return p;
+  }
 
   void splay(pnode_t x)
   {
