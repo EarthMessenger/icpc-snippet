@@ -16,7 +16,7 @@ data:
   isVerificationFile: false
   path: lib/misc/next_hamming.hpp
   requiredBy: []
-  timestamp: '2024-06-07 15:40:36+08:00'
+  timestamp: '2024-06-07 16:37:49+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/misc/next_hamming.hpp

@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: lib/ds
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/lct.hpp
       title: lib/ds/lct.hpp
     - icon: ':heavy_check_mark:'
@@ -17,7 +17,7 @@ data:
     - icon: ':warning:'
       path: lib/graph/maxflow.hpp
       title: lib/graph/maxflow.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/graph/scc.hpp
       title: lib/graph/scc.hpp
   - name: lib
@@ -76,5 +76,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+      title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+  - name: verify/graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/graph/scc.test.cpp
+      title: verify/graph/scc.test.cpp
 layout: toppage
 ---

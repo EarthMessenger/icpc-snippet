@@ -5,10 +5,13 @@ data:
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/graph/scc.test.cpp
+    title: verify/graph/scc.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
@@ -51,9 +54,10 @@ data:
   isVerificationFile: false
   path: lib/graph/scc.hpp
   requiredBy: []
-  timestamp: '2024-06-07 15:40:36+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-06-07 16:37:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/graph/scc.test.cpp
 documentation_of: lib/graph/scc.hpp
 layout: document
 redirect_from:

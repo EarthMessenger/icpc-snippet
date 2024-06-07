@@ -134,7 +134,7 @@ data:
   isVerificationFile: false
   path: lib/ds/splay.hpp
   requiredBy: []
-  timestamp: '2024-06-07 15:40:36+08:00'
+  timestamp: '2024-06-07 16:37:49+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
