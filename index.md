@@ -22,7 +22,7 @@ data:
       title: lib/graph/scc.hpp
   - name: lib
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/internal.hpp
       title: lib/internal.hpp
   - name: lib/math
@@ -56,6 +56,9 @@ data:
     - icon: ':warning:'
       path: lib/misc/custom_hash.hpp
       title: lib/misc/custom_hash.hpp
+    - icon: ':x:'
+      path: lib/misc/mo.hpp
+      title: lib/misc/mo.hpp
     - icon: ':warning:'
       path: lib/misc/next_hamming.hpp
       title: lib/misc/next_hamming.hpp
@@ -79,6 +82,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
       title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+    - icon: ':x:'
+      path: verify/ds/static_range_inversions_query.test.cpp
+      title: verify/ds/static_range_inversions_query.test.cpp
   - name: verify/graph
     pages:
     - icon: ':heavy_check_mark:'

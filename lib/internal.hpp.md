@@ -48,6 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+  - icon: ':x:'
+    path: verify/ds/static_range_inversions_query.test.cpp
+    title: verify/ds/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/graph/scc.test.cpp
     title: verify/graph/scc.test.cpp
@@ -63,9 +66,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
@@ -145,11 +148,12 @@ data:
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
   timestamp: '2024-06-07 15:19:15+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/ds/static_range_inversions_query.test.cpp
   - verify/graph/scc.test.cpp
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp
