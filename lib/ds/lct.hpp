@@ -49,7 +49,6 @@ struct LinkCutTree
 
     u32 which_child() const
     {
-      assert(fa != nullptr);
       return fa->ch[1] == this;
     }
 
@@ -61,7 +60,6 @@ struct LinkCutTree
     void rotate()
     {
       auto x = this;
-      assert(!is_root());
 
       auto y = x->fa;
       auto z = y->fa;
@@ -142,7 +140,6 @@ struct LinkCutTree
     auto xp = ptrs[x], yp = ptrs[y];
     xp->make_root();
     yp->access();
-    assert(xp->fa == yp);
     yp->ch[0] = xp->fa = nullptr;
   }
 
