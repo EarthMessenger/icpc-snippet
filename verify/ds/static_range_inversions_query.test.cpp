@@ -1,3 +1,5 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
+
 #include "lib/internal.hpp"
 #include "lib/misc/mo.hpp"
 
@@ -8,16 +10,18 @@ struct fenwicktree
   std::vector<int> f;
   fenwicktree(int n) : n(n), all(0), f(n) {}
 
-  void add(int x, int v) 
+  void add(int x, int v)
   {
     all += v;
-    for (x++; x <= n; x += x & -x) f[x - 1] += v;
+    for (x++; x <= n; x += x & -x)
+      f[x - 1] += v;
   }
 
   int prod_prev(int x) const
   {
     int res = 0;
-    for (; x > 0;  x-= x & -x) res += f[x - 1];
+    for (; x > 0; x -= x & -x)
+      res += f[x - 1];
     return res;
   }
 
@@ -31,21 +35,21 @@ struct SqrtDecomposition
   int all;
   std::vector<int> b;
   std::vector<int> bs;
-  SqrtDecomposition(int n) :
-    n(n),
-    block_size((int)std::sqrt(n)),
-    block_cnt((n + block_size - 1) / block_size),
-    all(0),
-    b(n + 1),
-    bs(block_cnt + 1)
-  {}
+  SqrtDecomposition(int n)
+      : n(n), block_size((int)std::sqrt(n)),
+        block_cnt((n + block_size - 1) / block_size), all(0), b(n + 1),
+        bs(block_cnt + 1)
+  {
+  }
 
   void add(int x, int v)
   {
     all += v;
     int bx = x / block_size;
-    for (int i = x, j = x % block_size; i < n && j + 1 < block_size; i++, j++) b[i + 1] += v;
-    for (int i = bx; i < block_cnt; i++) bs[i + 1] += v;
+    for (int i = x, j = x % block_size; i < n && j + 1 < block_size; i++, j++)
+      b[i + 1] += v;
+    for (int i = bx; i < block_cnt; i++)
+      bs[i + 1] += v;
   }
 
   int sum(int x) const
@@ -64,11 +68,13 @@ int main()
   int n, m;
   std::cin >> n >> m;
   std::vector<int> a(n);
-  for (auto &i : a) std::cin >> i;
+  for (auto &i : a)
+    std::cin >> i;
   auto cc = a;
   std::sort(cc.begin(), cc.end());
   cc.erase(std::unique(cc.begin(), cc.end()), cc.end());
-  for (auto &i : a) i = std::lower_bound(cc.begin(), cc.end(), i) - cc.begin();
+  for (auto &i : a)
+    i = std::lower_bound(cc.begin(), cc.end(), i) - cc.begin();
   int nc = cc.size();
 
   mo_algorithm mo;
@@ -94,32 +100,25 @@ int main()
 
   std::vector<i64> diff(m);
 
-  std::vector<std::vector<std::tuple<int, int, int>>> 
-    query_pl(n + 1),
-    query_pr(n + 1),
-    query_nl(n + 1),
-    query_nr(n + 1);
-  auto ord =
-    mo.only_move([&](int p, int l, int r, int i) 
-                 {
-                   diff[i] += sg[p] - sg[l];
-                   query_nr[r].emplace_back(i, p, l);
-                 },
-                 [&](int l, int r, int p, int i) 
-                 {
-                   diff[i] += sf[p] - sf[r];
-                   query_nl[l].emplace_back(i, r, p);
-                 },
-                 [&](int l, int p, int r, int i) 
-                 {
-                   diff[i] -= sg[l] - sg[p];
-                   query_pr[r].emplace_back(i, l, p);
-                 },
-                 [&](int l, int p, int r, int i)
-                  {
-                    diff[i] -= sf[r] - sf[p];
-                    query_pl[l].emplace_back(i, p, r);
-                 });
+  std::vector<std::vector<std::tuple<int, int, int>>> query_pl(n + 1),
+      query_pr(n + 1), query_nl(n + 1), query_nr(n + 1);
+  auto ord = mo.only_move(
+      [&](int p, int l, int r, int i) {
+        diff[i] += sg[p] - sg[l];
+        query_nr[r].emplace_back(i, p, l);
+      },
+      [&](int l, int r, int p, int i) {
+        diff[i] += sf[p] - sf[r];
+        query_nl[l].emplace_back(i, r, p);
+      },
+      [&](int l, int p, int r, int i) {
+        diff[i] -= sg[l] - sg[p];
+        query_pr[r].emplace_back(i, l, p);
+      },
+      [&](int l, int p, int r, int i) {
+        diff[i] -= sf[r] - sf[p];
+        query_pl[l].emplace_back(i, p, r);
+      });
 
   {
     SqrtDecomposition s(nc);
@@ -162,5 +161,6 @@ int main()
     ans[oi] = ans[oj] + diff[oi];
   }
 
-  for (auto i : ans) std::cout << i << "\n";
+  for (auto i : ans)
+    std::cout << i << "\n";
 }
