@@ -3,7 +3,8 @@
 "verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp": "2024-06-07 18:17:19 +0800",
 "verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp": "2024-06-07 18:17:19 +0800",
 "verify/graph/scc.test.cpp": "2024-06-07 18:17:19 +0800",
-"verify/math/bitwise_and_convolution.test.cpp": "2024-06-07 18:17:19 +0800",
-"verify/math/bitwise_xor_convolution.test.cpp": "2024-06-07 18:17:19 +0800",
-"verify/math/subset_convolution.test.cpp": "2024-06-07 18:17:19 +0800"
+"verify/math/bitwise_and_convolution.test.cpp": "2024-06-07 20:06:35 +0800",
+"verify/math/bitwise_xor_convolution.test.cpp": "2024-06-07 20:06:35 +0800",
+"verify/math/convolution.test.cpp": "2024-06-07 20:06:35 +0800",
+"verify/math/subset_convolution.test.cpp": "2024-06-07 20:06:35 +0800"
 }
