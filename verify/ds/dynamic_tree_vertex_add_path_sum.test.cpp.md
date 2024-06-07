@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: lib/ds/lct.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -24,7 +24,7 @@ data:
     \ <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\nusing\
     \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
     \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 2 \"lib/ds/lct.hpp\"\
+    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/ds/lct.hpp\"\
     \n\ntemplate <typename T>\nstruct LinkCutTree\n{\n  struct Splay\n  {\n    using\
     \ ptr = Splay *;\n\n    u32 size;\n    bool reversed;\n    T val, prod;\n    ptr\
     \ fa, ch[2];\n\n    Splay() : size(0), reversed(false), val(), prod(), fa(nullptr),\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
+  timestamp: '2024-06-07 18:17:19+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp

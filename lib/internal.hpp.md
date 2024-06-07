@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/scc.hpp
     title: lib/graph/scc.hpp
-  - icon: ':warning:'
+  - icon: ':question:'
     path: lib/math/convolution.hpp
     title: lib/math/convolution.hpp
   - icon: ':warning:'
@@ -27,15 +27,9 @@ data:
     path: lib/math/fast_gcd.hpp
     title: lib/math/fast_gcd.hpp
   - icon: ':warning:'
-    path: lib/math/inv.hpp
-    title: lib/math/inv.hpp
-  - icon: ':warning:'
-    path: lib/math/inv_any.hpp
-    title: lib/math/inv_any.hpp
-  - icon: ':warning:'
     path: lib/math/prime.hpp
     title: lib/math/prime.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
   - icon: ':warning:'
@@ -54,9 +48,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/graph/scc.test.cpp
     title: verify/graph/scc.test.cpp
-  _isVerificationFailed: false
+  - icon: ':heavy_check_mark:'
+    path: verify/math/bitwise_and_convolution.test.cpp
+    title: verify/math/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/math/bitwise_xor_convolution.test.cpp
+    title: verify/math/bitwise_xor_convolution.test.cpp
+  - icon: ':x:'
+    path: verify/math/convolution.test.cpp
+    title: verify/math/convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/math/subset_convolution.test.cpp
+    title: verify/math/subset_convolution.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
@@ -128,21 +134,23 @@ data:
   - lib/ds/splay.hpp
   - lib/graph/maxflow.hpp
   - lib/graph/scc.hpp
-  - lib/math/inv_any.hpp
   - lib/math/convolution.hpp
   - lib/math/dynamic_modint.hpp
   - lib/math/fast_gcd.hpp
-  - lib/math/inv.hpp
   - lib/math/static_modint.hpp
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
-  timestamp: '2024-06-07 16:37:49+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-07 18:17:19+08:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   - verify/graph/scc.test.cpp
+  - verify/math/convolution.test.cpp
+  - verify/math/bitwise_and_convolution.test.cpp
+  - verify/math/bitwise_xor_convolution.test.cpp
+  - verify/math/subset_convolution.test.cpp
 documentation_of: lib/internal.hpp
 layout: document
 redirect_from:

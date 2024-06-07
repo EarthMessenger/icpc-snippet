@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/scc.hpp
     title: lib/graph/scc.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -22,7 +22,7 @@ data:
     \ <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\nusing\
     \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
     \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 2 \"lib/graph/scc.hpp\"\
+    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/graph/scc.hpp\"\
     \n\nstruct scc_graph\n{\n  int n;\n  std::vector<std::vector<int>> adj;\n\n  scc_graph(int\
     \ n) : n(n), adj(n) {}\n\n  void add_edge(int u, int v) { adj[u].emplace_back(v);\
     \ }\n\n  std::pair<int, std::vector<int>> solve()\n  {\n    std::vector<int> dfn(n,\
@@ -61,7 +61,7 @@ data:
   isVerificationFile: true
   path: verify/graph/scc.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
+  timestamp: '2024-06-07 18:17:19+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/graph/scc.test.cpp

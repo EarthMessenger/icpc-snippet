@@ -8,15 +8,15 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"lib/misc/next_hamming.hpp\"\nint next_hamming(int x)\n{\n\
+  bundledCode: "#line 2 \"lib/misc/next_hamming.hpp\"\nint next_hamming(int x)\n{\n\
     \  int t = x + (x & -x);\n  return t | (((t & -t) / (x & -x) / 2) - 1);\n}\n"
-  code: "int next_hamming(int x)\n{\n  int t = x + (x & -x);\n  return t | (((t &\
-    \ -t) / (x & -x) / 2) - 1);\n}"
+  code: "#pragma once\nint next_hamming(int x)\n{\n  int t = x + (x & -x);\n  return\
+    \ t | (((t & -t) / (x & -x) / 2) - 1);\n}"
   dependsOn: []
   isVerificationFile: false
   path: lib/misc/next_hamming.hpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
+  timestamp: '2024-06-07 18:17:19+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/misc/next_hamming.hpp

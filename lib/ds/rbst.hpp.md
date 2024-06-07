@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -18,7 +18,7 @@ data:
     #include <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\n\
     using i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\n\
     using u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
-    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 2 \"\
+    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
     lib/ds/rbst.hpp\"\n\ntemplate <typename S, typename T>\nstruct RBST\n{\n  struct\
     \ node_t\n  {\n    bool reverse;\n    T tag;\n    u32 size;\n    S prod;\n   \
     \ S m;\n    node_t *lc, *rc;\n\n    node_t() : reverse(false), tag(), size(0),\
@@ -71,9 +71,9 @@ data:
     \ * p->m;\n      if (mid + 1 < r) res = res * prod(l, r, mid + 1, rr, p->rc);\n\
     \      return res;\n    }\n  }\n\n  S prod(u32 l, u32 r) const\n  {\n    if (root\
     \ == nullptr) return {};\n    return prod(l, r, 0, root->size, root);\n  }\n};\n"
-  code: "#include \"lib/internal.hpp\"\n\ntemplate <typename S, typename T>\nstruct\
-    \ RBST\n{\n  struct node_t\n  {\n    bool reverse;\n    T tag;\n    u32 size;\n\
-    \    S prod;\n    S m;\n    node_t *lc, *rc;\n\n    node_t() : reverse(false),\
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n\ntemplate <typename S, typename\
+    \ T>\nstruct RBST\n{\n  struct node_t\n  {\n    bool reverse;\n    T tag;\n  \
+    \  u32 size;\n    S prod;\n    S m;\n    node_t *lc, *rc;\n\n    node_t() : reverse(false),\
     \ tag(), size(0), prod(), m(), lc(nullptr), rc(nullptr) {}\n    node_t(S m) :\
     \ reverse(false), tag(), size(1), prod(m), m(m), lc(nullptr), rc(nullptr) {}\n\
     \n    void update()\n    {\n      size = 1;\n      prod = m;\n      if (lc) {\n\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: false
   path: lib/ds/rbst.hpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
+  timestamp: '2024-06-07 18:17:19+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

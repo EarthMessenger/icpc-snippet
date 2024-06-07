@@ -22,12 +22,12 @@ data:
       title: lib/graph/scc.hpp
   - name: lib
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/internal.hpp
       title: lib/internal.hpp
   - name: lib/math
     pages:
-    - icon: ':warning:'
+    - icon: ':question:'
       path: lib/math/convolution.hpp
       title: lib/math/convolution.hpp
     - icon: ':warning:'
@@ -40,18 +40,12 @@ data:
       path: lib/math/fast_gcd.hpp
       title: lib/math/fast_gcd.hpp
     - icon: ':warning:'
-      path: lib/math/inv.hpp
-      title: lib/math/inv.hpp
-    - icon: ':warning:'
-      path: lib/math/inv_any.hpp
-      title: lib/math/inv_any.hpp
-    - icon: ':warning:'
       path: lib/math/lucas.hpp
       title: lib/math/lucas.hpp
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: lib/math/prime.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/static_modint.hpp
       title: lib/math/static_modint.hpp
   - name: lib/misc
@@ -84,5 +78,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/graph/scc.test.cpp
       title: verify/graph/scc.test.cpp
+  - name: verify/math
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/math/bitwise_and_convolution.test.cpp
+      title: verify/math/bitwise_and_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/math/bitwise_xor_convolution.test.cpp
+      title: verify/math/bitwise_xor_convolution.test.cpp
+    - icon: ':x:'
+      path: verify/math/convolution.test.cpp
+      title: verify/math/convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/math/subset_convolution.test.cpp
+      title: verify/math/subset_convolution.test.cpp
 layout: toppage
 ---

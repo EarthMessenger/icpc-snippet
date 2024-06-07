@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -12,16 +12,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  _isVerificationFailed: false
+  - icon: ':heavy_check_mark:'
+    path: verify/math/bitwise_and_convolution.test.cpp
+    title: verify/math/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/math/bitwise_xor_convolution.test.cpp
+    title: verify/math/bitwise_xor_convolution.test.cpp
+  - icon: ':x:'
+    path: verify/math/convolution.test.cpp
+    title: verify/math/convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/math/subset_convolution.test.cpp
+    title: verify/math/subset_convolution.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
     #include <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\n\
     using i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\n\
     using u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
-    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 2 \"\
+    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
     lib/math/static_modint.hpp\"\n\ntemplate <int M>\nstruct static_modint\n{\n  static\
     \ constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n  u32 v;\n \
     \ constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>*\
@@ -41,7 +53,7 @@ data:
     \ pow(u64 n) const\n  {\n    mint res = 1, base = *this;\n    while (n) {\n  \
     \    if (n & 1) res *= base;\n      base *= base;\n      n >>= 1;\n    }\n   \
     \ return res;\n  }\n\n  mint inv() const { return pow(UM - 2); }\n};\n"
-  code: "#include \"lib/internal.hpp\"\n\ntemplate <int M>\nstruct static_modint\n\
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n\ntemplate <int M>\nstruct static_modint\n\
     {\n  static constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n \
     \ u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>*\
     \ = nullptr>\n  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n) {}\n\
@@ -65,11 +77,15 @@ data:
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-07 18:17:19+08:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/math/convolution.test.cpp
+  - verify/math/bitwise_and_convolution.test.cpp
+  - verify/math/bitwise_xor_convolution.test.cpp
+  - verify/math/subset_convolution.test.cpp
 documentation_of: lib/math/static_modint.hpp
 layout: document
 redirect_from:

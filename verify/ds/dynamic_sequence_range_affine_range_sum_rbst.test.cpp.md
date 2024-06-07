@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
     title: lib/ds/rbst.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
     title: lib/internal.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
   _extendedRequiredBy: []
@@ -30,7 +30,7 @@ data:
     \n#include <cstring>\n#line 7 \"lib/internal.hpp\"\n\nusing i32 = int;\nusing\
     \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
     \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 2 \"lib/ds/rbst.hpp\"\
+    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/ds/rbst.hpp\"\
     \n\ntemplate <typename S, typename T>\nstruct RBST\n{\n  struct node_t\n  {\n\
     \    bool reverse;\n    T tag;\n    u32 size;\n    S prod;\n    S m;\n    node_t\
     \ *lc, *rc;\n\n    node_t() : reverse(false), tag(), size(0), prod(), m(), lc(nullptr),\
@@ -83,7 +83,7 @@ data:
     \ * p->m;\n      if (mid + 1 < r) res = res * prod(l, r, mid + 1, rr, p->rc);\n\
     \      return res;\n    }\n  }\n\n  S prod(u32 l, u32 r) const\n  {\n    if (root\
     \ == nullptr) return {};\n    return prod(l, r, 0, root->size, root);\n  }\n};\n\
-    #line 2 \"lib/math/static_modint.hpp\"\n\ntemplate <int M>\nstruct static_modint\n\
+    #line 3 \"lib/math/static_modint.hpp\"\n\ntemplate <int M>\nstruct static_modint\n\
     {\n  static constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n \
     \ u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>*\
     \ = nullptr>\n  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n) {}\n\
@@ -156,7 +156,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 16:37:49+08:00'
+  timestamp: '2024-06-07 18:17:19+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
