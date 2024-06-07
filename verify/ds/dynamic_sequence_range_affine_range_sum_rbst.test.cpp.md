@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
     title: lib/ds/rbst.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
   _extendedRequiredBy: []

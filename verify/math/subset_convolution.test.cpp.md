@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/convolution.hpp
     title: lib/math/convolution.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
   _extendedRequiredBy: []
@@ -40,17 +40,17 @@ data:
     \ (u32 j = 0; j < q; j += h) {\n      T w(e);\n      for (u32 k = j, l = h / 2;\
     \ k < j + l; k++) {\n        T u = a[k], v = w * a[k + l];\n        a[k] = u +\
     \ v;\n        a[k + l] = u - v;\n        w = w * b;\n      }\n    }\n  }\n  if\
-    \ (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n}\n\n} //\
-    \ namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
+    \ constexpr (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n\
+    }\n\n} // namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
     \ T> void compliment(u32 n, vec<T> &a)\n{\n  u32 q = 1 << n;\n  for (u32 i = 0;\
     \ i < q; i++) {\n    if (i & 1) std::swap(a[i], a[(~i) & (q - 1)]);\n  }\n}\n\n\
     template <bool dir, typename T> void sosdp(u32 n, vec<T> &a)\n{\n  u32 q = 1 <<\
     \ n;\n  for (u32 i = 0; i < n; i++) {\n    for (u32 j = 0; j < q; j++) {\n   \
-    \   if ((j >> i) & 1) {\n        if (!dir) a[j] += a[j ^ (1 << i)];\n        else\
-    \ a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace bit\n\n}\
-    \ // namespace poly\n#line 3 \"lib/math/static_modint.hpp\"\n\ntemplate <int M>\n\
-    struct static_modint\n{\n  static constexpr u32 UM = M;\n  static_assert(UM <\
-    \ 0x80'00'00'00u);\n\n  u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template\
+    \   if ((j >> i) & 1) {\n        if constexpr (!dir) a[j] += a[j ^ (1 << i)];\n\
+    \        else a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace\
+    \ bit\n\n} // namespace poly\n#line 3 \"lib/math/static_modint.hpp\"\n\ntemplate\
+    \ <int M>\nstruct static_modint\n{\n  static constexpr u32 UM = M;\n  static_assert(UM\
+    \ < 0x80'00'00'00u);\n\n  u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template\
     \ <typename T, std::enable_if_t<std::is_signed_v<T>>* = nullptr>\n  constexpr\
     \ static_modint(T n) : v((n %= M) < 0 ? n + M : n) {}\n\n  template <typename\
     \ T, std::enable_if_t<std::is_unsigned_v<T>>* = nullptr>\n  constexpr static_modint(T\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: verify/math/subset_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-07 20:06:35+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/math/subset_convolution.test.cpp

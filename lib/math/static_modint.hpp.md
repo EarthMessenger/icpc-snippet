@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -18,15 +18,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/bitwise_xor_convolution.test.cpp
     title: verify/math/bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/math/convolution.test.cpp
     title: verify/math/convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
@@ -78,7 +78,7 @@ data:
   path: lib/math/static_modint.hpp
   requiredBy: []
   timestamp: '2024-06-07 18:17:19+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

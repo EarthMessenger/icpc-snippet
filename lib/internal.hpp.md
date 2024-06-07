@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/graph/scc.hpp
     title: lib/graph/scc.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/convolution.hpp
     title: lib/math/convolution.hpp
   - icon: ':warning:'
@@ -29,9 +29,12 @@ data:
   - icon: ':warning:'
     path: lib/math/prime.hpp
     title: lib/math/prime.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
+  - icon: ':heavy_check_mark:'
+    path: lib/misc/bitop.hpp
+    title: lib/misc/bitop.hpp
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
@@ -54,15 +57,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/bitwise_xor_convolution.test.cpp
     title: verify/math/bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/math/convolution.test.cpp
     title: verify/math/convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
@@ -129,6 +132,7 @@ data:
   isVerificationFile: false
   path: lib/internal.hpp
   requiredBy:
+  - lib/misc/bitop.hpp
   - lib/ds/rbst.hpp
   - lib/ds/lct.hpp
   - lib/ds/splay.hpp
@@ -141,7 +145,7 @@ data:
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
   timestamp: '2024-06-07 15:19:15+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp

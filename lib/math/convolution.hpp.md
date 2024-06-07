@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -12,15 +12,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/bitwise_xor_convolution.test.cpp
     title: verify/math/bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/math/convolution.test.cpp
     title: verify/math/convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
@@ -41,15 +41,15 @@ data:
     \ (u32 j = 0; j < q; j += h) {\n      T w(e);\n      for (u32 k = j, l = h / 2;\
     \ k < j + l; k++) {\n        T u = a[k], v = w * a[k + l];\n        a[k] = u +\
     \ v;\n        a[k + l] = u - v;\n        w = w * b;\n      }\n    }\n  }\n  if\
-    \ (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n}\n\n} //\
-    \ namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
+    \ constexpr (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n\
+    }\n\n} // namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
     \ T> void compliment(u32 n, vec<T> &a)\n{\n  u32 q = 1 << n;\n  for (u32 i = 0;\
     \ i < q; i++) {\n    if (i & 1) std::swap(a[i], a[(~i) & (q - 1)]);\n  }\n}\n\n\
     template <bool dir, typename T> void sosdp(u32 n, vec<T> &a)\n{\n  u32 q = 1 <<\
     \ n;\n  for (u32 i = 0; i < n; i++) {\n    for (u32 j = 0; j < q; j++) {\n   \
-    \   if ((j >> i) & 1) {\n        if (!dir) a[j] += a[j ^ (1 << i)];\n        else\
-    \ a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace bit\n\n}\
-    \ // namespace poly\n"
+    \   if ((j >> i) & 1) {\n        if constexpr (!dir) a[j] += a[j ^ (1 << i)];\n\
+    \        else a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace\
+    \ bit\n\n} // namespace poly\n"
   code: "#pragma once\n#include \"lib/internal.hpp\"\n\nnamespace poly {\n\nnamespace\
     \ details {\n\nvec<u32> r[30];\nconst vec<u32> &calc(const u32 n)\n{\n  if (r[n].size())\
     \ return r[n];\n  u32 q = 1 << n, p = q / 2;\n  r[n].resize(q);\n  for (u32 i\
@@ -63,22 +63,22 @@ data:
     \ (u32 j = 0; j < q; j += h) {\n      T w(e);\n      for (u32 k = j, l = h / 2;\
     \ k < j + l; k++) {\n        T u = a[k], v = w * a[k + l];\n        a[k] = u +\
     \ v;\n        a[k + l] = u - v;\n        w = w * b;\n      }\n    }\n  }\n  if\
-    \ (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n}\n\n} //\
-    \ namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
+    \ constexpr (d) {\n    for (u32 i = 0; i < q; i++)\n      inv(a[i], q);\n  }\n\
+    }\n\n} // namespace poly\n\nnamespace poly {\n\nnamespace bit {\n\ntemplate <typename\
     \ T> void compliment(u32 n, vec<T> &a)\n{\n  u32 q = 1 << n;\n  for (u32 i = 0;\
     \ i < q; i++) {\n    if (i & 1) std::swap(a[i], a[(~i) & (q - 1)]);\n  }\n}\n\n\
     template <bool dir, typename T> void sosdp(u32 n, vec<T> &a)\n{\n  u32 q = 1 <<\
     \ n;\n  for (u32 i = 0; i < n; i++) {\n    for (u32 j = 0; j < q; j++) {\n   \
-    \   if ((j >> i) & 1) {\n        if (!dir) a[j] += a[j ^ (1 << i)];\n        else\
-    \ a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace bit\n\n}\
-    \ // namespace poly"
+    \   if ((j >> i) & 1) {\n        if constexpr (!dir) a[j] += a[j ^ (1 << i)];\n\
+    \        else a[j] -= a[j ^ (1 << i)];\n      }\n    }\n  }\n}\n\n} // namespace\
+    \ bit\n\n} // namespace poly"
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
   path: lib/math/convolution.hpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-07 20:06:35+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp

@@ -22,12 +22,12 @@ data:
       title: lib/graph/scc.hpp
   - name: lib
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/internal.hpp
       title: lib/internal.hpp
   - name: lib/math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/convolution.hpp
       title: lib/math/convolution.hpp
     - icon: ':warning:'
@@ -45,11 +45,14 @@ data:
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: lib/math/prime.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/static_modint.hpp
       title: lib/math/static_modint.hpp
   - name: lib/misc
     pages:
+    - icon: ':heavy_check_mark:'
+      path: lib/misc/bitop.hpp
+      title: lib/misc/bitop.hpp
     - icon: ':warning:'
       path: lib/misc/custom_hash.hpp
       title: lib/misc/custom_hash.hpp
@@ -64,6 +67,9 @@ data:
   verificationCategories:
   - name: verify/ds
     pages:
+    - icon: ':x:'
+      path: verify/ds/associative_rray.test.cpp
+      title: verify/ds/associative_rray.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
@@ -86,7 +92,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/math/bitwise_xor_convolution.test.cpp
       title: verify/math/bitwise_xor_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/math/convolution.test.cpp
       title: verify/math/convolution.test.cpp
     - icon: ':heavy_check_mark:'
