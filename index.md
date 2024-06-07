@@ -1,71 +1,79 @@
 ---
 data:
   libraryCategories:
-  - name: ds
+  - name: lib/ds
     pages:
     - icon: ':warning:'
-      path: ds/lct.hpp
-      title: ds/lct.hpp
-    - icon: ':heavy_check_mark:'
-      path: ds/rbst.hpp
-      title: ds/rbst.hpp
-    - icon: ':heavy_check_mark:'
-      path: ds/splay.hpp
-      title: ds/splay.hpp
-  - name: graph
+      path: lib/ds/lct.hpp
+      title: lib/ds/lct.hpp
+    - icon: ':warning:'
+      path: lib/ds/rbst.hpp
+      title: lib/ds/rbst.hpp
+    - icon: ':warning:'
+      path: lib/ds/splay.hpp
+      title: lib/ds/splay.hpp
+  - name: lib/graph
     pages:
     - icon: ':warning:'
-      path: graph/maxflow.hpp
-      title: graph/maxflow.hpp
+      path: lib/graph/maxflow.hpp
+      title: lib/graph/maxflow.hpp
     - icon: ':warning:'
-      path: graph/scc.hpp
-      title: graph/scc.hpp
-  - name: math
+      path: lib/graph/scc.hpp
+      title: lib/graph/scc.hpp
+  - name: lib
     pages:
     - icon: ':warning:'
-      path: math/dynamic_modint.hpp
-      title: math/dynamic_modint.hpp
-    - icon: ':warning:'
-      path: math/ex_euclid.hpp
-      title: math/ex_euclid.hpp
-    - icon: ':warning:'
-      path: math/fast_gcd.hpp
-      title: math/fast_gcd.hpp
-    - icon: ':warning:'
-      path: math/inv.hpp
-      title: math/inv.hpp
-    - icon: ':warning:'
-      path: math/inv_any.hpp
-      title: math/inv_any.hpp
-    - icon: ':warning:'
-      path: math/lucas.hpp
-      title: math/lucas.hpp
-    - icon: ':warning:'
-      path: math/prime.hpp
-      title: math/prime.hpp
-    - icon: ':heavy_check_mark:'
-      path: math/static_modint.hpp
-      title: math/static_modint.hpp
-  - name: misc
+      path: lib/internal.hpp
+      title: lib/internal.hpp
+  - name: lib/math
     pages:
     - icon: ':warning:'
-      path: misc/custom_hash.cpp
-      title: misc/custom_hash.cpp
+      path: lib/math/convolution.hpp
+      title: lib/math/convolution.hpp
     - icon: ':warning:'
-      path: misc/next_hamming.hpp
-      title: misc/next_hamming.hpp
-  - name: str
+      path: lib/math/dynamic_modint.hpp
+      title: lib/math/dynamic_modint.hpp
+    - icon: ':warning:'
+      path: lib/math/ex_euclid.hpp
+      title: lib/math/ex_euclid.hpp
+    - icon: ':warning:'
+      path: lib/math/fast_gcd.hpp
+      title: lib/math/fast_gcd.hpp
+    - icon: ':warning:'
+      path: lib/math/inv.hpp
+      title: lib/math/inv.hpp
+    - icon: ':warning:'
+      path: lib/math/inv_any.hpp
+      title: lib/math/inv_any.hpp
+    - icon: ':warning:'
+      path: lib/math/lucas.hpp
+      title: lib/math/lucas.hpp
+    - icon: ':warning:'
+      path: lib/math/prime.hpp
+      title: lib/math/prime.hpp
+    - icon: ':warning:'
+      path: lib/math/static_modint.hpp
+      title: lib/math/static_modint.hpp
+  - name: lib/misc
     pages:
     - icon: ':warning:'
-      path: str/kmp.hpp
-      title: str/kmp.hpp
+      path: lib/misc/custom_hash.hpp
+      title: lib/misc/custom_hash.hpp
+    - icon: ':warning:'
+      path: lib/misc/next_hamming.hpp
+      title: lib/misc/next_hamming.hpp
+  - name: lib/str
+    pages:
+    - icon: ':warning:'
+      path: lib/str/kmp.hpp
+      title: lib/str/kmp.hpp
   verificationCategories:
   - name: verify/ds
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
 layout: toppage
