@@ -1,4 +1,3 @@
-#pragma once
 #include "lib/internal.hpp"
 
 template <typename Cap>

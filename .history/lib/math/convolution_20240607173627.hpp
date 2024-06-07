@@ -1,4 +1,3 @@
-#pragma once
 #include "lib/internal.hpp"
 
 namespace poly {
@@ -47,38 +46,8 @@ void fourier_transform(const u32 n, vec<T> &a, B base, I inv, T e)
     }
   }
   if (d) {
-    for (u32 i = 0; i < q; i++)
-      inv(a[i], q);
+    for (u32 i = 0; i < q; i++) inv(a[i], q);
   }
 }
-
-} // namespace poly
-
-namespace poly {
-
-namespace bit {
-
-template <typename T> void compliment(u32 n, vec<T> &a)
-{
-  u32 q = 1 << n;
-  for (u32 i = 0; i < q; i++) {
-    if (i & 1) std::swap(a[i], a[(~i) & (q - 1)]);
-  }
-}
-
-template <bool dir, typename T> void sosdp(u32 n, vec<T> &a)
-{
-  u32 q = 1 << n;
-  for (u32 i = 0; i < n; i++) {
-    for (u32 j = 0; j < q; j++) {
-      if ((j >> i) & 1) {
-        if (!dir) a[j] += a[j ^ (1 << i)];
-        else a[j] -= a[j ^ (1 << i)];
-      }
-    }
-  }
-}
-
-} // namespace bit
 
 } // namespace poly

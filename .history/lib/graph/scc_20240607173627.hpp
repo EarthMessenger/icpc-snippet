@@ -1,4 +1,3 @@
-#pragma once
 #include "lib/internal.hpp"
 
 struct scc_graph

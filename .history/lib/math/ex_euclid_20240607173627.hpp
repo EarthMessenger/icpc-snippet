@@ -1,4 +1,3 @@
-#pragma once
 #include <tuple>
 
 // 给定 $a$ 和 $b$，返回三元组 $(d, x, y)$ 使得 $d = \gcd(a, b)$，$ax + by = d$

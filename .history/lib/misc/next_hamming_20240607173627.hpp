@@ -1,4 +1,3 @@
-#pragma once
 int next_hamming(int x)
 {
   int t = x + (x & -x);
