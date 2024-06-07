@@ -5,10 +5,10 @@ data:
   - icon: ':warning:'
     path: lib/ds/lct.hpp
     title: lib/ds/lct.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
     title: lib/ds/rbst.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/splay.hpp
     title: lib/ds/splay.hpp
   - icon: ':warning:'
@@ -35,16 +35,22 @@ data:
   - icon: ':warning:'
     path: lib/math/prime.hpp
     title: lib/math/prime.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: lib/math/static_modint.hpp
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+    title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+    title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
@@ -124,9 +130,11 @@ data:
   - lib/math/static_modint.hpp
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
-  timestamp: '2024-06-07 15:38:59+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-06-07 15:40:36+08:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+  - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
 documentation_of: lib/internal.hpp
 layout: document
 redirect_from:

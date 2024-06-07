@@ -18,7 +18,7 @@ data:
   isVerificationFile: false
   path: lib/math/lucas.hpp
   requiredBy: []
-  timestamp: '2024-06-07 15:38:59+08:00'
+  timestamp: '2024-06-07 15:40:36+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/lucas.hpp

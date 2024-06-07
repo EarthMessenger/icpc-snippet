@@ -1,14 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+    title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+    title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
@@ -59,9 +65,11 @@ data:
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-07 15:38:59+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-06-07 15:40:36+08:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+  - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
 documentation_of: lib/math/static_modint.hpp
 layout: document
 redirect_from:

@@ -6,10 +6,10 @@ data:
     - icon: ':warning:'
       path: lib/ds/lct.hpp
       title: lib/ds/lct.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/rbst.hpp
       title: lib/ds/rbst.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/splay.hpp
       title: lib/ds/splay.hpp
   - name: lib/graph
@@ -22,7 +22,7 @@ data:
       title: lib/graph/scc.hpp
   - name: lib
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/internal.hpp
       title: lib/internal.hpp
   - name: lib/math
@@ -51,7 +51,7 @@ data:
     - icon: ':warning:'
       path: lib/math/prime.hpp
       title: lib/math/prime.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/static_modint.hpp
       title: lib/math/static_modint.hpp
   - name: lib/misc
@@ -70,10 +70,10 @@ data:
   verificationCategories:
   - name: verify/ds
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
 layout: toppage
