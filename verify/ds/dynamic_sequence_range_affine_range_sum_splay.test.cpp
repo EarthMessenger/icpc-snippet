@@ -13,8 +13,8 @@ using u32 = unsigned int;
 using u64 = unsigned long long;
 using u128 = __uint128_t;
 
-#include "ds/splay.hpp"
-#include "math/static_modint.hpp"
+#include "lib/ds/splay.hpp"
+#include "lib/math/static_modint.hpp"
 
 using mint = static_modint<998'244'353>;
 
