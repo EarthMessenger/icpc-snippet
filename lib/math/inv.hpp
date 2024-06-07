@@ -1,4 +1,4 @@
-#include <vector>
+#include "lib/internal.hpp"
 
 constexpr int M = 998'244'353;
 

@@ -1,4 +1,4 @@
-#include <algorithm>
+#include "lib/internal.hpp"
 
 int gcd(int a, int b)
 {

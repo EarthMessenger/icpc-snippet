@@ -1,4 +1,4 @@
-#include <vector>
+#include "lib/internal.hpp"
 
 std::vector<int> get_prime(const int n)
 {

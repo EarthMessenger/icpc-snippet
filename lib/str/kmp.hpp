@@ -1,3 +1,5 @@
+#include "lib/internal.hpp"
+
 std::vector<int> prefix_function(const std::string &s)
 {
   int n = s.size();
