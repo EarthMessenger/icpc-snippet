@@ -46,7 +46,7 @@ void fourier_transform(const u32 n, vec<T> &a, B base, I inv, T e)
       }
     }
   }
-  if (d) {
+  if constexpr (d) {
     for (u32 i = 0; i < q; i++)
       inv(a[i], q);
   }
@@ -72,7 +72,7 @@ template <bool dir, typename T> void sosdp(u32 n, vec<T> &a)
   for (u32 i = 0; i < n; i++) {
     for (u32 j = 0; j < q; j++) {
       if ((j >> i) & 1) {
-        if (!dir) a[j] += a[j ^ (1 << i)];
+        if constexpr (!dir) a[j] += a[j ^ (1 << i)];
         else a[j] -= a[j ^ (1 << i)];
       }
     }

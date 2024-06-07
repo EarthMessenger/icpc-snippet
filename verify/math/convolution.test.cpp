@@ -1,5 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
+#include "lib/misc/bitop.hpp"
 #include "lib/math/convolution.hpp"
 #include "lib/math/static_modint.hpp"
 
@@ -10,7 +11,7 @@ signed main()
     using mint = static_modint<998244353>;
     auto read_int = [x = int()]() mutable { cin >> x; return x; };
     u32 n = read_int(), m = read_int();
-    u32 p = __lg(max(__bit_ceil(n), __bit_ceil(m))) + 1, q = 1 << p;
+    u32 p = lg2(max(btc(n), btc(m))) + 1, q = 1 << p;
     vec<mint> a(q), b(q);
     for (u32 i = 0; i < n; i++) a[i] = read_int();
     for (u32 i = 0; i < m; i++) b[i] = read_int();
