@@ -156,7 +156,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-07 19:00:54+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

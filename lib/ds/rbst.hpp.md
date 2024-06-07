@@ -129,7 +129,7 @@ data:
   isVerificationFile: false
   path: lib/ds/rbst.hpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-07 19:00:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

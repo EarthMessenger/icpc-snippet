@@ -68,7 +68,7 @@ data:
   isVerificationFile: false
   path: lib/math/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-07 19:00:54+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/dynamic_modint.hpp

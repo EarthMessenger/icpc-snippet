@@ -140,7 +140,7 @@ data:
   - lib/math/static_modint.hpp
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-07 19:00:54+08:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
