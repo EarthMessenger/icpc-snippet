@@ -10,4 +10,4 @@ AllowShortBlocksOnASingleLine: true
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLambdasOnASingleLine: All
-# AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true

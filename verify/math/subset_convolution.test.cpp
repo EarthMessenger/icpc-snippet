@@ -8,7 +8,7 @@ signed main()
     using namespace std;
     ios::sync_with_stdio(false); cin.tie(0), cout.tie(0);
     using mint = static_modint<998244353>;
-    auto read_int = [x = int()]() mutable { cin >> x; return x; };
+    auto read_int = [x = int()]() mutable { return cin >> x, x; };
     u32 n = read_int(), q = 1 << n;
     vec<vec<mint>> a(n + 1, vec<mint>(q)), b(a), c(a);
     for (u32 i = 0; i < q; i++) a[__builtin_popcount(i)][i] = read_int();

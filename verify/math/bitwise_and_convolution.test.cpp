@@ -12,7 +12,7 @@ signed main()
     cin >> n;
     using mint = static_modint<998244353>;
     vec<mint> a(1 << n), b(1 << n);
-    auto read_int = [x = int()]() mutable { cin >> x; return x; };
+    auto read_int = [x = int()]() mutable { return cin >> x, x; };
     for (auto &i: a) i = read_int();
     for (auto &i: b) i = read_int();
     poly::bit::compliment(n, a);

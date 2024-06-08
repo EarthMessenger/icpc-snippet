@@ -8,7 +8,7 @@ signed main()
     using namespace std;
     ios::sync_with_stdio(false); 
     cin.tie(0), cout.tie(0);
-    auto read_int = [x = int()]() mutable { cin >> x; return x; };
+    auto read_int = [x = int()]() mutable { return cin >> x, x; };
     u32 n = read_int(), q = 1 << n;
     using mint = static_modint<998244353>;
     vec<mint> a(q), b(q);

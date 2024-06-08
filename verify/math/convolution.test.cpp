@@ -9,7 +9,7 @@ signed main()
     using namespace std;
     ios::sync_with_stdio(false); cin.tie(0), cout.tie(0);
     using mint = static_modint<998244353>;
-    auto read_int = [x = int()]() mutable { cin >> x; return x; };
+    auto read_int = [x = int()]() mutable { return cin >> x, x; };
     u32 n = read_int(), m = read_int();
     u32 p = lg2(max(btc(n), btc(m))) + 1, q = 1 << p;
     vec<mint> a(q), b(q);

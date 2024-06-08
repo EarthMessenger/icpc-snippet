@@ -1,6 +1,8 @@
 #pragma once
 #include <cmath>
+#include <tuple>
 #include <vector>
+#include <utility>
 #include <cstring>
 #include <iostream>
 #include <algorithm>
