@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -11,18 +11,18 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n\
-    #include <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\n\
-    using i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\n\
-    using u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
-    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
-    lib/graph/maxflow.hpp\"\n\ntemplate <typename Cap>\nstruct maxflow\n{\n  struct\
-    \ edge_t\n  {\n    int u, v;\n    Cap cap, flow;\n\n    Cap remain() const { return\
-    \ cap - flow; }\n    bool exist() const { return remain() > 0; }\n\n    edge_t(int\
-    \ u, int v, Cap cap, Cap flow = 0) : u(u), v(v), cap(cap), flow(flow) {}\n  };\n\
-    \n  int N;\n  std::vector<edge_t> edges;\n  std::vector<std::vector<int> > adj;\n\
-    \n  std::vector<int> ord, ptr;\n\n  maxflow(int N) : N(N), adj(N), ord(N), ptr(N)\
-    \ {}\n\n  void add_edge(int u, int v, Cap cap)\n  {\n    adj[u].emplace_back(edges.size());\n\
+  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <tuple>\n\
+    #include <vector>\n#include <utility>\n#include <cstring>\n#include <iostream>\n\
+    #include <algorithm>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 =\
+    \ __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned long long;\nusing\
+    \ u128 = __uint128_t;\n\ntemplate<typename T> using vec = std::vector<T>;\nusing\
+    \ pii = std::pair<int, int>;\n#line 3 \"lib/graph/maxflow.hpp\"\n\ntemplate <typename\
+    \ Cap>\nstruct maxflow\n{\n  struct edge_t\n  {\n    int u, v;\n    Cap cap, flow;\n\
+    \n    Cap remain() const { return cap - flow; }\n    bool exist() const { return\
+    \ remain() > 0; }\n\n    edge_t(int u, int v, Cap cap, Cap flow = 0) : u(u), v(v),\
+    \ cap(cap), flow(flow) {}\n  };\n\n  int N;\n  std::vector<edge_t> edges;\n  std::vector<std::vector<int>\
+    \ > adj;\n\n  std::vector<int> ord, ptr;\n\n  maxflow(int N) : N(N), adj(N), ord(N),\
+    \ ptr(N) {}\n\n  void add_edge(int u, int v, Cap cap)\n  {\n    adj[u].emplace_back(edges.size());\n\
     \    edges.emplace_back(u, v, cap);\n    adj[v].emplace_back(edges.size());\n\
     \    edges.emplace_back(v, u, 0);\n  }\n\n  bool bfs(int s, int t)\n  {\n    std::queue<int>\
     \ q;\n    std::fill(ord.begin(), ord.end(), -1);\n    q.emplace(s);\n    ord[s]\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: false
   path: lib/graph/maxflow.hpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/graph/maxflow.hpp

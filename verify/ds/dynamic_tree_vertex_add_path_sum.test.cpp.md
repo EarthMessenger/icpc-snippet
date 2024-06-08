@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: lib/ds/lct.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -20,27 +20,27 @@ data:
   bundledCode: "#line 1 \"verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp\"\n\
     #define PROBLEM                                                              \
     \  \\\n  \"https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum\"\n\
-    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n#include\
-    \ <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\nusing\
-    \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
-    \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/ds/lct.hpp\"\
-    \n\ntemplate <typename T>\nstruct LinkCutTree\n{\n  struct Splay\n  {\n    using\
-    \ ptr = Splay *;\n\n    u32 size;\n    bool reversed;\n    T val, prod;\n    ptr\
-    \ fa, ch[2];\n\n    Splay() : size(0), reversed(false), val(), prod(), fa(nullptr),\
-    \ ch{nullptr, nullptr} {}\n    Splay(const T &val) : size(1), reversed(false),\
-    \ val(val), prod(val), fa(nullptr), ch{nullptr, nullptr} {}\n\n    void update()\n\
-    \    {\n      size = 1;\n      prod = val;\n      for (auto c : ch) {\n      \
-    \  if (!c) continue;\n        size += c->size;\n        prod = prod * c->prod;\n\
-    \      }\n    }\n\n    void reverse()\n    {\n      reversed = !reversed;\n  \
-    \    std::swap(ch[0], ch[1]);\n    }\n\n    void set(const T &v)\n    {\n    \
-    \  val = v;\n      update();\n    }\n\n    void push()\n    {\n      for (auto\
-    \ c : ch) {\n        if (!c) continue;\n        if (reversed) c->reverse();\n\
-    \      }\n      reversed = false;\n    }\n\n    u32 which_child() const\n    {\n\
-    \      return fa->ch[1] == this;\n    }\n\n    bool is_root() const\n    {\n \
-    \     return fa == nullptr || (fa->ch[0] != this && fa->ch[1] != this);\n    }\n\
-    \n    void rotate()\n    {\n      auto x = this;\n\n      auto y = x->fa;\n  \
-    \    auto z = y->fa;\n      auto xci = which_child();\n      y->ch[xci] = x->ch[xci\
+    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <tuple>\n#include <vector>\n\
+    #include <utility>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\n\
+    \nusing i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32\
+    \ = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
+    \ntemplate<typename T> using vec = std::vector<T>;\nusing pii = std::pair<int,\
+    \ int>;\n#line 3 \"lib/ds/lct.hpp\"\n\ntemplate <typename T>\nstruct LinkCutTree\n\
+    {\n  struct Splay\n  {\n    using ptr = Splay *;\n\n    u32 size;\n    bool reversed;\n\
+    \    T val, prod;\n    ptr fa, ch[2];\n\n    Splay() : size(0), reversed(false),\
+    \ val(), prod(), fa(nullptr), ch{nullptr, nullptr} {}\n    Splay(const T &val)\
+    \ : size(1), reversed(false), val(val), prod(val), fa(nullptr), ch{nullptr, nullptr}\
+    \ {}\n\n    void update()\n    {\n      size = 1;\n      prod = val;\n      for\
+    \ (auto c : ch) {\n        if (!c) continue;\n        size += c->size;\n     \
+    \   prod = prod * c->prod;\n      }\n    }\n\n    void reverse()\n    {\n    \
+    \  reversed = !reversed;\n      std::swap(ch[0], ch[1]);\n    }\n\n    void set(const\
+    \ T &v)\n    {\n      val = v;\n      update();\n    }\n\n    void push()\n  \
+    \  {\n      for (auto c : ch) {\n        if (!c) continue;\n        if (reversed)\
+    \ c->reverse();\n      }\n      reversed = false;\n    }\n\n    u32 which_child()\
+    \ const\n    {\n      return fa->ch[1] == this;\n    }\n\n    bool is_root() const\n\
+    \    {\n      return fa == nullptr || (fa->ch[0] != this && fa->ch[1] != this);\n\
+    \    }\n\n    void rotate()\n    {\n      auto x = this;\n\n      auto y = x->fa;\n\
+    \      auto z = y->fa;\n      auto xci = which_child();\n      y->ch[xci] = x->ch[xci\
     \ ^ 1];\n      if (x->ch[xci ^ 1]) x->ch[xci ^ 1]->fa = y;\n      x->ch[xci ^\
     \ 1] = y;\n      if (!y->is_root()) z->ch[y->which_child()] = x;\n      y->fa\
     \ = x;\n      x->fa = z;\n\n      y->update();\n      x->update();\n    }\n\n\
@@ -100,7 +100,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp

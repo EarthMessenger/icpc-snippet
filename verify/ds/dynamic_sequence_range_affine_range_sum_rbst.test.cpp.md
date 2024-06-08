@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
     title: lib/ds/rbst.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   - icon: ':heavy_check_mark:'
@@ -26,23 +26,23 @@ data:
     \n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include <tuple>\n\
     #include <vector>\n\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32\
     \ = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
-    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#line 4 \"lib/internal.hpp\"\
-    \n#include <cstring>\n#line 7 \"lib/internal.hpp\"\n\nusing i32 = int;\nusing\
-    \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
-    \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/ds/rbst.hpp\"\
-    \n\ntemplate <typename S, typename T>\nstruct RBST\n{\n  struct node_t\n  {\n\
-    \    bool reverse;\n    T tag;\n    u32 size;\n    S prod;\n    S m;\n    node_t\
-    \ *lc, *rc;\n\n    node_t() : reverse(false), tag(), size(0), prod(), m(), lc(nullptr),\
-    \ rc(nullptr) {}\n    node_t(S m) : reverse(false), tag(), size(1), prod(m), m(m),\
-    \ lc(nullptr), rc(nullptr) {}\n\n    void update()\n    {\n      size = 1;\n \
-    \     prod = m;\n      if (lc) {\n        size = size + lc->size;\n        prod\
-    \ = prod * lc->prod;\n      }\n      if (rc) {\n        size = size + rc->size;\n\
-    \        prod = prod * rc->prod;\n      }\n    }\n\n    void toggle_reverse()\n\
-    \    {\n      reverse = !reverse;\n      std::swap(lc, rc);\n    }\n\n    void\
-    \ apply(const T &t)\n    {\n      prod = t(prod, size);\n      m = t(m, 1);\n\
-    \      tag = tag * t;\n    }\n\n    void push()\n    {\n      if (reverse) {\n\
-    \        if (lc) lc->toggle_reverse();\n        if (rc) rc->toggle_reverse();\n\
+    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#line 5 \"lib/internal.hpp\"\
+    \n#include <utility>\n#include <cstring>\n#line 9 \"lib/internal.hpp\"\n\nusing\
+    \ i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned\
+    \ int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
+    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
+    lib/ds/rbst.hpp\"\n\ntemplate <typename S, typename T>\nstruct RBST\n{\n  struct\
+    \ node_t\n  {\n    bool reverse;\n    T tag;\n    u32 size;\n    S prod;\n   \
+    \ S m;\n    node_t *lc, *rc;\n\n    node_t() : reverse(false), tag(), size(0),\
+    \ prod(), m(), lc(nullptr), rc(nullptr) {}\n    node_t(S m) : reverse(false),\
+    \ tag(), size(1), prod(m), m(m), lc(nullptr), rc(nullptr) {}\n\n    void update()\n\
+    \    {\n      size = 1;\n      prod = m;\n      if (lc) {\n        size = size\
+    \ + lc->size;\n        prod = prod * lc->prod;\n      }\n      if (rc) {\n   \
+    \     size = size + rc->size;\n        prod = prod * rc->prod;\n      }\n    }\n\
+    \n    void toggle_reverse()\n    {\n      reverse = !reverse;\n      std::swap(lc,\
+    \ rc);\n    }\n\n    void apply(const T &t)\n    {\n      prod = t(prod, size);\n\
+    \      m = t(m, 1);\n      tag = tag * t;\n    }\n\n    void push()\n    {\n \
+    \     if (reverse) {\n        if (lc) lc->toggle_reverse();\n        if (rc) rc->toggle_reverse();\n\
     \        reverse = false;\n      }\n      if (!tag.is_unit()) {\n        if (lc)\
     \ lc->apply(tag);\n        if (rc) rc->apply(tag);\n        tag = T{};\n     \
     \ }\n    }\n  };\n\n  node_t *root;\n\n  // \u53EF\u7528 std::mt19937 \u4E4B\u985E\
@@ -156,7 +156,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   _extendedRequiredBy: []
@@ -18,7 +18,11 @@ data:
 
     #include <cmath>
 
+    #include <tuple>
+
     #include <vector>
+
+    #include <utility>
 
     #include <cstring>
 
@@ -109,7 +113,7 @@ data:
   isVerificationFile: false
   path: lib/misc/bitop.hpp
   requiredBy: []
-  timestamp: '2024-06-07 20:06:35+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/math/convolution.test.cpp

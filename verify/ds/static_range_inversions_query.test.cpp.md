@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/misc/mo.hpp
     title: lib/misc/mo.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -19,16 +19,16 @@ data:
     - https://judge.yosupo.jp/problem/static_range_inversions_query
   bundledCode: "#line 1 \"verify/ds/static_range_inversions_query.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\n\n\
-    #line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <vector>\n#include <cstring>\n\
-    #include <iostream>\n#include <algorithm>\n\nusing i32 = int;\nusing i64 = long\
-    \ long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned\
-    \ long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T> using vec = std::vector<T>;\n\
-    using pii = std::pair<int, int>;\n#line 2 \"lib/misc/mo.hpp\"\n\n#line 4 \"lib/misc/mo.hpp\"\
-    \n#include <utility>\n#line 6 \"lib/misc/mo.hpp\"\n\nstruct mo_algorithm\n{\n\
-    \  std::vector<std::pair<int, int>> q;\n \n  void add_query(int l, int r)\n  {\n\
-    \    q.emplace_back(l, r);\n  }\n \n  std::vector<int> sort() const\n  {\n   \
-    \ int n = 0;\n    for (auto i : q) n = std::max({n, i.first, i.second});\n   \
-    \ int bs = std::max(1, (int)(n / std::sqrt(q.size())));\n    std::vector<int>\
+    #line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <tuple>\n#include <vector>\n\
+    #include <utility>\n#include <cstring>\n#include <iostream>\n#include <algorithm>\n\
+    \nusing i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32\
+    \ = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
+    \ntemplate<typename T> using vec = std::vector<T>;\nusing pii = std::pair<int,\
+    \ int>;\n#line 2 \"lib/misc/mo.hpp\"\n\n#line 6 \"lib/misc/mo.hpp\"\n\nstruct\
+    \ mo_algorithm\n{\n  std::vector<std::pair<int, int>> q;\n \n  void add_query(int\
+    \ l, int r)\n  {\n    q.emplace_back(l, r);\n  }\n \n  std::vector<int> sort()\
+    \ const\n  {\n    int n = 0;\n    for (auto i : q) n = std::max({n, i.first, i.second});\n\
+    \    int bs = std::max(1, (int)(n / std::sqrt(q.size())));\n    std::vector<int>\
     \ ord(q.size());\n    for (int i = 0; i < (int)q.size(); i++) ord[i] = i;\n  \
     \  std::sort(ord.begin(), ord.end(),\n              [&bs, this](int x, int y)\n\
     \              {\n                int xb = q[x].first / bs, yb = q[y].first /\
@@ -158,8 +158,8 @@ data:
   isVerificationFile: true
   path: verify/ds/static_range_inversions_query.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 20:51:56+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-08 15:08:56+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/static_range_inversions_query.test.cpp
 layout: document

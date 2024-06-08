@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: lib/ds/depque.hpp
+    title: double ended priority queue
   - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: lib/ds/lct.hpp
@@ -38,6 +41,9 @@ data:
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
+  - icon: ':warning:'
+    path: verify/ds/double_ended_priority_queue.FIXME.cpp
+    title: verify/ds/double_ended_priority_queue.FIXME.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
@@ -48,7 +54,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/static_range_inversions_query.test.cpp
     title: verify/ds/static_range_inversions_query.test.cpp
   - icon: ':heavy_check_mark:'
@@ -66,16 +72,20 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
 
     #include <cmath>
 
+    #include <tuple>
+
     #include <vector>
+
+    #include <utility>
 
     #include <cstring>
 
@@ -106,7 +116,11 @@ data:
 
     #include <cmath>
 
+    #include <tuple>
+
     #include <vector>
+
+    #include <utility>
 
     #include <cstring>
 
@@ -137,6 +151,7 @@ data:
   requiredBy:
   - lib/misc/bitop.hpp
   - lib/ds/rbst.hpp
+  - lib/ds/depque.hpp
   - lib/ds/lct.hpp
   - lib/ds/splay.hpp
   - lib/graph/maxflow.hpp
@@ -147,8 +162,9 @@ data:
   - lib/math/static_modint.hpp
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
-  timestamp: '2024-06-07 15:19:15+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  - verify/ds/double_ended_priority_queue.FIXME.cpp
+  timestamp: '2024-06-08 15:08:56+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/splay.hpp
     title: lib/ds/splay.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   - icon: ':heavy_check_mark:'
@@ -26,23 +26,23 @@ data:
     \n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include <tuple>\n\
     #include <vector>\n\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32\
     \ = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
-    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#line 4 \"lib/internal.hpp\"\
-    \n#include <cstring>\n#line 7 \"lib/internal.hpp\"\n\nusing i32 = int;\nusing\
-    \ i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\nusing\
-    \ u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename T>\
-    \ using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"lib/ds/splay.hpp\"\
-    \n\ntemplate <typename S, typename T>\nstruct Splay\n{\n  struct node_t\n  {\n\
-    \    bool reversed;\n    u32 size;\n\n    S prod;\n    S m;\n    T tag;\n\n  \
-    \  using pnode_t = node_t *;\n    pnode_t fa;\n    pnode_t ch[2];\n\n    node_t()\
-    \ : reversed(false), size(0), prod(), m(), tag(), fa(nullptr), ch{nullptr, nullptr}\
-    \ {}\n    node_t(S m) : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr),\
-    \ ch{nullptr, nullptr} {}\n\n    void update()\n    {\n      size = 1;\n     \
-    \ prod = m;\n      for (auto c : ch) {\n        if (!c) continue;\n        size\
-    \ += c->size;\n        prod = prod * c->prod;\n      }\n    }\n\n    void reverse()\n\
-    \    {\n      reversed = !reversed;\n      std::swap(ch[0], ch[1]);\n    }\n\n\
-    \    void apply(const T &t)\n    {\n      prod = t(prod, size);\n      m = t(m,\
-    \ 1);\n      tag = tag * t;\n    }\n\n    void push()\n    {\n      for (auto\
-    \ c : ch) {\n        if (!c) continue;\n        if (reversed) c->reverse();\n\
+    \n#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#line 5 \"lib/internal.hpp\"\
+    \n#include <utility>\n#include <cstring>\n#line 9 \"lib/internal.hpp\"\n\nusing\
+    \ i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned\
+    \ int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
+    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
+    lib/ds/splay.hpp\"\n\ntemplate <typename S, typename T>\nstruct Splay\n{\n  struct\
+    \ node_t\n  {\n    bool reversed;\n    u32 size;\n\n    S prod;\n    S m;\n  \
+    \  T tag;\n\n    using pnode_t = node_t *;\n    pnode_t fa;\n    pnode_t ch[2];\n\
+    \n    node_t() : reversed(false), size(0), prod(), m(), tag(), fa(nullptr), ch{nullptr,\
+    \ nullptr} {}\n    node_t(S m) : reversed(false), size(1), prod(m), m(m), tag(),\
+    \ fa(nullptr), ch{nullptr, nullptr} {}\n\n    void update()\n    {\n      size\
+    \ = 1;\n      prod = m;\n      for (auto c : ch) {\n        if (!c) continue;\n\
+    \        size += c->size;\n        prod = prod * c->prod;\n      }\n    }\n\n\
+    \    void reverse()\n    {\n      reversed = !reversed;\n      std::swap(ch[0],\
+    \ ch[1]);\n    }\n\n    void apply(const T &t)\n    {\n      prod = t(prod, size);\n\
+    \      m = t(m, 1);\n      tag = tag * t;\n    }\n\n    void push()\n    {\n \
+    \     for (auto c : ch) {\n        if (!c) continue;\n        if (reversed) c->reverse();\n\
     \        if (!tag.is_unit()) c->apply(tag);\n      }\n      reversed = false;\n\
     \      tag = T();\n    }\n\n    u32 which_child() const\n    {\n      return this->fa->ch[1]\
     \ == this;\n    }\n\n    void rotate()\n    {\n      auto x = this;\n\n      auto\
@@ -159,7 +159,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 18:17:19+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp

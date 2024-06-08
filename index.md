@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: lib/ds
     pages:
+    - icon: ':warning:'
+      path: lib/ds/depque.hpp
+      title: double ended priority queue
     - icon: ':heavy_check_mark:'
       path: lib/ds/lct.hpp
       title: lib/ds/lct.hpp
@@ -22,7 +25,7 @@ data:
       title: lib/graph/scc.hpp
   - name: lib
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/internal.hpp
       title: lib/internal.hpp
   - name: lib/math
@@ -56,7 +59,7 @@ data:
     - icon: ':warning:'
       path: lib/misc/custom_hash.hpp
       title: lib/misc/custom_hash.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/misc/mo.hpp
       title: lib/misc/mo.hpp
     - icon: ':warning:'
@@ -67,12 +70,14 @@ data:
     - icon: ':warning:'
       path: lib/str/kmp.hpp
       title: lib/str/kmp.hpp
+  - name: verify/ds
+    pages:
+    - icon: ':warning:'
+      path: verify/ds/double_ended_priority_queue.FIXME.cpp
+      title: verify/ds/double_ended_priority_queue.FIXME.cpp
   verificationCategories:
   - name: verify/ds
     pages:
-    - icon: ':x:'
-      path: verify/ds/associative_rray.test.cpp
-      title: verify/ds/associative_rray.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
@@ -82,7 +87,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
       title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/static_range_inversions_query.test.cpp
       title: verify/ds/static_range_inversions_query.test.cpp
   - name: verify/graph

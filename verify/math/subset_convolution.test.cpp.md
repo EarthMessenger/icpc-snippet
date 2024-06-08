@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: lib/internal.hpp
   - icon: ':heavy_check_mark:'
@@ -22,19 +22,19 @@ data:
     - https://judge.yosupo.jp/problem/subset_convolution
   bundledCode: "#line 1 \"verify/math/subset_convolution.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/subset_convolution\"\n\n#line 2 \"lib/internal.hpp\"\
-    \n#include <cmath>\n#include <vector>\n#include <cstring>\n#include <iostream>\n\
-    #include <algorithm>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 =\
-    \ __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned long long;\nusing\
-    \ u128 = __uint128_t;\n\ntemplate<typename T> using vec = std::vector<T>;\nusing\
-    \ pii = std::pair<int, int>;\n#line 3 \"lib/math/convolution.hpp\"\n\nnamespace\
-    \ poly {\n\nnamespace details {\n\nvec<u32> r[30];\nconst vec<u32> &calc(const\
-    \ u32 n)\n{\n  if (r[n].size()) return r[n];\n  u32 q = 1 << n, p = q / 2;\n \
-    \ r[n].resize(q);\n  for (u32 i = 1; i < q; i++) {\n    r[n][i] = r[n][i / 2]\
-    \ / 2;\n    if (i % 2) r[n][i] += p;\n  }\n  return r[n];\n}\n\n} // namespace\
-    \ details\n\ntemplate <typename T> void reverse_transform(const u32 n, vec<T>\
-    \ &a)\n{\n  const auto &r = details::calc(n);\n  u32 q = 1 << n;\n  for (u32 i\
-    \ = 0; i < q; i++) {\n    if (i < r[i]) std::swap(a[i], a[r[i]]);\n  }\n}\n\n\
-    template <bool d, class B, class I, typename T>\nvoid fourier_transform(const\
+    \n#include <cmath>\n#include <tuple>\n#include <vector>\n#include <utility>\n\
+    #include <cstring>\n#include <iostream>\n#include <algorithm>\n\nusing i32 = int;\n\
+    using i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned int;\n\
+    using u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate<typename\
+    \ T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;\n#line 3 \"\
+    lib/math/convolution.hpp\"\n\nnamespace poly {\n\nnamespace details {\n\nvec<u32>\
+    \ r[30];\nconst vec<u32> &calc(const u32 n)\n{\n  if (r[n].size()) return r[n];\n\
+    \  u32 q = 1 << n, p = q / 2;\n  r[n].resize(q);\n  for (u32 i = 1; i < q; i++)\
+    \ {\n    r[n][i] = r[n][i / 2] / 2;\n    if (i % 2) r[n][i] += p;\n  }\n  return\
+    \ r[n];\n}\n\n} // namespace details\n\ntemplate <typename T> void reverse_transform(const\
+    \ u32 n, vec<T> &a)\n{\n  const auto &r = details::calc(n);\n  u32 q = 1 << n;\n\
+    \  for (u32 i = 0; i < q; i++) {\n    if (i < r[i]) std::swap(a[i], a[r[i]]);\n\
+    \  }\n}\n\ntemplate <bool d, class B, class I, typename T>\nvoid fourier_transform(const\
     \ u32 n, vec<T> &a, B base, I inv, T e)\n{\n  reverse_transform(n, a);\n  u32\
     \ q = 1 << n;\n  for (u32 h = 2; h <= q; h *= 2) {\n    T b = base(h);\n    for\
     \ (u32 j = 0; j < q; j += h) {\n      T w(e);\n      for (u32 k = j, l = h / 2;\
@@ -70,7 +70,7 @@ data:
     \ { return pow(UM - 2); }\n};\n#line 5 \"verify/math/subset_convolution.test.cpp\"\
     \n\nsigned main() \n{\n    using namespace std;\n    ios::sync_with_stdio(false);\
     \ cin.tie(0), cout.tie(0);\n    using mint = static_modint<998244353>;\n    auto\
-    \ read_int = [x = int()]() mutable { cin >> x; return x; };\n    u32 n = read_int(),\
+    \ read_int = [x = int()]() mutable { return cin >> x, x; };\n    u32 n = read_int(),\
     \ q = 1 << n;\n    vec<vec<mint>> a(n + 1, vec<mint>(q)), b(a), c(a);\n    for\
     \ (u32 i = 0; i < q; i++) a[__builtin_popcount(i)][i] = read_int();\n    for (u32\
     \ i = 0; i < q; i++) b[__builtin_popcount(i)][i] = read_int();\n    for (auto\
@@ -84,7 +84,7 @@ data:
     #include \"lib/math/convolution.hpp\"\n#include \"lib/math/static_modint.hpp\"\
     \n\nsigned main() \n{\n    using namespace std;\n    ios::sync_with_stdio(false);\
     \ cin.tie(0), cout.tie(0);\n    using mint = static_modint<998244353>;\n    auto\
-    \ read_int = [x = int()]() mutable { cin >> x; return x; };\n    u32 n = read_int(),\
+    \ read_int = [x = int()]() mutable { return cin >> x, x; };\n    u32 n = read_int(),\
     \ q = 1 << n;\n    vec<vec<mint>> a(n + 1, vec<mint>(q)), b(a), c(a);\n    for\
     \ (u32 i = 0; i < q; i++) a[__builtin_popcount(i)][i] = read_int();\n    for (u32\
     \ i = 0; i < q; i++) b[__builtin_popcount(i)][i] = read_int();\n    for (auto\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: verify/math/subset_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-07 20:06:35+08:00'
+  timestamp: '2024-06-08 15:08:56+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/math/subset_convolution.test.cpp

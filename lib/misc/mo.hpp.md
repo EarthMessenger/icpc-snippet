@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/static_range_inversions_query.test.cpp
     title: verify/ds/static_range_inversions_query.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"lib/misc/mo.hpp\"\n\n#include <vector>\n#include <utility>\n\
@@ -76,7 +76,7 @@ data:
   path: lib/misc/mo.hpp
   requiredBy: []
   timestamp: '2024-06-07 20:50:00+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/static_range_inversions_query.test.cpp
 documentation_of: lib/misc/mo.hpp
