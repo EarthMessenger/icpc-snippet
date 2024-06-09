@@ -70,6 +70,11 @@ data:
     - icon: ':warning:'
       path: lib/str/kmp.hpp
       title: lib/str/kmp.hpp
+  - name: tools
+    pages:
+    - icon: ':warning:'
+      path: tools/build_html.py
+      title: tools/build_html.py
   - name: verify/ds
     pages:
     - icon: ':warning:'
