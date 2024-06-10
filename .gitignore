@@ -1,3 +1,6 @@
 a.out
 *.exe
-.history/*
+.history/**
+.vscode/**
+*.dSYM
+*.test
