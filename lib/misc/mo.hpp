@@ -1,18 +1,15 @@
 #pragma once
 
-#include <vector>
-#include <utility>
 #include <algorithm>
+#include <utility>
+#include <vector>
 
 struct mo_algorithm
 {
   std::vector<std::pair<int, int>> q;
- 
-  void add_query(int l, int r)
-  {
-    q.emplace_back(l, r);
-  }
- 
+
+  void add_query(int l, int r) { q.emplace_back(l, r); }
+
   std::vector<int> sort() const
   {
     int n = 0;
@@ -20,47 +17,38 @@ struct mo_algorithm
     int bs = std::max(1, (int)(n / std::sqrt(q.size())));
     std::vector<int> ord(q.size());
     for (int i = 0; i < (int)q.size(); i++) ord[i] = i;
-    std::sort(ord.begin(), ord.end(),
-              [&bs, this](int x, int y)
-              {
-                int xb = q[x].first / bs, yb = q[y].first / bs;
-                if (xb != yb) return xb < yb;
-                else if (xb % 2 == 0) return q[x].second < q[y].second;
-                else return q[x].second > q[y].second;
-              });
+    std::sort(ord.begin(), ord.end(), [&bs, this](int x, int y) {
+      int xb = q[x].first / bs, yb = q[y].first / bs;
+      if (xb != yb) return xb < yb;
+      else if (xb % 2 == 0) return q[x].second < q[y].second;
+      else return q[x].second > q[y].second;
+    });
     return ord;
   }
- 
+
   template <typename F0, typename F1, typename F2>
-  void solve(const F0 &add,
-             const F1 &del,
-             const F2 &ans) const
+  void solve(const F0 &add, const F1 &del, const F2 &ans) const
   {
     solve(add, add, del, del, ans);
   }
- 
+
   template <typename F0, typename F1, typename F2, typename F3, typename F4>
-  void solve(const F0 &add_l,
-             const F1 &add_r,
-             const F2 &del_l,
-             const F3 &del_r,
+  void solve(const F0 &add_l, const F1 &add_r, const F2 &del_l, const F3 &del_r,
              const F4 &ans) const
   {
     auto ord = sort();
     int l = 0, r = 0;
     for (auto i : ord) {
-      while (q[i].first < l)  add_l(--l);
+      while (q[i].first < l) add_l(--l);
       while (r < q[i].second) add_r(r++);
-      while (l < q[i].first)  del_l(l++);
+      while (l < q[i].first) del_l(l++);
       while (q[i].second < r) del_r(--r);
       ans(i);
     }
   }
 
   template <typename F0, typename F1, typename F2, typename F3>
-  auto only_move(const F0 &left_l,
-                 const F1 &right_r,
-                 const F2 &right_l,
+  auto only_move(const F0 &left_l, const F1 &right_r, const F2 &right_l,
                  const F3 &left_r) const
   {
     auto ord = sort();

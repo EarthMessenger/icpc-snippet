@@ -17,8 +17,7 @@ struct scc_graph
     std::vector<int> belong(n, -1);
     int scc_cnt = 0;
     int cnt = 0;
-    auto dfs = [&](auto &&self, int u) -> void
-    {
+    auto dfs = [&](auto &&self, int u) -> void {
       dfn[u] = low[u] = cnt++;
       stk.emplace_back(u);
       vis[u] = true;

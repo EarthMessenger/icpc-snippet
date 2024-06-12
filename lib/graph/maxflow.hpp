@@ -1,8 +1,7 @@
 #pragma once
 #include "lib/internal.hpp"
 
-template <typename Cap>
-struct maxflow
+template <typename Cap> struct maxflow
 {
   struct edge_t
   {
@@ -12,12 +11,15 @@ struct maxflow
     Cap remain() const { return cap - flow; }
     bool exist() const { return remain() > 0; }
 
-    edge_t(int u, int v, Cap cap, Cap flow = 0) : u(u), v(v), cap(cap), flow(flow) {}
+    edge_t(int u, int v, Cap cap, Cap flow = 0)
+        : u(u), v(v), cap(cap), flow(flow)
+    {
+    }
   };
 
   int N;
   std::vector<edge_t> edges;
-  std::vector<std::vector<int> > adj;
+  std::vector<std::vector<int>> adj;
 
   std::vector<int> ord, ptr;
 
@@ -86,4 +88,3 @@ struct maxflow
     return res;
   }
 };
-

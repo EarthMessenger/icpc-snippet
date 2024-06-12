@@ -1,8 +1,7 @@
 #pragma once
 #include "lib/internal.hpp"
 
-template <typename S, typename T>
-struct RBST
+template <typename S, typename T> struct RBST
 {
   struct node_t
   {
@@ -13,8 +12,15 @@ struct RBST
     S m;
     node_t *lc, *rc;
 
-    node_t() : reverse(false), tag(), size(0), prod(), m(), lc(nullptr), rc(nullptr) {}
-    node_t(S m) : reverse(false), tag(), size(1), prod(m), m(m), lc(nullptr), rc(nullptr) {}
+    node_t()
+        : reverse(false), tag(), size(0), prod(), m(), lc(nullptr), rc(nullptr)
+    {
+    }
+    node_t(S m)
+        : reverse(false), tag(), size(1), prod(m), m(m), lc(nullptr),
+          rc(nullptr)
+    {
+    }
 
     void update()
     {
@@ -74,17 +80,12 @@ struct RBST
     return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));
   };
 
-  static bool choice(u32 ls, u32 rs)
-  {
-    return get_random() % (ls + rs) < ls;
-  }
+  static bool choice(u32 ls, u32 rs) { return get_random() % (ls + rs) < ls; }
 
   RBST() : root(nullptr) {}
-  template <typename F>
-  RBST(u32 n, F &&f) : root(build_tree(0, n, f)) {}
+  template <typename F> RBST(u32 n, F &&f) : root(build_tree(0, n, f)) {}
 
-  template <typename F>
-  static node_t *build_tree(u32 l, u32 r, F &&f)
+  template <typename F> static node_t *build_tree(u32 l, u32 r, F &&f)
   {
     if (r - l == 0) return nullptr;
     u32 mid = l + (r - l) / 2;

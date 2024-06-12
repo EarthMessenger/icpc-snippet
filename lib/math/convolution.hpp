@@ -47,8 +47,7 @@ void fourier_transform(const u32 n, vec<T> &a, B base, I inv, T e)
     }
   }
   if constexpr (d) {
-    for (u32 i = 0; i < q; i++)
-      inv(a[i], q);
+    for (u32 i = 0; i < q; i++) inv(a[i], q);
   }
 }
 
