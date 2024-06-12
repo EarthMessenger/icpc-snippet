@@ -75,6 +75,9 @@ data:
     - icon: ':warning:'
       path: tools/build_html.py
       title: tools/build_html.py
+    - icon: ':warning:'
+      path: tools/build_latex.py
+      title: tools/build_latex.py
   - name: verify/ds
     pages:
     - icon: ':warning:'

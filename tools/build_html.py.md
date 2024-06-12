@@ -15,17 +15,15 @@ data:
   code: "#!/usr/bin/python\n\nimport sys\nfrom pathlib import Path\nfrom pygments\
     \ import highlight\nfrom pygments.lexers import CppLexer\nfrom pygments.formatters\
     \ import HtmlFormatter\n\nEXCLUDED_FILES = [\n    'splay.hpp',\n]\n\ndef compile_html(file):\n\
-    \    res = ''\n    res += f'<h2>{file.relative_to(Path.cwd())}</h2>'\n    code\
-    \ = ''\n    with file.open('r') as fo:\n        while True:\n            line\
-    \ = fo.readline()\n            if line == '':\n                break\n       \
-    \     if line.strip() == '#pragma once':\n                continue\n         \
-    \   code += line\n    res += highlight(code, CppLexer(), HtmlFormatter())\n  \
-    \  return res\n\ndef main():\n    files = sorted(filter(lambda f: f.name not in\
-    \ EXCLUDED_FILES, Path.cwd().glob('**/*.hpp')))\n    res = ''\n    res += '<!doctype\
-    \ html>'\n    res += '<head>'\n    res += f'<style>{HtmlFormatter().get_style_defs()}</style>'\n\
-    \    res += '</head>'\n    res += '<body>'\n    res += ''.join((compile_html(f)\
-    \ for f in files))\n    res += '</body>'\n    with open('result.html', 'w') as\
-    \ resf:\n        resf.write(res)\n\nif __name__ == \"__main__\":\n    main()\n"
+    \    print(f'<h2>{file.relative_to(Path.cwd())}</h2>')\n    code = ''\n    with\
+    \ file.open('r') as fo:\n        while True:\n            line = fo.readline()\n\
+    \            if line == '':\n                break\n            if line.strip()\
+    \ == '#pragma once':\n                continue\n            code += line\n   \
+    \ print(highlight(code, CppLexer(), HtmlFormatter()))\n\ndef main():\n    files\
+    \ = sorted(filter(lambda f: f.name not in EXCLUDED_FILES, Path.cwd().glob('**/*.hpp')))\n\
+    \    print('<!doctype html>')\n    print('<head>')\n    print(f'<style>{HtmlFormatter().get_style_defs()}</style>')\n\
+    \    print('</head>')\n    print('<body>')\n    for f in files:\n        compile_html(f)\n\
+    \    print('</body>')\n\nif __name__ == \"__main__\":\n    main()\n"
   dependsOn: []
   isVerificationFile: false
   path: tools/build_html.py

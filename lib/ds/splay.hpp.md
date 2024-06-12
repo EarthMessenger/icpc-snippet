@@ -14,41 +14,41 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <cmath>\n#include <tuple>\n\
-    #include <vector>\n#include <utility>\n#include <cstring>\n#include <iostream>\n\
-    #include <algorithm>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 =\
-    \ __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned long long;\nusing\
-    \ u128 = __uint128_t;\n\ntemplate<typename T> using vec = std::vector<T>;\nusing\
-    \ pii = std::pair<int, int>;\n#line 3 \"lib/ds/splay.hpp\"\n\ntemplate <typename\
-    \ S, typename T>\nstruct Splay\n{\n  struct node_t\n  {\n    bool reversed;\n\
-    \    u32 size;\n\n    S prod;\n    S m;\n    T tag;\n\n    using pnode_t = node_t\
-    \ *;\n    pnode_t fa;\n    pnode_t ch[2];\n\n    node_t() : reversed(false), size(0),\
-    \ prod(), m(), tag(), fa(nullptr), ch{nullptr, nullptr} {}\n    node_t(S m) :\
-    \ reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr), ch{nullptr, nullptr}\
-    \ {}\n\n    void update()\n    {\n      size = 1;\n      prod = m;\n      for\
-    \ (auto c : ch) {\n        if (!c) continue;\n        size += c->size;\n     \
-    \   prod = prod * c->prod;\n      }\n    }\n\n    void reverse()\n    {\n    \
-    \  reversed = !reversed;\n      std::swap(ch[0], ch[1]);\n    }\n\n    void apply(const\
-    \ T &t)\n    {\n      prod = t(prod, size);\n      m = t(m, 1);\n      tag = tag\
-    \ * t;\n    }\n\n    void push()\n    {\n      for (auto c : ch) {\n        if\
-    \ (!c) continue;\n        if (reversed) c->reverse();\n        if (!tag.is_unit())\
-    \ c->apply(tag);\n      }\n      reversed = false;\n      tag = T();\n    }\n\n\
-    \    u32 which_child() const\n    {\n      return this->fa->ch[1] == this;\n \
-    \   }\n\n    void rotate()\n    {\n      auto x = this;\n\n      auto y = x->fa;\n\
-    \      auto z = y->fa;\n      auto xci = x->which_child();\n      y->ch[xci] =\
-    \ x->ch[xci ^ 1];\n      if (x->ch[xci ^ 1]) x->ch[xci ^ 1]->fa = y;\n      x->ch[xci\
-    \ ^ 1] = y;\n      if (z) z->ch[y->which_child()] = x;\n      y->fa = x;\n   \
-    \   x->fa = z;\n\n      y->update();\n      x->update();\n    }\n  };\n\n  using\
-    \ pnode_t = node_t *;\n  pnode_t root;\n\n  Splay() : root(nullptr) {}\n  Splay(pnode_t\
-    \ root) : root(root) {}\n  template <typename F>\n    Splay(u32 n, F &&f) : root(build_tree(0,\
-    \ n, f, nullptr)) {}\n\n  template <typename F>\n    static pnode_t build_tree(u32\
-    \ l, u32 r, F &&f, pnode_t fa)\n    {\n      if (r - l == 0) return nullptr;\n\
-    \      u32 mid = l + (r - l) / 2;\n      auto p = new node_t(f(mid));\n      p->ch[0]\
-    \ = build_tree(l, mid, f, p);\n      p->ch[1] = build_tree(mid + 1, r, f, p);\n\
-    \      p->fa = fa;\n      p->update();\n      return p;\n    }\n\n  void splay(pnode_t\
-    \ x)\n  {\n    x->push();\n    while (x->fa) {\n      auto y = x->fa;\n      if\
-    \ (!y->fa) {\n        y->push();\n        x->push();\n        x->rotate();\n \
-    \     } else {\n        auto z = y->fa;\n        z->push();\n        y->push();\n\
+  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <algorithm>\n#include <cmath>\n\
+    #include <cstring>\n#include <iostream>\n#include <tuple>\n#include <utility>\n\
+    #include <vector>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\n\
+    using u32 = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
+    \ntemplate <typename T> using vec = std::vector<T>;\nusing pii = std::pair<int,\
+    \ int>;\n#line 3 \"lib/ds/splay.hpp\"\n\ntemplate <typename S, typename T> struct\
+    \ Splay\n{\n  struct node_t\n  {\n    bool reversed;\n    u32 size;\n\n    S prod;\n\
+    \    S m;\n    T tag;\n\n    using pnode_t = node_t *;\n    pnode_t fa;\n    pnode_t\
+    \ ch[2];\n\n    node_t()\n        : reversed(false), size(0), prod(), m(), tag(),\
+    \ fa(nullptr),\n          ch{nullptr, nullptr}\n    {\n    }\n    node_t(S m)\n\
+    \        : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr),\n    \
+    \      ch{nullptr, nullptr}\n    {\n    }\n\n    void update()\n    {\n      size\
+    \ = 1;\n      prod = m;\n      for (auto c : ch) {\n        if (!c) continue;\n\
+    \        size += c->size;\n        prod = prod * c->prod;\n      }\n    }\n\n\
+    \    void reverse()\n    {\n      reversed = !reversed;\n      std::swap(ch[0],\
+    \ ch[1]);\n    }\n\n    void apply(const T &t)\n    {\n      prod = t(prod, size);\n\
+    \      m = t(m, 1);\n      tag = tag * t;\n    }\n\n    void push()\n    {\n \
+    \     for (auto c : ch) {\n        if (!c) continue;\n        if (reversed) c->reverse();\n\
+    \        if (!tag.is_unit()) c->apply(tag);\n      }\n      reversed = false;\n\
+    \      tag = T();\n    }\n\n    u32 which_child() const { return this->fa->ch[1]\
+    \ == this; }\n\n    void rotate()\n    {\n      auto x = this;\n\n      auto y\
+    \ = x->fa;\n      auto z = y->fa;\n      auto xci = x->which_child();\n      y->ch[xci]\
+    \ = x->ch[xci ^ 1];\n      if (x->ch[xci ^ 1]) x->ch[xci ^ 1]->fa = y;\n     \
+    \ x->ch[xci ^ 1] = y;\n      if (z) z->ch[y->which_child()] = x;\n      y->fa\
+    \ = x;\n      x->fa = z;\n\n      y->update();\n      x->update();\n    }\n  };\n\
+    \n  using pnode_t = node_t *;\n  pnode_t root;\n\n  Splay() : root(nullptr) {}\n\
+    \  Splay(pnode_t root) : root(root) {}\n  template <typename F> Splay(u32 n, F\
+    \ &&f) : root(build_tree(0, n, f, nullptr))\n  {\n  }\n\n  template <typename\
+    \ F>\n  static pnode_t build_tree(u32 l, u32 r, F &&f, pnode_t fa)\n  {\n    if\
+    \ (r - l == 0) return nullptr;\n    u32 mid = l + (r - l) / 2;\n    auto p = new\
+    \ node_t(f(mid));\n    p->ch[0] = build_tree(l, mid, f, p);\n    p->ch[1] = build_tree(mid\
+    \ + 1, r, f, p);\n    p->fa = fa;\n    p->update();\n    return p;\n  }\n\n  void\
+    \ splay(pnode_t x)\n  {\n    x->push();\n    while (x->fa) {\n      auto y = x->fa;\n\
+    \      if (!y->fa) {\n        y->push();\n        x->push();\n        x->rotate();\n\
+    \      } else {\n        auto z = y->fa;\n        z->push();\n        y->push();\n\
     \        x->push();\n        if (y->which_child() == x->which_child()) y->rotate();\n\
     \        else x->rotate();\n        x->rotate();\n      }\n    }\n    root = x;\n\
     \  };\n\n  void splay_kth(u32 k)\n  {\n    auto p = root;\n    while (true) {\n\
@@ -76,35 +76,35 @@ data:
     \ mp, rp] = split3(l, r);\n    S res;\n    if (mp) res = mp->prod;\n    root =\
     \ join3(lp, mp, rp);\n    return res;\n  }\n};\n"
   code: "#pragma once\n#include \"lib/internal.hpp\"\n\ntemplate <typename S, typename\
-    \ T>\nstruct Splay\n{\n  struct node_t\n  {\n    bool reversed;\n    u32 size;\n\
+    \ T> struct Splay\n{\n  struct node_t\n  {\n    bool reversed;\n    u32 size;\n\
     \n    S prod;\n    S m;\n    T tag;\n\n    using pnode_t = node_t *;\n    pnode_t\
-    \ fa;\n    pnode_t ch[2];\n\n    node_t() : reversed(false), size(0), prod(),\
-    \ m(), tag(), fa(nullptr), ch{nullptr, nullptr} {}\n    node_t(S m) : reversed(false),\
-    \ size(1), prod(m), m(m), tag(), fa(nullptr), ch{nullptr, nullptr} {}\n\n    void\
-    \ update()\n    {\n      size = 1;\n      prod = m;\n      for (auto c : ch) {\n\
-    \        if (!c) continue;\n        size += c->size;\n        prod = prod * c->prod;\n\
-    \      }\n    }\n\n    void reverse()\n    {\n      reversed = !reversed;\n  \
-    \    std::swap(ch[0], ch[1]);\n    }\n\n    void apply(const T &t)\n    {\n  \
-    \    prod = t(prod, size);\n      m = t(m, 1);\n      tag = tag * t;\n    }\n\n\
+    \ fa;\n    pnode_t ch[2];\n\n    node_t()\n        : reversed(false), size(0),\
+    \ prod(), m(), tag(), fa(nullptr),\n          ch{nullptr, nullptr}\n    {\n  \
+    \  }\n    node_t(S m)\n        : reversed(false), size(1), prod(m), m(m), tag(),\
+    \ fa(nullptr),\n          ch{nullptr, nullptr}\n    {\n    }\n\n    void update()\n\
+    \    {\n      size = 1;\n      prod = m;\n      for (auto c : ch) {\n        if\
+    \ (!c) continue;\n        size += c->size;\n        prod = prod * c->prod;\n \
+    \     }\n    }\n\n    void reverse()\n    {\n      reversed = !reversed;\n   \
+    \   std::swap(ch[0], ch[1]);\n    }\n\n    void apply(const T &t)\n    {\n   \
+    \   prod = t(prod, size);\n      m = t(m, 1);\n      tag = tag * t;\n    }\n\n\
     \    void push()\n    {\n      for (auto c : ch) {\n        if (!c) continue;\n\
     \        if (reversed) c->reverse();\n        if (!tag.is_unit()) c->apply(tag);\n\
     \      }\n      reversed = false;\n      tag = T();\n    }\n\n    u32 which_child()\
-    \ const\n    {\n      return this->fa->ch[1] == this;\n    }\n\n    void rotate()\n\
-    \    {\n      auto x = this;\n\n      auto y = x->fa;\n      auto z = y->fa;\n\
-    \      auto xci = x->which_child();\n      y->ch[xci] = x->ch[xci ^ 1];\n    \
-    \  if (x->ch[xci ^ 1]) x->ch[xci ^ 1]->fa = y;\n      x->ch[xci ^ 1] = y;\n  \
-    \    if (z) z->ch[y->which_child()] = x;\n      y->fa = x;\n      x->fa = z;\n\
-    \n      y->update();\n      x->update();\n    }\n  };\n\n  using pnode_t = node_t\
-    \ *;\n  pnode_t root;\n\n  Splay() : root(nullptr) {}\n  Splay(pnode_t root) :\
-    \ root(root) {}\n  template <typename F>\n    Splay(u32 n, F &&f) : root(build_tree(0,\
-    \ n, f, nullptr)) {}\n\n  template <typename F>\n    static pnode_t build_tree(u32\
-    \ l, u32 r, F &&f, pnode_t fa)\n    {\n      if (r - l == 0) return nullptr;\n\
-    \      u32 mid = l + (r - l) / 2;\n      auto p = new node_t(f(mid));\n      p->ch[0]\
-    \ = build_tree(l, mid, f, p);\n      p->ch[1] = build_tree(mid + 1, r, f, p);\n\
-    \      p->fa = fa;\n      p->update();\n      return p;\n    }\n\n  void splay(pnode_t\
-    \ x)\n  {\n    x->push();\n    while (x->fa) {\n      auto y = x->fa;\n      if\
-    \ (!y->fa) {\n        y->push();\n        x->push();\n        x->rotate();\n \
-    \     } else {\n        auto z = y->fa;\n        z->push();\n        y->push();\n\
+    \ const { return this->fa->ch[1] == this; }\n\n    void rotate()\n    {\n    \
+    \  auto x = this;\n\n      auto y = x->fa;\n      auto z = y->fa;\n      auto\
+    \ xci = x->which_child();\n      y->ch[xci] = x->ch[xci ^ 1];\n      if (x->ch[xci\
+    \ ^ 1]) x->ch[xci ^ 1]->fa = y;\n      x->ch[xci ^ 1] = y;\n      if (z) z->ch[y->which_child()]\
+    \ = x;\n      y->fa = x;\n      x->fa = z;\n\n      y->update();\n      x->update();\n\
+    \    }\n  };\n\n  using pnode_t = node_t *;\n  pnode_t root;\n\n  Splay() : root(nullptr)\
+    \ {}\n  Splay(pnode_t root) : root(root) {}\n  template <typename F> Splay(u32\
+    \ n, F &&f) : root(build_tree(0, n, f, nullptr))\n  {\n  }\n\n  template <typename\
+    \ F>\n  static pnode_t build_tree(u32 l, u32 r, F &&f, pnode_t fa)\n  {\n    if\
+    \ (r - l == 0) return nullptr;\n    u32 mid = l + (r - l) / 2;\n    auto p = new\
+    \ node_t(f(mid));\n    p->ch[0] = build_tree(l, mid, f, p);\n    p->ch[1] = build_tree(mid\
+    \ + 1, r, f, p);\n    p->fa = fa;\n    p->update();\n    return p;\n  }\n\n  void\
+    \ splay(pnode_t x)\n  {\n    x->push();\n    while (x->fa) {\n      auto y = x->fa;\n\
+    \      if (!y->fa) {\n        y->push();\n        x->push();\n        x->rotate();\n\
+    \      } else {\n        auto z = y->fa;\n        z->push();\n        y->push();\n\
     \        x->push();\n        if (y->which_child() == x->which_child()) y->rotate();\n\
     \        else x->rotate();\n        x->rotate();\n      }\n    }\n    root = x;\n\
     \  };\n\n  void splay_kth(u32 k)\n  {\n    auto p = root;\n    while (true) {\n\
@@ -136,7 +136,7 @@ data:
   isVerificationFile: false
   path: lib/ds/splay.hpp
   requiredBy: []
-  timestamp: '2024-06-08 15:08:56+08:00'
+  timestamp: '2024-06-12 11:51:09+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp

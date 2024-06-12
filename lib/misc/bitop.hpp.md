@@ -14,106 +14,29 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: '#line 2 "lib/internal.hpp"
-
-    #include <cmath>
-
-    #include <tuple>
-
-    #include <vector>
-
-    #include <utility>
-
-    #include <cstring>
-
-    #include <iostream>
-
-    #include <algorithm>
-
-
-    using i32 = int;
-
-    using i64 = long long;
-
-    using i128 = __int128_t;
-
-    using u32 = unsigned int;
-
-    using u64 = unsigned long long;
-
-    using u128 = __uint128_t;
-
-
-    template<typename T> using vec = std::vector<T>;
-
-    using pii = std::pair<int, int>;
-
-    #line 3 "lib/misc/bitop.hpp"
-
-
-    int clz(u64 x) { return __builtin_clzll(x); }
-
-    int ctz(u64 x) { return __builtin_ctzll(x); }
-
-    // floor(log2(x))
-
-    int lg2(u64 x) { return 63 ^ clz(x); }
-
-    // bit width
-
-    int btw(u64 x) { return lg2(x) + 1; }
-
-    // bit ceil
-
-    u64 btc(u64 x) { return (x <= 1 ? 1: 1ull << btw(x - 1)); }
-
-    // bit floor
-
-    u64 btf(u64 x) { return 1ull << lg2(x); }
-
-    // popcount
-
-    __attribute__((target("popcnt")))
-
-    int ppc(u64 x) { return __builtin_popcountll(x); }
-
-    '
-  code: '#pragma once
-
-    #include "lib/internal.hpp"
-
-
-    int clz(u64 x) { return __builtin_clzll(x); }
-
-    int ctz(u64 x) { return __builtin_ctzll(x); }
-
-    // floor(log2(x))
-
-    int lg2(u64 x) { return 63 ^ clz(x); }
-
-    // bit width
-
-    int btw(u64 x) { return lg2(x) + 1; }
-
-    // bit ceil
-
-    u64 btc(u64 x) { return (x <= 1 ? 1: 1ull << btw(x - 1)); }
-
-    // bit floor
-
-    u64 btf(u64 x) { return 1ull << lg2(x); }
-
-    // popcount
-
-    __attribute__((target("popcnt")))
-
-    int ppc(u64 x) { return __builtin_popcountll(x); }'
+  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <algorithm>\n#include <cmath>\n\
+    #include <cstring>\n#include <iostream>\n#include <tuple>\n#include <utility>\n\
+    #include <vector>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\n\
+    using u32 = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
+    \ntemplate <typename T> using vec = std::vector<T>;\nusing pii = std::pair<int,\
+    \ int>;\n#line 3 \"lib/misc/bitop.hpp\"\n\nint clz(u64 x) { return __builtin_clzll(x);\
+    \ }\nint ctz(u64 x) { return __builtin_ctzll(x); }\n// floor(log2(x))\nint lg2(u64\
+    \ x) { return 63 ^ clz(x); }\n// bit width\nint btw(u64 x) { return lg2(x) + 1;\
+    \ }\n// bit ceil\nu64 btc(u64 x) { return (x <= 1 ? 1 : 1ull << btw(x - 1)); }\n\
+    // bit floor\nu64 btf(u64 x) { return 1ull << lg2(x); }\n// popcount\n__attribute__((target(\"\
+    popcnt\"))) int ppc(u64 x)\n{\n  return __builtin_popcountll(x);\n}\n"
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n\nint clz(u64 x) { return __builtin_clzll(x);\
+    \ }\nint ctz(u64 x) { return __builtin_ctzll(x); }\n// floor(log2(x))\nint lg2(u64\
+    \ x) { return 63 ^ clz(x); }\n// bit width\nint btw(u64 x) { return lg2(x) + 1;\
+    \ }\n// bit ceil\nu64 btc(u64 x) { return (x <= 1 ? 1 : 1ull << btw(x - 1)); }\n\
+    // bit floor\nu64 btf(u64 x) { return 1ull << lg2(x); }\n// popcount\n__attribute__((target(\"\
+    popcnt\"))) int ppc(u64 x)\n{\n  return __builtin_popcountll(x);\n}"
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
   path: lib/misc/bitop.hpp
   requiredBy: []
-  timestamp: '2024-06-08 15:08:56+08:00'
+  timestamp: '2024-06-12 11:51:09+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/math/convolution.test.cpp

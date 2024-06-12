@@ -79,19 +79,19 @@ data:
     links: []
   bundledCode: '#line 2 "lib/internal.hpp"
 
+    #include <algorithm>
+
     #include <cmath>
-
-    #include <tuple>
-
-    #include <vector>
-
-    #include <utility>
 
     #include <cstring>
 
     #include <iostream>
 
-    #include <algorithm>
+    #include <tuple>
+
+    #include <utility>
+
+    #include <vector>
 
 
     using i32 = int;
@@ -107,26 +107,26 @@ data:
     using u128 = __uint128_t;
 
 
-    template<typename T> using vec = std::vector<T>;
+    template <typename T> using vec = std::vector<T>;
 
     using pii = std::pair<int, int>;
 
     '
   code: '#pragma once
 
+    #include <algorithm>
+
     #include <cmath>
-
-    #include <tuple>
-
-    #include <vector>
-
-    #include <utility>
 
     #include <cstring>
 
     #include <iostream>
 
-    #include <algorithm>
+    #include <tuple>
+
+    #include <utility>
+
+    #include <vector>
 
 
     using i32 = int;
@@ -142,7 +142,7 @@ data:
     using u128 = __uint128_t;
 
 
-    template<typename T> using vec = std::vector<T>;
+    template <typename T> using vec = std::vector<T>;
 
     using pii = std::pair<int, int>;'
   dependsOn: []
@@ -163,7 +163,7 @@ data:
   - lib/math/prime.hpp
   - lib/str/kmp.hpp
   - verify/ds/double_ended_priority_queue.FIXME.cpp
-  timestamp: '2024-06-08 15:08:56+08:00'
+  timestamp: '2024-06-12 11:51:09+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
