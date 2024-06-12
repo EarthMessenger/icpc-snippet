@@ -17,7 +17,6 @@ def main():
 \usepackage{ctex}
 \usepackage{geometry}
 \usepackage{minted}
-\usepackage{multicol}
 
 \title{模板}
 \author{emsger, robinyqc}
@@ -30,8 +29,6 @@ def main():
 \maketitle
 \tableofcontents
 \clearpage
-
-\begin{multicols}{2}
     ''')
 
     def dfs_dir(path, dep = -1):
@@ -62,7 +59,6 @@ def main():
     dfs_dir(Path(argv[1]))
 
     print(r'''
-\end{multicols}
 \end{document}
           ''')
 
