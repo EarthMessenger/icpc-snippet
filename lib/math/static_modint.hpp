@@ -3,11 +3,10 @@
 
 /**
  * @brief Static Modint
- * 
+ *
  * @tparam M modulo
  */
-template <int M>
-struct static_modint
+template <int M> struct static_modint
 {
   static constexpr u32 UM = M;
   static_assert(UM < 0x80'00'00'00u);
@@ -15,11 +14,15 @@ struct static_modint
   u32 v;
   constexpr static_modint() : v(0) {}
 
-  template <typename T, std::enable_if_t<std::is_signed_v<T>>* = nullptr>
-  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n) {}
+  template <typename T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>
+  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n)
+  {
+  }
 
-  template <typename T, std::enable_if_t<std::is_unsigned_v<T>>* = nullptr>
-  constexpr static_modint(T n) : v(n %= UM) {}
+  template <typename T, std::enable_if_t<std::is_unsigned_v<T>> * = nullptr>
+  constexpr static_modint(T n) : v(n %= UM)
+  {
+  }
 
   using mint = static_modint;
 

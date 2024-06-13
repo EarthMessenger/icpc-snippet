@@ -3,11 +3,10 @@
 
 /**
  * @brief Link Cut Tree
- * 
+ *
  * @tparam T typename
  */
-template <typename T>
-struct LinkCutTree
+template <typename T> struct LinkCutTree
 {
   struct Splay
   {
@@ -18,8 +17,16 @@ struct LinkCutTree
     T val, prod;
     ptr fa, ch[2];
 
-    Splay() : size(0), reversed(false), val(), prod(), fa(nullptr), ch{nullptr, nullptr} {}
-    Splay(const T &val) : size(1), reversed(false), val(val), prod(val), fa(nullptr), ch{nullptr, nullptr} {}
+    Splay()
+        : size(0), reversed(false), val(), prod(), fa(nullptr),
+          ch{nullptr, nullptr}
+    {
+    }
+    Splay(const T &val)
+        : size(1), reversed(false), val(val), prod(val), fa(nullptr),
+          ch{nullptr, nullptr}
+    {
+    }
 
     void update()
     {
@@ -53,10 +60,7 @@ struct LinkCutTree
       reversed = false;
     }
 
-    u32 which_child() const
-    {
-      return fa->ch[1] == this;
-    }
+    u32 which_child() const { return fa->ch[1] == this; }
 
     bool is_root() const
     {
@@ -128,8 +132,7 @@ struct LinkCutTree
 
   std::vector<ptr> ptrs;
 
-  template <typename F>
-    LinkCutTree(int n, F &&f) : ptrs(n)
+  template <typename F> LinkCutTree(int n, F &&f) : ptrs(n)
   {
     for (int i = 0; i < n; i++) ptrs[i] = new Splay(f(i));
   }
@@ -171,8 +174,5 @@ struct LinkCutTree
     xp->set(xp->val * v);
   }
 
-  T get(int x)
-  {
-    return ptrs[x]->val;
-  }
+  T get(int x) { return ptrs[x]->val; }
 };

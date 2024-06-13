@@ -1,7 +1,8 @@
 #pragma once
 #include "lib/internal.hpp"
 
-struct barrett {
+struct barrett
+{
   u32 m;
   u64 im;
 
@@ -10,7 +11,7 @@ struct barrett {
 
   u32 mod() const { return m; }
 
-  u32 reduce(u64 x) const 
+  u32 reduce(u64 x) const
   {
     u64 y = ((u128)x * im) >> 64;
     u32 z = x - y * m;
@@ -21,11 +22,10 @@ struct barrett {
 
 /**
  * @brief Dynamic Modint
- * 
+ *
  * @tparam id To identify different modint with different modulo.
  */
-template <int id>
-struct dynamic_modint
+template <int id> struct dynamic_modint
 {
   static barrett b;
   static u32 mod() { return b.m; }
@@ -36,7 +36,9 @@ struct dynamic_modint
 
   dynamic_modint() = default; // as a trivial struct
   template <typename T>
-    dynamic_modint(T x) : v((x % (T)mod() < 0) ? x + (T)mod() : x) {}
+  dynamic_modint(T x) : v((x % (T)mod() < 0) ? x + (T)mod() : x)
+  {
+  }
 
   using mint = dynamic_modint;
 

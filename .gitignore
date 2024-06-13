@@ -4,4 +4,5 @@ a.out
 .vscode/**
 *.dSYM
 *.test
+build/
 combined.cpp

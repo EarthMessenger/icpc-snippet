@@ -11,8 +11,7 @@ EXCLUDED_FILES = [
 ]
 
 def compile_html(file):
-    res = ''
-    res += f'<h2>{file.relative_to(Path.cwd())}</h2>'
+    print(f'<h2>{file.relative_to(Path.cwd())}</h2>')
     code = ''
     with file.open('r') as fo:
         while True:
@@ -22,21 +21,18 @@ def compile_html(file):
             if line.strip() == '#pragma once':
                 continue
             code += line
-    res += highlight(code, CppLexer(), HtmlFormatter())
-    return res
+    print(highlight(code, CppLexer(), HtmlFormatter()))
 
 def main():
     files = sorted(filter(lambda f: f.name not in EXCLUDED_FILES, Path.cwd().glob('**/*.hpp')))
-    res = ''
-    res += '<!doctype html>'
-    res += '<head>'
-    res += f'<style>{HtmlFormatter().get_style_defs()}</style>'
-    res += '</head>'
-    res += '<body>'
-    res += ''.join((compile_html(f) for f in files))
-    res += '</body>'
-    with open('result.html', 'w') as resf:
-        resf.write(res)
+    print('<!doctype html>')
+    print('<head>')
+    print(f'<style>{HtmlFormatter().get_style_defs()}</style>')
+    print('</head>')
+    print('<body>')
+    for f in files:
+        compile_html(f)
+    print('</body>')
 
 if __name__ == "__main__":
     main()
