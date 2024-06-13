@@ -1,3 +1,6 @@
+/**
+ * @brief Internal Definition
+ */
 #pragma once
 #include <cmath>
 #include <tuple>

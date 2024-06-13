@@ -1,6 +1,10 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Strongly Connected Components
+ * 
+ */
 struct scc_graph
 {
   int n;

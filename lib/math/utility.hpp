@@ -1,5 +1,23 @@
+/**
+ * @brief Usual Math Algorithm
+ */
 #pragma once
-#include <tuple>
+#include "lib/internal.hpp"
+
+std::vector<int> get_prime(const int n)
+{
+  std::vector<int> res;
+  std::vector<bool> vis(n + 1);
+  for (int i = 2; i <= n; i++) {
+    if (!vis[i]) { res.emplace_back(i); }
+    for (auto j : res) {
+      if ((long long)i * j > n) break;
+      vis[i * j] = true;
+      if (i % j == 0) break;
+    }
+  }
+  return res;
+}
 
 // 给定 $a$ 和 $b$，返回三元组 $(d, x, y)$ 使得 $d = \gcd(a, b)$，$ax + by = d$
 std::tuple<int, int, int> ex_euclid(int a, int b)
@@ -9,7 +27,6 @@ std::tuple<int, int, int> ex_euclid(int a, int b)
   return {d, y, x - (a / b) * y};
 }
 
-// https://robinyqc.cn/blogs/blogrepo/exgcd%20%E9%9D%9E%E9%80%92%E5%BD%92
 std::tuple<int, int, int> iterative_ex_euclid(int a, int b)
 {
   int x = 1, y = 0, n = 0, m = 1, t;

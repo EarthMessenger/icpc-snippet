@@ -4,6 +4,9 @@
 #include <utility>
 #include <algorithm>
 
+/**
+ * @brief Mo's Algorithm
+ */
 struct mo_algorithm
 {
   std::vector<std::pair<int, int>> q;

@@ -19,6 +19,11 @@ struct barrett {
   }
 };
 
+/**
+ * @brief Dynamic Modint
+ * 
+ * @tparam id To identify different modint with different modulo.
+ */
 template <int id>
 struct dynamic_modint
 {

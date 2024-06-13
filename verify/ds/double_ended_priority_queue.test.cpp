@@ -1,4 +1,5 @@
 #include "lib/ds/depque.hpp"
+#define PROBLEM "https://judge.yosupo.jp/problem/double_ended_priority_queue"
 
 signed main()
 {

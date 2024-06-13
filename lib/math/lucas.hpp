@@ -1,8 +1,12 @@
+/**
+ * @brief Lucas Theorem
+ * @todo exLucas
+ */
 #pragma once
+#include "lib/internal.hpp"
 
-template <typename T> int lucas(long long n, long long m, T binom)
+template <typename T, typename M> M lucas(long long n, long long m, T binom)
 {
-  static constexpr int P = 2;
-  if (m == 0) return 1;
-  return (long long)binom(n % P, m % P) * lucas(n / P, m / P) % P;
+  if (m == 0) return M::raw(1);
+  return binom(n % P, m % P) * lucas(n / P, m / P);
 }

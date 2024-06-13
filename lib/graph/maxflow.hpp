@@ -1,6 +1,11 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Max Flow
+ * 
+ * @tparam Cap type of capacity.
+ */
 template <typename Cap>
 struct maxflow
 {

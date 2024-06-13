@@ -1,3 +1,6 @@
+/**
+ * @brief Polynomial Convolution
+ */
 #pragma once
 #include "lib/internal.hpp"
 

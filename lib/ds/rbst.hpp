@@ -1,6 +1,12 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Random Binary Search Tree
+ * 
+ * @tparam S info: monoid
+ * @tparam T tag: T(s: S) -> S
+ */
 template <typename S, typename T>
 struct RBST
 {

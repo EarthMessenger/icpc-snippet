@@ -1,6 +1,9 @@
 #pragma once
 #include <chrono>
 
+/**
+ * @brief Hash for Hashmap
+ */
 struct custom_hash
 {
   static uint64_t splitmix64(uint64_t x)

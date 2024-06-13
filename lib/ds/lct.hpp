@@ -1,6 +1,11 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Link Cut Tree
+ * 
+ * @tparam T typename
+ */
 template <typename T>
 struct LinkCutTree
 {

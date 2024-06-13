@@ -1,6 +1,12 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Splay Tree
+ * 
+ * @tparam S 
+ * @tparam T 
+ */
 template <typename S, typename T>
 struct Splay
 {

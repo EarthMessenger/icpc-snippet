@@ -1,6 +1,11 @@
 #pragma once
 #include "lib/internal.hpp"
 
+/**
+ * @brief Static Modint
+ * 
+ * @tparam M modulo
+ */
 template <int M>
 struct static_modint
 {

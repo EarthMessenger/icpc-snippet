@@ -1,3 +1,6 @@
+/**
+ * @brief Bit Manipulation
+ */
 #pragma once
 #include "lib/internal.hpp"
 
