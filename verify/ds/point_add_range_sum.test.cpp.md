@@ -2,11 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: lib/graph/scc.hpp
-    title: Strongly Connected Components
+    path: lib/ds/segtree.hpp
+    title: Segment Tree
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
+  - icon: ':heavy_check_mark:'
+    path: lib/misc/bitop.hpp
+    title: Bit Manipulation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -14,9 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/scc
+    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
     links:
-    - https://judge.yosupo.jp/problem/scc
+    - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -28,28 +31,27 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\n\n#include \"lib/graph/scc.hpp\"\
-    \n#include \"lib/internal.hpp\"\n\nint main()\n{\n  int n, m;\n  std::cin >> n\
-    \ >> m;\n  scc_graph g(n);\n\n  for (int i = 0; i < m; i++) {\n    int u, v;\n\
-    \    std::cin >> u >> v;\n    g.add_edge(u, v);\n  }\n\n  auto [scc_cnt, belongs]\
-    \ = g.solve();\n\n  std::vector<std::vector<int>> groups(scc_cnt);\n  for (int\
-    \ i = 0; i < n; i++) {\n    groups[belongs[i]].emplace_back(i);\n  }\n  std::reverse(groups.begin(),\
-    \ groups.end());\n\n  std::cout << groups.size() << std::endl;\n  for (auto i\
-    \ : groups) {\n    std::cout << i.size() << \" \";\n    for (auto j : i) {\n \
-    \     std::cout << j << \" \";\n    }\n    std::cout << std::endl;\n  }\n}\n"
+  code: "#include \"lib/ds/segtree.hpp\"\n\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\
+    \n\n#include <functional>\n\nsigned main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false);\
+    \ cin.tie(0), cout.tie(0);\n    u32 n, q;\n    cin >> n >> q;\n    vec<i64> a(n);\n\
+    \    for (auto &i: a) cin >> i;\n    SegmentTree s(n, [&a](u32 i) {return a[i];},\
+    \ 0ll, plus());\n    long long op, x, y;\n    while (q--) {\n        cin >> op\
+    \ >> x >> y;\n        if (op == 0) s.set(x, a[x] += y);\n        else cout <<\
+    \ s.prod(x, y) << '\\n';\n    }\n}"
   dependsOn:
-  - lib/graph/scc.hpp
+  - lib/ds/segtree.hpp
   - lib/internal.hpp
+  - lib/misc/bitop.hpp
   isVerificationFile: true
-  path: verify/graph/scc.test.cpp
+  path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
   timestamp: '2024-06-13 09:43:47+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/graph/scc.test.cpp
+documentation_of: verify/ds/point_add_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/graph/scc.test.cpp
-- /verify/verify/graph/scc.test.cpp.html
-title: verify/graph/scc.test.cpp
+- /verify/verify/ds/point_add_range_sum.test.cpp
+- /verify/verify/ds/point_add_range_sum.test.cpp.html
+title: verify/ds/point_add_range_sum.test.cpp
 ---

@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/internal.hpp
-    title: lib/internal.hpp
+    title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/point_set_range_composite.test.cpp
+    title: verify/ds/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/math/bitwise_and_convolution.test.cpp
     title: verify/math/bitwise_and_convolution.test.cpp
@@ -28,35 +31,21 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: Static Modint
     links: []
-  bundledCode: "#line 2 \"lib/internal.hpp\"\n#include <algorithm>\n#include <cmath>\n\
-    #include <cstring>\n#include <iostream>\n#include <tuple>\n#include <utility>\n\
-    #include <vector>\n\nusing i32 = int;\nusing i64 = long long;\nusing i128 = __int128_t;\n\
-    using u32 = unsigned int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\
-    \ntemplate <typename T> using vec = std::vector<T>;\nusing pii = std::pair<int,\
-    \ int>;\n#line 3 \"lib/math/static_modint.hpp\"\n\ntemplate <int M> struct static_modint\n\
-    {\n  static constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n \
-    \ u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>\
-    \ * = nullptr>\n  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n)\n\
-    \  {\n  }\n\n  template <typename T, std::enable_if_t<std::is_unsigned_v<T>> *\
-    \ = nullptr>\n  constexpr static_modint(T n) : v(n %= UM)\n  {\n  }\n\n  using\
-    \ mint = static_modint;\n\n  static mint raw(u32 v)\n  {\n    mint res;\n    res.v\
-    \ = v;\n    return res;\n  }\n\n  constexpr u32 val() const { return v; }\n\n\
-    \  mint operator-() const { return mint::raw(v == 0 ? 0u : UM - v); }\n\n  mint\
-    \ &operator+=(mint a)\n  {\n    if ((v += a.v) >= UM) v -= UM;\n    return *this;\n\
-    \  }\n  mint &operator-=(mint a)\n  {\n    if ((v += UM - a.v) >= UM) v -= UM;\n\
-    \    return *this;\n  }\n  mint &operator*=(mint a)\n  {\n    v = (u64)v * a.v\
-    \ % UM;\n    return *this;\n  }\n  mint &operator/=(mint a) { return *this *=\
-    \ a.inv(); }\n\n  friend mint operator+(mint a, mint b) { return a += b; }\n \
-    \ friend mint operator-(mint a, mint b) { return a -= b; }\n  friend mint operator*(mint\
-    \ a, mint b) { return a *= b; }\n  friend mint operator/(mint a, mint b) { return\
-    \ a /= b; }\n\n  mint pow(u64 n) const\n  {\n    mint res = 1, base = *this;\n\
-    \    while (n) {\n      if (n & 1) res *= base;\n      base *= base;\n      n\
-    \ >>= 1;\n    }\n    return res;\n  }\n\n  mint inv() const { return pow(UM -\
-    \ 2); }\n};\n"
-  code: "#pragma once\n#include \"lib/internal.hpp\"\n\ntemplate <int M> struct static_modint\n\
-    {\n  static constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n \
-    \ u32 v;\n  constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+  bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
+    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n\n/**\n * @brief Static Modint\n\
+    \ *\n * @tparam M modulo\n */\ntemplate <int M> struct static_modint\n{\n  static\
+    \ constexpr u32 UM = M;\n  static_assert(UM < 0x80'00'00'00u);\n\n  u32 v;\n \
+    \ constexpr static_modint() : v(0) {}\n\n  template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n  constexpr static_modint(T n) : v((n %= M) < 0 ? n + M : n)\n\
     \  {\n  }\n\n  template <typename T, std::enable_if_t<std::is_unsigned_v<T>> *\
     \ = nullptr>\n  constexpr static_modint(T n) : v(n %= UM)\n  {\n  }\n\n  using\
@@ -79,11 +68,12 @@ data:
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-12 11:51:09+08:00'
+  timestamp: '2024-06-13 09:43:47+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/ds/point_set_range_composite.test.cpp
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp
   - verify/math/bitwise_xor_convolution.test.cpp
@@ -93,5 +83,5 @@ layout: document
 redirect_from:
 - /library/lib/math/static_modint.hpp
 - /library/lib/math/static_modint.hpp.html
-title: lib/math/static_modint.hpp
+title: Static Modint
 ---

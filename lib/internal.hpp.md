@@ -2,49 +2,52 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: lib/ds/depque.hpp
-    title: double ended priority queue
+    title: Double Ended Priority Queue
   - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
-    title: lib/ds/lct.hpp
+    title: Link Cut Tree
   - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
-    title: lib/ds/rbst.hpp
+    title: Random Binary Search Tree
+  - icon: ':heavy_check_mark:'
+    path: lib/ds/segtree.hpp
+    title: Segment Tree
   - icon: ':heavy_check_mark:'
     path: lib/ds/splay.hpp
-    title: lib/ds/splay.hpp
+    title: Splay Tree
   - icon: ':warning:'
     path: lib/graph/maxflow.hpp
-    title: lib/graph/maxflow.hpp
+    title: Max Flow
   - icon: ':heavy_check_mark:'
     path: lib/graph/scc.hpp
-    title: lib/graph/scc.hpp
+    title: Strongly Connected Components
   - icon: ':heavy_check_mark:'
     path: lib/math/convolution.hpp
-    title: lib/math/convolution.hpp
+    title: Polynomial Convolution
   - icon: ':warning:'
     path: lib/math/dynamic_modint.hpp
-    title: lib/math/dynamic_modint.hpp
+    title: Dynamic Modint
   - icon: ':warning:'
-    path: lib/math/fast_gcd.hpp
-    title: lib/math/fast_gcd.hpp
-  - icon: ':warning:'
-    path: lib/math/prime.hpp
-    title: lib/math/prime.hpp
+    path: lib/math/lucas.hpp
+    title: Lucas Theorem
   - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
-    title: lib/math/static_modint.hpp
+    title: Static Modint
+  - icon: ':warning:'
+    path: lib/math/utility.hpp
+    title: Usual Math Algorithm
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
-    title: lib/misc/bitop.hpp
+    title: Bit Manipulation
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
-  - icon: ':warning:'
-    path: verify/ds/double_ended_priority_queue.FIXME.cpp
-    title: verify/ds/double_ended_priority_queue.FIXME.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: verify/ds/double_ended_priority_queue.test.cpp
+    title: verify/ds/double_ended_priority_queue.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
@@ -54,6 +57,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/point_add_range_sum.test.cpp
+    title: verify/ds/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/point_set_range_composite.test.cpp
+    title: verify/ds/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/ds/static_range_inversions_query.test.cpp
     title: verify/ds/static_range_inversions_query.test.cpp
@@ -72,79 +81,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
+    document_title: Internal Definition
     links: []
-  bundledCode: '#line 2 "lib/internal.hpp"
-
-    #include <algorithm>
-
-    #include <cmath>
-
-    #include <cstring>
-
-    #include <iostream>
-
-    #include <tuple>
-
-    #include <utility>
-
-    #include <vector>
-
-
-    using i32 = int;
-
-    using i64 = long long;
-
-    using i128 = __int128_t;
-
-    using u32 = unsigned int;
-
-    using u64 = unsigned long long;
-
-    using u128 = __uint128_t;
-
-
-    template <typename T> using vec = std::vector<T>;
-
-    using pii = std::pair<int, int>;
-
-    '
-  code: '#pragma once
-
-    #include <algorithm>
-
-    #include <cmath>
-
-    #include <cstring>
-
-    #include <iostream>
-
-    #include <tuple>
-
-    #include <utility>
-
-    #include <vector>
-
-
-    using i32 = int;
-
-    using i64 = long long;
-
-    using i128 = __int128_t;
-
-    using u32 = unsigned int;
-
-    using u64 = unsigned long long;
-
-    using u128 = __uint128_t;
-
-
-    template <typename T> using vec = std::vector<T>;
-
-    using pii = std::pair<int, int>;'
+  bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
+    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
+  code: "/**\n * @brief Internal Definition\n */\n#pragma once\n#include <algorithm>\n\
+    #include <cmath>\n#include <cstring>\n#include <iostream>\n#include <tuple>\n\
+    #include <utility>\n#include <vector>\n\nusing i32 = int;\nusing i64 = long long;\n\
+    using i128 = __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned long\
+    \ long;\nusing u128 = __uint128_t;\n\ntemplate <typename T> using vec = std::vector<T>;\n\
+    using pii = std::pair<int, int>;"
   dependsOn: []
   isVerificationFile: false
   path: lib/internal.hpp
@@ -154,22 +109,25 @@ data:
   - lib/ds/depque.hpp
   - lib/ds/lct.hpp
   - lib/ds/splay.hpp
+  - lib/ds/segtree.hpp
   - lib/graph/maxflow.hpp
   - lib/graph/scc.hpp
+  - lib/math/utility.hpp
   - lib/math/convolution.hpp
   - lib/math/dynamic_modint.hpp
-  - lib/math/fast_gcd.hpp
+  - lib/math/lucas.hpp
   - lib/math/static_modint.hpp
-  - lib/math/prime.hpp
   - lib/str/kmp.hpp
-  - verify/ds/double_ended_priority_queue.FIXME.cpp
-  timestamp: '2024-06-12 11:51:09+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-13 09:43:47+08:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
+  - verify/ds/point_add_range_sum.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/ds/double_ended_priority_queue.test.cpp
   - verify/ds/static_range_inversions_query.test.cpp
+  - verify/ds/point_set_range_composite.test.cpp
   - verify/graph/scc.test.cpp
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp
@@ -180,5 +138,5 @@ layout: document
 redirect_from:
 - /library/lib/internal.hpp
 - /library/lib/internal.hpp.html
-title: lib/internal.hpp
+title: Internal Definition
 ---
