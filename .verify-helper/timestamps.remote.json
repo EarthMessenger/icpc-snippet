@@ -1,11 +1,13 @@
 {
-"verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/ds/static_range_inversions_query.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/graph/scc.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/math/bitwise_and_convolution.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/math/bitwise_xor_convolution.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/math/convolution.test.cpp": "2024-06-12 11:51:09 +0800",
-"verify/math/subset_convolution.test.cpp": "2024-06-12 11:51:09 +0800"
+"verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/ds/point_add_range_sum.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/ds/point_set_range_composite.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/ds/static_range_inversions_query.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/graph/scc.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/math/bitwise_and_convolution.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/math/bitwise_xor_convolution.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/math/convolution.test.cpp": "2024-06-13 09:43:47 +0800",
+"verify/math/subset_convolution.test.cpp": "2024-06-13 09:43:47 +0800"
 }
