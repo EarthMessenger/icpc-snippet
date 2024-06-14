@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   - icon: ':question:'
@@ -10,17 +10,17 @@ data:
   - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -59,8 +59,8 @@ data:
   isVerificationFile: true
   path: verify/ds/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-14 21:22:57+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/point_set_range_composite.test.cpp
 layout: document

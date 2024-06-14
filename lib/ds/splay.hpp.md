@@ -6,12 +6,12 @@ data:
     title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Splay Tree
     links: []
@@ -25,29 +25,31 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
   code: "#pragma once\n#include \"lib/internal.hpp\"\n\n/**\n * @brief Splay Tree\n\
-    \ *\n * @tparam S\n * @tparam T\n */\ntemplate <typename S, typename T> struct\
-    \ Splay\n{\n  struct node_t\n  {\n    bool reversed;\n    u32 size;\n\n    S prod;\n\
-    \    S m;\n    T tag;\n\n    using pnode_t = node_t *;\n    pnode_t fa;\n    pnode_t\
-    \ ch[2];\n\n    node_t()\n        : reversed(false), size(0), prod(), m(), tag(),\
-    \ fa(nullptr),\n          ch{nullptr, nullptr}\n    {\n    }\n    node_t(S m)\n\
-    \        : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr),\n    \
-    \      ch{nullptr, nullptr}\n    {\n    }\n\n    void update()\n    {\n      size\
-    \ = 1;\n      prod = m;\n      for (auto c : ch) {\n        if (!c) continue;\n\
-    \        size += c->size;\n        prod = prod * c->prod;\n      }\n    }\n\n\
-    \    void reverse()\n    {\n      reversed = !reversed;\n      std::swap(ch[0],\
-    \ ch[1]);\n    }\n\n    void apply(const T &t)\n    {\n      prod = t(prod, size);\n\
-    \      m = t(m, 1);\n      tag = tag * t;\n    }\n\n    void push()\n    {\n \
-    \     for (auto c : ch) {\n        if (!c) continue;\n        if (reversed) c->reverse();\n\
-    \        if (!tag.is_unit()) c->apply(tag);\n      }\n      reversed = false;\n\
-    \      tag = T();\n    }\n\n    u32 which_child() const { return this->fa->ch[1]\
-    \ == this; }\n\n    void rotate()\n    {\n      auto x = this;\n\n      auto y\
-    \ = x->fa;\n      auto z = y->fa;\n      auto xci = x->which_child();\n      y->ch[xci]\
-    \ = x->ch[xci ^ 1];\n      if (x->ch[xci ^ 1]) x->ch[xci ^ 1]->fa = y;\n     \
-    \ x->ch[xci ^ 1] = y;\n      if (z) z->ch[y->which_child()] = x;\n      y->fa\
-    \ = x;\n      x->fa = z;\n\n      y->update();\n      x->update();\n    }\n  };\n\
-    \n  using pnode_t = node_t *;\n  pnode_t root;\n\n  Splay() : root(nullptr) {}\n\
-    \  Splay(pnode_t root) : root(root) {}\n  template <typename F> Splay(u32 n, F\
-    \ &&f) : root(build_tree(0, n, f, nullptr))\n  {\n  }\n\n  template <typename\
+    \ *\n * @tparam BAM bidirected_acted_monoid\n */\ntemplate <typename BAM> struct\
+    \ Splay\n{\n  using S = typename BAM::S;\n  using A = typename BAM::A;\n  using\
+    \ AP = typename BAM::MA;\n  struct node_t\n  {\n    bool reversed;\n    u32 size;\n\
+    \n    S prod;\n    S m;\n    A tag;\n\n    using pnode_t = node_t *;\n    pnode_t\
+    \ fa;\n    pnode_t ch[2];\n\n    node_t()\n        : reversed(false), size(0),\
+    \ prod(BAM::un()), m(BAM::un()), tag(AP::un()), fa(nullptr),\n          ch{nullptr,\
+    \ nullptr}\n    {\n    }\n    node_t(S m)\n        : reversed(false), size(1),\
+    \ prod(m), m(m), tag(AP::un()), fa(nullptr),\n          ch{nullptr, nullptr}\n\
+    \    {\n    }\n\n    void update()\n    {\n      size = 1;\n      prod = m;\n\
+    \      for (auto c : ch) {\n        if (!c) continue;\n        size += c->size;\n\
+    \        prod = BAM::op(prod, c->prod);\n      }\n    }\n\n    void reverse()\n\
+    \    {\n      reversed = !reversed;\n      std::swap(ch[0], ch[1]);\n      prod\
+    \ = BAM::ts(prod);\n    }\n\n    void apply(const A &t)\n    {\n      prod = BAM::act(t,\
+    \ prod, size);\n      m = BAM::act(t, m, 1);\n      tag = AP::op(tag, t);\n  \
+    \  }\n\n    void push()\n    {\n      for (auto c : ch) {\n        if (!c) continue;\n\
+    \        if (reversed) c->reverse();\n        if (tag != AP::un()) c->apply(tag);\n\
+    \      }\n      reversed = false;\n      tag = AP::un();\n    }\n\n    u32 which_child()\
+    \ const { return this->fa->ch[1] == this; }\n\n    void rotate()\n    {\n    \
+    \  auto x = this;\n\n      auto y = x->fa;\n      auto z = y->fa;\n      auto\
+    \ xci = x->which_child();\n      y->ch[xci] = x->ch[xci ^ 1];\n      if (x->ch[xci\
+    \ ^ 1]) x->ch[xci ^ 1]->fa = y;\n      x->ch[xci ^ 1] = y;\n      if (z) z->ch[y->which_child()]\
+    \ = x;\n      y->fa = x;\n      x->fa = z;\n\n      y->update();\n      x->update();\n\
+    \    }\n  };\n\n  using pnode_t = node_t *;\n  pnode_t root;\n\n  Splay() : root(nullptr)\
+    \ {}\n  Splay(pnode_t root) : root(root) {}\n  template <typename F> Splay(u32\
+    \ n, F &&f) : root(build_tree(0, n, f, nullptr))\n  {\n  }\n\n  template <typename\
     \ F>\n  static pnode_t build_tree(u32 l, u32 r, F &&f, pnode_t fa)\n  {\n    if\
     \ (r - l == 0) return nullptr;\n    u32 mid = l + (r - l) / 2;\n    auto p = new\
     \ node_t(f(mid));\n    p->ch[0] = build_tree(l, mid, f, p);\n    p->ch[1] = build_tree(mid\
@@ -77,7 +79,7 @@ data:
     \ = split3(x, x + 1);\n    delete xp;\n    root = join(lp, rp);\n  }\n\n  void\
     \ reverse(u32 l, u32 r)\n  {\n    auto [lp, mp, rp] = split3(l, r);\n    if (mp)\
     \ mp->reverse();\n    root = join3(lp, mp, rp);\n  }\n\n  void apply(u32 l, u32\
-    \ r, T m)\n  {\n    auto [lp, mp, rp] = split3(l, r);\n    if (mp) mp->apply(m);\n\
+    \ r, A m)\n  {\n    auto [lp, mp, rp] = split3(l, r);\n    if (mp) mp->apply(m);\n\
     \    root = join3(lp, mp, rp);\n  }\n\n  S prod(u32 l, u32 r)\n  {\n    auto [lp,\
     \ mp, rp] = split3(l, r);\n    S res;\n    if (mp) res = mp->prod;\n    root =\
     \ join3(lp, mp, rp);\n    return res;\n  }\n};\n"
@@ -86,8 +88,8 @@ data:
   isVerificationFile: false
   path: lib/ds/splay.hpp
   requiredBy: []
-  timestamp: '2024-06-14 09:23:51+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-14 21:22:57+08:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
 documentation_of: lib/ds/splay.hpp

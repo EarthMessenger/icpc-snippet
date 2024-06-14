@@ -11,16 +11,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/lazysegtree.hpp
     title: lib/ds/lazysegtree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
   - icon: ':x:'
     path: lib/ds/rbst.hpp
     title: Random Binary Search Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/splay.hpp
     title: Splay Tree
   - icon: ':warning:'
@@ -44,19 +44,19 @@ data:
   - icon: ':warning:'
     path: lib/math/utility.hpp
     title: Usual Math Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':warning:'
-    path: lib/misc/monoid.hpp
-    title: lib/misc/monoid.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
   - icon: ':warning:'
+    path: lib/monoid/monoid_affine.hpp
+    title: lib/monoid/monoid_affine.hpp
+  - icon: ':x:'
     path: lib/monoid/monoid_linear_function.hpp
     title: lib/monoid/monoid_linear_function.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   - icon: ':warning:'
@@ -72,16 +72,16 @@ data:
   - icon: ':x:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_set_range_composite.test.cpp
     title: verify/ds/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -135,7 +135,6 @@ data:
   path: lib/internal.hpp
   requiredBy:
   - lib/misc/bitop.hpp
-  - lib/misc/monoid.hpp
   - lib/ds/rbst.hpp
   - lib/ds/depque.hpp
   - lib/ds/lazysegtree.hpp
@@ -150,6 +149,7 @@ data:
   - lib/math/dynamic_modint.hpp
   - lib/math/lucas.hpp
   - lib/math/static_modint.hpp
+  - lib/monoid/monoid_affine.hpp
   - lib/monoid/monoid_trait.hpp
   - lib/monoid/monoid_add.hpp
   - lib/monoid/monoid_linear_function.hpp

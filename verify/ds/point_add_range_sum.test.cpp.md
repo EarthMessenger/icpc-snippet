@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
@@ -38,8 +38,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
   code: "#include \"lib/ds/segtree.hpp\"\n#include \"lib/monoid/monoid_add.hpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\n\n\
-    signed main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false); cin.tie(0),\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\nsigned\
+    \ main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false); cin.tie(0),\
     \ cout.tie(0);\n    u32 n, q;\n    cin >> n >> q;\n    vec<i64> a(n);\n    for\
     \ (auto &i: a) cin >> i;\n    SegmentTree<mono::MonoidAdd<i64>> s(n, [&a](u32\
     \ i){return a[i];});\n    long long op, x, y;\n    while (q--) {\n        cin\
@@ -54,8 +54,8 @@ data:
   isVerificationFile: true
   path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-14 21:22:57+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/point_add_range_sum.test.cpp
 layout: document

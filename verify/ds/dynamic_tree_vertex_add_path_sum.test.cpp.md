@@ -1,17 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
+  - icon: ':question:'
+    path: lib/monoid/monoid_add.hpp
+    title: lib/monoid/monoid_add.hpp
+  - icon: ':question:'
+    path: lib/monoid/monoid_trait.hpp
+    title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum
@@ -30,28 +36,28 @@ data:
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
   code: "#define PROBLEM                                                         \
     \       \\\n  \"https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum\"\
-    \n\n#include \"lib/ds/lct.hpp\"\n#include \"lib/internal.hpp\"\n\nstruct SumMonoid\n\
-    {\n  i64 s;\n  SumMonoid() : s(0) {}\n  SumMonoid(i64 s) : s(s) {}\n  friend SumMonoid\
-    \ operator*(SumMonoid a, SumMonoid b) { return a.s + b.s; }\n};\n\nint main()\n\
-    {\n  std::cin.tie(nullptr);\n  std::ios::sync_with_stdio(false);\n  std::clog\
-    \ << std::boolalpha;\n\n  int n, q;\n  std::cin >> n >> q;\n\n  std::vector<int>\
-    \ a(n);\n  for (int i = 0; i < n; i++)\n    std::cin >> a[i];\n\n  LinkCutTree<SumMonoid>\
-    \ lct(n, [&a](int x) { return SumMonoid(a[x]); });\n  for (int i = 1; i < n; i++)\
-    \ {\n    int u, v;\n    std::cin >> u >> v;\n    lct.link(u, v);\n  }\n\n  for\
-    \ (int i = 0; i < q; i++) {\n    int op;\n    std::cin >> op;\n    if (op == 0)\
-    \ {\n      int u, v, w, x;\n      std::cin >> u >> v >> w >> x;\n      lct.cut(u,\
-    \ v);\n      lct.link(w, x);\n    } else if (op == 1) {\n      int p, x;\n   \
-    \   std::cin >> p >> x;\n      lct.multiply(p, x);\n    } else if (op == 2) {\n\
-    \      int u, v;\n      std::cin >> u >> v;\n      std::cout << lct.prod(u, v).s\
-    \ << \"\\n\";\n    }\n  }\n}\n"
+    \n\n#include \"lib/ds/lct.hpp\"\n#include \"lib/internal.hpp\"\n#include \"lib/monoid/monoid_add.hpp\"\
+    \n\nint main()\n{\n  std::cin.tie(nullptr);\n  std::ios::sync_with_stdio(false);\n\
+    \  std::clog << std::boolalpha;\n\n  int n, q;\n  std::cin >> n >> q;\n\n  std::vector<int>\
+    \ a(n);\n  for (int i = 0; i < n; i++)\n    std::cin >> a[i];\n\n  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<int>>>\
+    \ lct(n, [&a](int x) { return a[x]; });\n  for (int i = 1; i < n; i++) {\n   \
+    \ int u, v;\n    std::cin >> u >> v;\n    lct.link(u, v);\n  }\n\n  for (int i\
+    \ = 0; i < q; i++) {\n    int op;\n    std::cin >> op;\n    if (op == 0) {\n \
+    \     int u, v, w, x;\n      std::cin >> u >> v >> w >> x;\n      lct.cut(u, v);\n\
+    \      lct.link(w, x);\n    } else if (op == 1) {\n      int p, x;\n      std::cin\
+    \ >> p >> x;\n      lct.multiply(p, x);\n    } else if (op == 2) {\n      int\
+    \ u, v;\n      std::cin >> u >> v;\n      std::cout << lct.prod(u, v) << \"\\\
+    n\";\n    }\n  }\n}\n"
   dependsOn:
   - lib/ds/lct.hpp
   - lib/internal.hpp
+  - lib/monoid/monoid_trait.hpp
+  - lib/monoid/monoid_add.hpp
   isVerificationFile: true
   path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 09:23:51+08:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-14 21:22:57+08:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
 layout: document

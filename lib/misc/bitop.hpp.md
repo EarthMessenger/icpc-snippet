@@ -8,25 +8,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/lazysegtree.hpp
     title: lib/ds/lazysegtree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: verify/ds/area_of_union_of_rectangles.test.cpp
     title: verify/ds/area_of_union_of_rectangles.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_set_range_composite.test.cpp
     title: verify/ds/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/math/convolution.test.cpp
     title: verify/math/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Bit Manipulation
     links: []
@@ -52,7 +52,7 @@ data:
   - lib/ds/lazysegtree.hpp
   - lib/ds/segtree.hpp
   timestamp: '2024-06-14 09:23:51+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp
   - verify/ds/area_of_union_of_rectangles.test.cpp

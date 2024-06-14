@@ -4,23 +4,23 @@ data:
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':x:'
+  - icon: ':question:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/point_set_range_composite.test.cpp
     title: verify/ds/point_set_range_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Segment Tree
     links: []
@@ -54,8 +54,8 @@ data:
   isVerificationFile: false
   path: lib/ds/segtree.hpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-14 21:22:57+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp
   - verify/ds/point_set_range_composite.test.cpp
