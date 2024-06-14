@@ -24,7 +24,7 @@ signed main()
     u32 n = read_int(), q = read_int();
     vec<LinearFunc> a(n);
     for (auto &[k, b]: a) k = read_int(), b = read_int();
-    SegmentTree s(n, [&a](u32 i){return a[i];}, LinearFunc(), multiplies());
+    SegmentTree<mono::MonoidTrait<LinearFunc>> s(n, [&a](u32 i){return a[i];});
     while (q--) {
         u32 op, x, y, z;
         cin >> op >> x >> y >> z;

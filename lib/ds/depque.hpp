@@ -39,7 +39,7 @@ private:
 
 public:
   DEPQ(const MinComp &mnc = MinComp(), const MaxComp &mxc = MaxComp())
-      : sz(), a(), del(), mnh(PosComp(a, mnc)), mxh(PosComp(a, mxc))
+      : sz(), a(), del(), mnh(PosComp<MinComp>(a, mnc)), mxh(PosComp<MaxComp>(a, mxc))
   {
   }
   template <typename It>
@@ -48,12 +48,12 @@ public:
       : sz(second - first), a(first, second), del(sz), mnh([this, mnc]() {
           std::vector<u32> b(this->size());
           for (u32 i = 0; i < this->size(); i++) b[i] = i;
-          return std::priority_queue(b.begin(), b.end(), PosComp(a, mnc));
+          return std::priority_queue(b.begin(), b.end(), PosComp<MinComp>(a, mnc));
         }()),
         mxh([this, mxc]() {
           std::vector<u32> b(this->size());
           for (u32 i = 0; i < this->size(); i++) b[i] = i;
-          return std::priority_queue(b.begin(), b.end(), PosComp(a, mxc));
+          return std::priority_queue(b.begin(), b.end(), PosComp<MaxComp>(a, mxc));
         }())
   {
   }

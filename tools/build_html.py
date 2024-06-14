@@ -13,7 +13,7 @@ EXCLUDED_FILES = [
 def compile_html(file):
     print(f'<h2>{file.relative_to(Path.cwd())}</h2>')
     code = ''
-    with file.open('r') as fo:
+    with file.open('r', encoding='utf-8') as fo:
         while True:
             line = fo.readline()
             if line == '':

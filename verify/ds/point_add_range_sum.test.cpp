@@ -12,7 +12,7 @@ signed main()
     cin >> n >> q;
     vec<i64> a(n);
     for (auto &i: a) cin >> i;
-    SegmentTree s(n, [&a](u32 i) {return a[i];}, 0ll, plus());
+    SegmentTree<mono::AddMonoid<i64>> s(n, [&a](u32 i){return a[i];});
     long long op, x, y;
     while (q--) {
         cin >> op >> x >> y;

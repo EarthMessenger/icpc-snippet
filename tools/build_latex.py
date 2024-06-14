@@ -43,7 +43,7 @@ def main():
             print(fr'\subsubsection{{{stem}}}')
         if path.is_file():
             print(fr'\begin{{minted}}[breaklines, mathescape]{{{get_lexer_for_filename(path.name).aliases[0]}}}')
-            with path.open('r') as fo:
+            with path.open('r', encoding='utf-8') as fo:
                 while True:
                     line = fo.readline()
                     if line == '':

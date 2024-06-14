@@ -4,11 +4,11 @@
 /**
  * @brief Random Binary Search Tree
  *
- * @tparam S info: monoid
- * @tparam T tag: T(s: S) -> S
+ * @tparam AM acted_monoid
  */
-template <typename S, typename T> struct RBST
+template <typename AM> struct RBST
 {
+  using S = typename AM::S;
   struct node_t
   {
     bool reverse;

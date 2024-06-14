@@ -2,13 +2,14 @@
  * @brief Internal Definition
  */
 #pragma once
-#include <algorithm>
 #include <cmath>
+#include <tuple>
+#include <vector>
+#include <utility>
 #include <cstring>
 #include <iostream>
-#include <tuple>
-#include <utility>
-#include <vector>
+#include <algorithm>
+#include <functional>
 
 using i32 = int;
 using i64 = long long;
