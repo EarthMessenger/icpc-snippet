@@ -85,6 +85,9 @@ data:
   - name: lib/str
     pages:
     - icon: ':warning:'
+      path: lib/str/acam.hpp
+      title: lib/str/acam.hpp
+    - icon: ':warning:'
       path: lib/str/kmp.hpp
       title: lib/str/kmp.hpp
     - icon: ':heavy_check_mark:'
