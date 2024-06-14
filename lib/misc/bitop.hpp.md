@@ -5,10 +5,16 @@ data:
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: lib/ds/lazysegtree.hpp
+    title: lib/ds/lazysegtree.hpp
   - icon: ':x:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/area_of_union_of_rectangles.test.cpp
+    title: verify/ds/area_of_union_of_rectangles.test.cpp
   - icon: ':x:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
@@ -43,11 +49,13 @@ data:
   isVerificationFile: false
   path: lib/misc/bitop.hpp
   requiredBy:
+  - lib/ds/lazysegtree.hpp
   - lib/ds/segtree.hpp
   timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp
+  - verify/ds/area_of_union_of_rectangles.test.cpp
   - verify/ds/point_set_range_composite.test.cpp
   - verify/math/convolution.test.cpp
 documentation_of: lib/misc/bitop.hpp

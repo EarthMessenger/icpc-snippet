@@ -9,6 +9,9 @@ data:
     path: lib/ds/dyn_segtree.hpp
     title: lib/ds/dyn_segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: lib/ds/lazysegtree.hpp
+    title: lib/ds/lazysegtree.hpp
+  - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
   - icon: ':x:'
@@ -60,6 +63,9 @@ data:
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/ds/area_of_union_of_rectangles.test.cpp
+    title: verify/ds/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/ds/double_ended_priority_queue.test.cpp
     title: verify/ds/double_ended_priority_queue.test.cpp
@@ -132,6 +138,7 @@ data:
   - lib/misc/monoid.hpp
   - lib/ds/rbst.hpp
   - lib/ds/depque.hpp
+  - lib/ds/lazysegtree.hpp
   - lib/ds/lct.hpp
   - lib/ds/dyn_segtree.hpp
   - lib/ds/splay.hpp
@@ -155,6 +162,7 @@ data:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   - verify/ds/double_ended_priority_queue.test.cpp
+  - verify/ds/area_of_union_of_rectangles.test.cpp
   - verify/ds/static_range_inversions_query.test.cpp
   - verify/ds/point_set_range_composite.test.cpp
   - verify/graph/scc.test.cpp

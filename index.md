@@ -10,6 +10,9 @@ data:
       path: lib/ds/dyn_segtree.hpp
       title: lib/ds/dyn_segtree.hpp
     - icon: ':heavy_check_mark:'
+      path: lib/ds/lazysegtree.hpp
+      title: lib/ds/lazysegtree.hpp
+    - icon: ':heavy_check_mark:'
       path: lib/ds/lct.hpp
       title: Link Cut Tree
     - icon: ':x:'
@@ -101,6 +104,9 @@ data:
   verificationCategories:
   - name: verify/ds
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/ds/area_of_union_of_rectangles.test.cpp
+      title: verify/ds/area_of_union_of_rectangles.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/ds/double_ended_priority_queue.test.cpp
       title: verify/ds/double_ended_priority_queue.test.cpp
