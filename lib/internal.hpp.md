@@ -91,6 +91,9 @@ data:
     path: verify/str/longest_common_substring.test.cpp
     title: verify/str/longest_common_substring.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/str/number_of_substrings.test.cpp
+    title: verify/str/number_of_substrings.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/str/suffixarray.test.cpp
     title: verify/str/suffixarray.test.cpp
   _isVerificationFailed: true
@@ -147,6 +150,7 @@ data:
   - verify/math/bitwise_and_convolution.test.cpp
   - verify/math/bitwise_xor_convolution.test.cpp
   - verify/math/subset_convolution.test.cpp
+  - verify/str/number_of_substrings.test.cpp
   - verify/str/suffixarray.test.cpp
   - verify/str/longest_common_substring.test.cpp
 documentation_of: lib/internal.hpp

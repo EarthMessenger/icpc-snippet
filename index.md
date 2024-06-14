@@ -136,6 +136,9 @@ data:
       path: verify/str/longest_common_substring.test.cpp
       title: verify/str/longest_common_substring.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/str/number_of_substrings.test.cpp
+      title: verify/str/number_of_substrings.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/str/suffixarray.test.cpp
       title: verify/str/suffixarray.test.cpp
 layout: toppage

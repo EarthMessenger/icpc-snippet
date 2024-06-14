@@ -7,6 +7,9 @@ data:
     path: verify/str/longest_common_substring.test.cpp
     title: verify/str/longest_common_substring.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/str/number_of_substrings.test.cpp
+    title: verify/str/number_of_substrings.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/str/suffixarray.test.cpp
     title: verify/str/suffixarray.test.cpp
   _isVerificationFailed: false
@@ -65,6 +68,7 @@ data:
   timestamp: '2024-06-14 10:22:24+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/str/number_of_substrings.test.cpp
   - verify/str/suffixarray.test.cpp
   - verify/str/longest_common_substring.test.cpp
 documentation_of: lib/str/sa.hpp
