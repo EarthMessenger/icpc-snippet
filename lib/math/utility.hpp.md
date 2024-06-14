@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: lib/math/utility.hpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/utility.hpp

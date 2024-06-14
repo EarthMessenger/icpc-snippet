@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
   _extendedRequiredBy: []
@@ -64,7 +64,7 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp

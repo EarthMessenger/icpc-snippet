@@ -10,6 +10,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
+  - icon: ':heavy_check_mark:'
+    path: lib/misc/monoid.hpp
+    title: lib/misc/monoid.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -34,18 +37,19 @@ data:
   code: "#include \"lib/ds/segtree.hpp\"\n\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\
     \n\n#include <functional>\n\nsigned main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false);\
     \ cin.tie(0), cout.tie(0);\n    u32 n, q;\n    cin >> n >> q;\n    vec<i64> a(n);\n\
-    \    for (auto &i: a) cin >> i;\n    SegmentTree s(n, [&a](u32 i) {return a[i];},\
-    \ 0ll, plus());\n    long long op, x, y;\n    while (q--) {\n        cin >> op\
-    \ >> x >> y;\n        if (op == 0) s.set(x, a[x] += y);\n        else cout <<\
-    \ s.prod(x, y) << '\\n';\n    }\n}"
+    \    for (auto &i: a) cin >> i;\n    SegmentTree<mono::AddMonoid<i64>> s(n, [&a](u32\
+    \ i){return a[i];});\n    long long op, x, y;\n    while (q--) {\n        cin\
+    \ >> op >> x >> y;\n        if (op == 0) s.set(x, a[x] += y);\n        else cout\
+    \ << s.prod(x, y) << '\\n';\n    }\n}"
   dependsOn:
   - lib/ds/segtree.hpp
   - lib/internal.hpp
   - lib/misc/bitop.hpp
+  - lib/misc/monoid.hpp
   isVerificationFile: true
   path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/point_add_range_sum.test.cpp

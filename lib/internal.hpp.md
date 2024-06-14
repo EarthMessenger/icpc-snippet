@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/depque.hpp
     title: Double Ended Priority Queue
+  - icon: ':warning:'
+    path: lib/ds/dyn_segtree.hpp
+    title: lib/ds/dyn_segtree.hpp
   - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/rbst.hpp
     title: Random Binary Search Tree
   - icon: ':heavy_check_mark:'
@@ -32,7 +35,7 @@ data:
   - icon: ':warning:'
     path: lib/math/lucas.hpp
     title: Lucas Theorem
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
   - icon: ':warning:'
@@ -41,14 +44,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
+  - icon: ':heavy_check_mark:'
+    path: lib/misc/monoid.hpp
+    title: lib/misc/monoid.hpp
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/double_ended_priority_queue.test.cpp
     title: verify/ds/double_ended_priority_queue.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   - icon: ':heavy_check_mark:'
@@ -94,20 +100,22 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "/**\n * @brief Internal Definition\n */\n#pragma once\n#include <algorithm>\n\
-    #include <cmath>\n#include <cstring>\n#include <iostream>\n#include <tuple>\n\
-    #include <utility>\n#include <vector>\n\nusing i32 = int;\nusing i64 = long long;\n\
-    using i128 = __int128_t;\nusing u32 = unsigned int;\nusing u64 = unsigned long\
-    \ long;\nusing u128 = __uint128_t;\n\ntemplate <typename T> using vec = std::vector<T>;\n\
-    using pii = std::pair<int, int>;"
+  code: "/**\n * @brief Internal Definition\n */\n#pragma once\n#include <cmath>\n\
+    #include <tuple>\n#include <vector>\n#include <utility>\n#include <cstring>\n\
+    #include <iostream>\n#include <algorithm>\n#include <functional>\n\nusing i32\
+    \ = int;\nusing i64 = long long;\nusing i128 = __int128_t;\nusing u32 = unsigned\
+    \ int;\nusing u64 = unsigned long long;\nusing u128 = __uint128_t;\n\ntemplate\
+    \ <typename T> using vec = std::vector<T>;\nusing pii = std::pair<int, int>;"
   dependsOn: []
   isVerificationFile: false
   path: lib/internal.hpp
   requiredBy:
   - lib/misc/bitop.hpp
+  - lib/misc/monoid.hpp
   - lib/ds/rbst.hpp
   - lib/ds/depque.hpp
   - lib/ds/lct.hpp
+  - lib/ds/dyn_segtree.hpp
   - lib/ds/splay.hpp
   - lib/ds/segtree.hpp
   - lib/graph/maxflow.hpp
@@ -118,7 +126,7 @@ data:
   - lib/math/lucas.hpp
   - lib/math/static_modint.hpp
   - lib/str/kmp.hpp
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp

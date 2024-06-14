@@ -7,12 +7,15 @@ data:
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
+  - icon: ':heavy_check_mark:'
+    path: lib/misc/monoid.hpp
+    title: lib/misc/monoid.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -43,20 +46,20 @@ data:
     \ main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false); cin.tie(0),\
     \ cout.tie(0);\n    auto read_int = [x = int()]() mutable { return cin >> x, x;\
     \ };\n    u32 n = read_int(), q = read_int();\n    vec<LinearFunc> a(n);\n   \
-    \ for (auto &[k, b]: a) k = read_int(), b = read_int();\n    SegmentTree s(n,\
-    \ [&a](u32 i){return a[i];}, LinearFunc(), multiplies());\n    while (q--) {\n\
-    \        u32 op, x, y, z;\n        cin >> op >> x >> y >> z;\n        if (op ==\
-    \ 0) s.set(x, {y, z});\n        else cout << s.prod(x, y).apply(z).val() << '\\\
-    n';\n    }\n}"
+    \ for (auto &[k, b]: a) k = read_int(), b = read_int();\n    SegmentTree<mono::MonoidTrait<LinearFunc>>\
+    \ s(n, [&a](u32 i){return a[i];});\n    while (q--) {\n        u32 op, x, y, z;\n\
+    \        cin >> op >> x >> y >> z;\n        if (op == 0) s.set(x, {y, z});\n \
+    \       else cout << s.prod(x, y).apply(z).val() << '\\n';\n    }\n}"
   dependsOn:
   - lib/ds/segtree.hpp
   - lib/internal.hpp
   - lib/misc/bitop.hpp
+  - lib/misc/monoid.hpp
   - lib/math/static_modint.hpp
   isVerificationFile: true
   path: verify/ds/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/point_set_range_composite.test.cpp

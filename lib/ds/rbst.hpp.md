@@ -6,12 +6,12 @@ data:
     title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: Random Binary Search Tree
     links: []
@@ -25,19 +25,19 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
   code: "#pragma once\n#include \"lib/internal.hpp\"\n\n/**\n * @brief Random Binary\
-    \ Search Tree\n *\n * @tparam S info: monoid\n * @tparam T tag: T(s: S) -> S\n\
-    \ */\ntemplate <typename S, typename T> struct RBST\n{\n  struct node_t\n  {\n\
-    \    bool reverse;\n    T tag;\n    u32 size;\n    S prod;\n    S m;\n    node_t\
-    \ *lc, *rc;\n\n    node_t()\n        : reverse(false), tag(), size(0), prod(),\
-    \ m(), lc(nullptr), rc(nullptr)\n    {\n    }\n    node_t(S m)\n        : reverse(false),\
-    \ tag(), size(1), prod(m), m(m), lc(nullptr),\n          rc(nullptr)\n    {\n\
-    \    }\n\n    void update()\n    {\n      size = 1;\n      prod = m;\n      if\
-    \ (lc) {\n        size = size + lc->size;\n        prod = prod * lc->prod;\n \
-    \     }\n      if (rc) {\n        size = size + rc->size;\n        prod = prod\
-    \ * rc->prod;\n      }\n    }\n\n    void toggle_reverse()\n    {\n      reverse\
-    \ = !reverse;\n      std::swap(lc, rc);\n    }\n\n    void apply(const T &t)\n\
-    \    {\n      prod = t(prod, size);\n      m = t(m, 1);\n      tag = tag * t;\n\
-    \    }\n\n    void push()\n    {\n      if (reverse) {\n        if (lc) lc->toggle_reverse();\n\
+    \ Search Tree\n *\n * @tparam AM acted_monoid\n */\ntemplate <typename AM> struct\
+    \ RBST\n{\n  using S = typename AM::S;\n  struct node_t\n  {\n    bool reverse;\n\
+    \    T tag;\n    u32 size;\n    S prod;\n    S m;\n    node_t *lc, *rc;\n\n  \
+    \  node_t()\n        : reverse(false), tag(), size(0), prod(), m(), lc(nullptr),\
+    \ rc(nullptr)\n    {\n    }\n    node_t(S m)\n        : reverse(false), tag(),\
+    \ size(1), prod(m), m(m), lc(nullptr),\n          rc(nullptr)\n    {\n    }\n\n\
+    \    void update()\n    {\n      size = 1;\n      prod = m;\n      if (lc) {\n\
+    \        size = size + lc->size;\n        prod = prod * lc->prod;\n      }\n \
+    \     if (rc) {\n        size = size + rc->size;\n        prod = prod * rc->prod;\n\
+    \      }\n    }\n\n    void toggle_reverse()\n    {\n      reverse = !reverse;\n\
+    \      std::swap(lc, rc);\n    }\n\n    void apply(const T &t)\n    {\n      prod\
+    \ = t(prod, size);\n      m = t(m, 1);\n      tag = tag * t;\n    }\n\n    void\
+    \ push()\n    {\n      if (reverse) {\n        if (lc) lc->toggle_reverse();\n\
     \        if (rc) rc->toggle_reverse();\n        reverse = false;\n      }\n  \
     \    if (!tag.is_unit()) {\n        if (lc) lc->apply(tag);\n        if (rc) rc->apply(tag);\n\
     \        tag = T{};\n      }\n    }\n  };\n\n  node_t *root;\n\n  // \u53EF\u7528\
@@ -83,8 +83,8 @@ data:
   isVerificationFile: false
   path: lib/ds/rbst.hpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-14 09:23:51+08:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
 documentation_of: lib/ds/rbst.hpp

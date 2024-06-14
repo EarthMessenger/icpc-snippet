@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/math/convolution.hpp
     title: Polynomial Convolution
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
   _extendedRequiredBy: []
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: verify/math/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/math/bitwise_xor_convolution.test.cpp

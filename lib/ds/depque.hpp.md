@@ -6,12 +6,12 @@ data:
     title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/double_ended_priority_queue.test.cpp
     title: verify/ds/double_ended_priority_queue.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Double Ended Priority Queue
     links: []
@@ -36,17 +36,18 @@ data:
     \n  void fresh_min()\n  {\n    while (!mnh.empty() && del[mnh.top()]) mnh.pop();\n\
     \  }\n  void fresh_max()\n  {\n    while (!mxh.empty() && del[mxh.top()]) mxh.pop();\n\
     \  }\n\npublic:\n  DEPQ(const MinComp &mnc = MinComp(), const MaxComp &mxc = MaxComp())\n\
-    \      : sz(), a(), del(), mnh(PosComp(a, mnc)), mxh(PosComp(a, mxc))\n  {\n \
-    \ }\n  template <typename It>\n  DEPQ(It first, It second, const MinComp &mnc\
-    \ = MinComp(),\n       const MaxComp &mxc = MaxComp())\n      : sz(second - first),\
-    \ a(first, second), del(sz), mnh([this, mnc]() {\n          std::vector<u32> b(this->size());\n\
-    \          for (u32 i = 0; i < this->size(); i++) b[i] = i;\n          return\
-    \ std::priority_queue(b.begin(), b.end(), PosComp(a, mnc));\n        }()),\n \
-    \       mxh([this, mxc]() {\n          std::vector<u32> b(this->size());\n   \
-    \       for (u32 i = 0; i < this->size(); i++) b[i] = i;\n          return std::priority_queue(b.begin(),\
-    \ b.end(), PosComp(a, mxc));\n        }())\n  {\n  }\n\n  T min() { return fresh_min(),\
-    \ a[mnh.top()]; }\n  T max() { return fresh_max(), a[mxh.top()]; }\n\n  constexpr\
-    \ u32 size() { return sz; }\n\n  void pop_min()\n  {\n    fresh_min();\n    del[mnh.top()]\
+    \      : sz(), a(), del(), mnh(PosComp<MinComp>(a, mnc)), mxh(PosComp<MaxComp>(a,\
+    \ mxc))\n  {\n  }\n  template <typename It>\n  DEPQ(It first, It second, const\
+    \ MinComp &mnc = MinComp(),\n       const MaxComp &mxc = MaxComp())\n      : sz(second\
+    \ - first), a(first, second), del(sz), mnh([this, mnc]() {\n          std::vector<u32>\
+    \ b(this->size());\n          for (u32 i = 0; i < this->size(); i++) b[i] = i;\n\
+    \          return std::priority_queue(b.begin(), b.end(), PosComp<MinComp>(a,\
+    \ mnc));\n        }()),\n        mxh([this, mxc]() {\n          std::vector<u32>\
+    \ b(this->size());\n          for (u32 i = 0; i < this->size(); i++) b[i] = i;\n\
+    \          return std::priority_queue(b.begin(), b.end(), PosComp<MaxComp>(a,\
+    \ mxc));\n        }())\n  {\n  }\n\n  T min() { return fresh_min(), a[mnh.top()];\
+    \ }\n  T max() { return fresh_max(), a[mxh.top()]; }\n\n  constexpr u32 size()\
+    \ { return sz; }\n\n  void pop_min()\n  {\n    fresh_min();\n    del[mnh.top()]\
     \ = true;\n    mnh.pop();\n    --sz;\n  }\n\n  void pop_max()\n  {\n    fresh_max();\n\
     \    del[mxh.top()] = true;\n    mxh.pop();\n    --sz;\n  }\n\n  void push(const\
     \ T &x)\n  {\n    a.emplace_back(x);\n    del.emplace_back();\n    mnh.push(a.size()\
@@ -56,8 +57,8 @@ data:
   isVerificationFile: false
   path: lib/ds/depque.hpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-14 09:23:51+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/double_ended_priority_queue.test.cpp
 documentation_of: lib/ds/depque.hpp

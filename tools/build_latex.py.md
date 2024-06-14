@@ -24,10 +24,10 @@ data:
     \     elif dep == 1:\n            print(fr'\\subsection{{{stem}}}')\n        elif\
     \ dep == 2:\n            print(fr'\\subsubsection{{{stem}}}')\n        if path.is_file():\n\
     \            print(fr'\\begin{{minted}}[breaklines, mathescape]{{{get_lexer_for_filename(path.name).aliases[0]}}}')\n\
-    \            with path.open('r') as fo:\n                while True:\n       \
-    \             line = fo.readline()\n                    if line == '':\n     \
-    \                   break\n                    if line.strip() == '#pragma once':\n\
-    \                        continue\n                    print(line.rstrip())\n\
+    \            with path.open('r', encoding='utf-8') as fo:\n                while\
+    \ True:\n                    line = fo.readline()\n                    if line\
+    \ == '':\n                        break\n                    if line.strip() ==\
+    \ '#pragma once':\n                        continue\n                    print(line.rstrip())\n\
     \            print(r'\\end{minted}')\n        elif path.is_dir():\n          \
     \  for child in path.iterdir():\n                dfs_dir(child, dep + 1)\n\n \
     \   dfs_dir(Path(argv[1]))\n\n    print(r'''\n\\end{document}\n          ''')\n\

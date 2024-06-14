@@ -20,23 +20,29 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "#pragma once\n#include \"lib/internal.hpp\"\n\nstd::vector<int> prefix_function(const\
-    \ std::string &s)\n{\n  int n = s.size();\n  std::vector<int> p(n + 1);\n  p[0]\
-    \ = p[1] = 0;\n  for (int i = 1; i < n; i++) {\n    int t = p[i];\n    while (t\
-    \ > 0 && s[t] != s[i]) t = p[t];\n    if (s[t] == s[i]) t++;\n    p[i + 1] = t;\n\
-    \  }\n  return p;\n}\n"
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n#include <array>\n\ntemplate<typename\
+    \ S, typename F, int id = 0>\nclass DynamicSegmentTree\n{\npublic:\n    const\
+    \ S e;\n    const F op;\n\n    struct Node\n    {\n        S val;\n        u32\
+    \ ls, rs;\n        Node(S v): val(v), ls(), rs() { }\n    };\n\n    u32 n, root;\n\
+    \    static vec<Node> t;\n\n    DynamicSegmentTree(u32 _n, const S &_e, const\
+    \ F &_op): n(_n), e(_e), op(_op) { }\n\n    void update(u32 x) { t[x].val = op(t[t[x].ls].val,\
+    \ t[t[x].rs].val); }\n\n    static u32 new_node() \n    {\n        t.emplace_back(e);\n\
+    \        return t.size() - 1u;\n    }\n\n    void set(u32 x, const S &v)\n   \
+    \ {\n        if (x == 0) x = new_node();\n    }\n\nprivate:\n\n    void set_rec(const\
+    \ S &v, u32 l, u32 r, u32 x)\n    {\n        if (x == 0) x = new_node();\n   \
+    \ }\n};"
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
-  path: lib/str/kmp.hpp
+  path: lib/ds/dyn_segtree.hpp
   requiredBy: []
   timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: lib/str/kmp.hpp
+documentation_of: lib/ds/dyn_segtree.hpp
 layout: document
 redirect_from:
-- /library/lib/str/kmp.hpp
-- /library/lib/str/kmp.hpp.html
-title: lib/str/kmp.hpp
+- /library/lib/ds/dyn_segtree.hpp
+- /library/lib/ds/dyn_segtree.hpp.html
+title: lib/ds/dyn_segtree.hpp
 ---

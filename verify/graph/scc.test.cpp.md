@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: verify/graph/scc.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
+  timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/graph/scc.test.cpp

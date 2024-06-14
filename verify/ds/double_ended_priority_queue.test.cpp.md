@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/depque.hpp
     title: Double Ended Priority Queue
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/double_ended_priority_queue
@@ -43,8 +43,8 @@ data:
   isVerificationFile: true
   path: verify/ds/double_ended_priority_queue.test.cpp
   requiredBy: []
-  timestamp: '2024-06-13 09:43:47+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-14 09:23:51+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/double_ended_priority_queue.test.cpp
 layout: document

@@ -3,13 +3,16 @@ data:
   libraryCategories:
   - name: lib/ds
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/depque.hpp
       title: Double Ended Priority Queue
+    - icon: ':warning:'
+      path: lib/ds/dyn_segtree.hpp
+      title: lib/ds/dyn_segtree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/ds/lct.hpp
       title: Link Cut Tree
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: lib/ds/rbst.hpp
       title: Random Binary Search Tree
     - icon: ':heavy_check_mark:'
@@ -18,6 +21,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/ds/splay.hpp
       title: Splay Tree
+    - icon: ':warning:'
+      path: lib/ds/zip_trie.hpp
+      title: lib/ds/zip_trie.hpp
   - name: lib/graph
     pages:
     - icon: ':warning:'
@@ -42,7 +48,7 @@ data:
     - icon: ':warning:'
       path: lib/math/lucas.hpp
       title: Lucas Theorem
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: lib/math/static_modint.hpp
       title: Static Modint
     - icon: ':warning:'
@@ -59,6 +65,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/misc/mo.hpp
       title: Mo's Algorithm
+    - icon: ':heavy_check_mark:'
+      path: lib/misc/monoid.hpp
+      title: lib/misc/monoid.hpp
   - name: lib/str
     pages:
     - icon: ':warning:'
@@ -78,10 +87,10 @@ data:
   verificationCategories:
   - name: verify/ds
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/double_ended_priority_queue.test.cpp
       title: verify/ds/double_ended_priority_queue.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     - icon: ':heavy_check_mark:'
