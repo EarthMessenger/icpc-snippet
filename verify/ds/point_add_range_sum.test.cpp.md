@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/misc/monoid.hpp
     title: lib/misc/monoid.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
@@ -49,8 +49,8 @@ data:
   isVerificationFile: true
   path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 09:23:51+08:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-14 11:47:20+08:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/ds/point_add_range_sum.test.cpp
 layout: document

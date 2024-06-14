@@ -14,7 +14,7 @@ data:
   - icon: ':x:'
     path: lib/ds/rbst.hpp
     title: Random Binary Search Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
   - icon: ':heavy_check_mark:'
@@ -41,10 +41,10 @@ data:
   - icon: ':warning:'
     path: lib/math/utility.hpp
     title: Usual Math Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: lib/misc/monoid.hpp
     title: lib/misc/monoid.hpp
   - icon: ':warning:'
@@ -63,10 +63,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: verify/ds/point_set_range_composite.test.cpp
     title: verify/ds/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'

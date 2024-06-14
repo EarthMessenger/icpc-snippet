@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: lib/math/static_modint.hpp
     title: Static Modint
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
   _extendedRequiredBy: []
