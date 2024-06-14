@@ -73,6 +73,9 @@ data:
     - icon: ':warning:'
       path: lib/str/kmp.hpp
       title: lib/str/kmp.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/str/sa.hpp
+      title: lib/str/sa.hpp
   - name: tools
     pages:
     - icon: ':warning:'
@@ -127,5 +130,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/math/subset_convolution.test.cpp
       title: verify/math/subset_convolution.test.cpp
+  - name: verify/str
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/str/longest_common_substring.test.cpp
+      title: verify/str/longest_common_substring.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/str/suffixarray.test.cpp
+      title: verify/str/suffixarray.test.cpp
 layout: toppage
 ---
