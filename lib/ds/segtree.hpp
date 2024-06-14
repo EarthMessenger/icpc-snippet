@@ -1,7 +1,7 @@
 #pragma once
 #include "lib/internal.hpp"
 #include "lib/misc/bitop.hpp"
-#include "lib/misc/monoid.hpp"
+#include "lib/monoid/monoid_trait.hpp"
 /**
  * @brief Segment Tree
  *

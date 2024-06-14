@@ -46,7 +46,7 @@ class Expander:
         self.included.add(lib_file_path)
         logger.info('include: {}'.format(lib_file_path.name))
 
-        lib_source = open(str(lib_file_path)).read()
+        lib_source = open(str(lib_file_path), encoding='utf-8').read()
 
         result = []  # type: List[str]
         for line in lib_source.splitlines():
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     lib_names = opts.libname
 
     expander = Expander(lib_paths, lib_names[-1])
-    output = expander.expand(open(opts.source).read())
+    output = expander.expand(open(opts.source, encoding='utf-8').read())
     while len(lib_names) > 1:
         lib_names.pop()
         expander = Expander(lib_paths, lib_names[-1])
@@ -115,8 +115,8 @@ if __name__ == "__main__":
         print(output)
     else:
         if opts.inplace:
-            with open(opts.source, 'w') as f:
+            with open(opts.source, 'w', encoding='utf-8') as f:
                 f.write(output)
         else:
-            with open(opts.output, 'w') as f:
+            with open(opts.output, 'w', encoding='utf-8') as f:
                 f.write(output)

@@ -1,6 +1,6 @@
 #include "lib/ds/segtree.hpp"
 #include "lib/math/static_modint.hpp"
-#include <functional>
+#include "lib/monoid/monoid_trait.hpp"
 
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 

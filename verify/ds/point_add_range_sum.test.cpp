@@ -1,8 +1,7 @@
 #include "lib/ds/segtree.hpp"
-
+#include "lib/monoid/monoid_add.hpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 
-#include <functional>
 
 signed main()
 {
@@ -12,7 +11,7 @@ signed main()
     cin >> n >> q;
     vec<i64> a(n);
     for (auto &i: a) cin >> i;
-    SegmentTree<mono::AddMonoid<i64>> s(n, [&a](u32 i){return a[i];});
+    SegmentTree<mono::MonoidAdd<i64>> s(n, [&a](u32 i){return a[i];});
     long long op, x, y;
     while (q--) {
         cin >> op >> x >> y;
