@@ -8,6 +8,12 @@ from pygments.lexers import get_lexer_for_filename
 
 EXCLUDED_FILES = [
     'splay.hpp',
+    'dyn_segtree.hpp',
+    'depque.hpp',
+    'lucas.hpp',
+    'static_modint.hpp',
+    'custom_hash.hpp',
+    'monoid',
 ]
 
 def main():
@@ -17,6 +23,7 @@ def main():
 \usepackage{ctex}
 \usepackage{geometry}
 \usepackage{minted}
+\usepackage{hyperref}
 
 \title{模板}
 \author{emsger, robinyqc}
