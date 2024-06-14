@@ -14,8 +14,8 @@ data:
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
   - icon: ':x:'
-    path: lib/misc/monoid.hpp
-    title: lib/misc/monoid.hpp
+    path: lib/monoid/monoid_trait.hpp
+    title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -38,7 +38,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
   code: "#include \"lib/ds/segtree.hpp\"\n#include \"lib/math/static_modint.hpp\"\n\
-    #include <functional>\n\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
+    #include \"lib/monoid/monoid_trait.hpp\"\n\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n\nstruct LinearFunc\n{\n    using mint = static_modint<998244353>;\n    mint\
     \ k, b;\n    LinearFunc(mint _k = 1, mint _b = 0): k(_k), b(_b) { }\n    LinearFunc\
     \ operator*(const LinearFunc &t) const \n    { \n        return {k * t.k, b *\
@@ -54,12 +54,12 @@ data:
   - lib/ds/segtree.hpp
   - lib/internal.hpp
   - lib/misc/bitop.hpp
-  - lib/misc/monoid.hpp
+  - lib/monoid/monoid_trait.hpp
   - lib/math/static_modint.hpp
   isVerificationFile: true
   path: verify/ds/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 11:47:20+08:00'
+  timestamp: '2024-06-14 19:20:52+08:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/ds/point_set_range_composite.test.cpp

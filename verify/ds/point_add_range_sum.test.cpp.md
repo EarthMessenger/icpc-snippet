@@ -11,8 +11,11 @@ data:
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
   - icon: ':x:'
-    path: lib/misc/monoid.hpp
-    title: lib/misc/monoid.hpp
+    path: lib/monoid/monoid_add.hpp
+    title: lib/monoid/monoid_add.hpp
+  - icon: ':x:'
+    path: lib/monoid/monoid_trait.hpp
+    title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -34,10 +37,11 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "#include \"lib/ds/segtree.hpp\"\n\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\
-    \n\n#include <functional>\n\nsigned main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false);\
-    \ cin.tie(0), cout.tie(0);\n    u32 n, q;\n    cin >> n >> q;\n    vec<i64> a(n);\n\
-    \    for (auto &i: a) cin >> i;\n    SegmentTree<mono::AddMonoid<i64>> s(n, [&a](u32\
+  code: "#include \"lib/ds/segtree.hpp\"\n#include \"lib/monoid/monoid_add.hpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\n\n\
+    signed main()\n{\n    using namespace std;\n    ios::sync_with_stdio(false); cin.tie(0),\
+    \ cout.tie(0);\n    u32 n, q;\n    cin >> n >> q;\n    vec<i64> a(n);\n    for\
+    \ (auto &i: a) cin >> i;\n    SegmentTree<mono::MonoidAdd<i64>> s(n, [&a](u32\
     \ i){return a[i];});\n    long long op, x, y;\n    while (q--) {\n        cin\
     \ >> op >> x >> y;\n        if (op == 0) s.set(x, a[x] += y);\n        else cout\
     \ << s.prod(x, y) << '\\n';\n    }\n}"
@@ -45,11 +49,12 @@ data:
   - lib/ds/segtree.hpp
   - lib/internal.hpp
   - lib/misc/bitop.hpp
-  - lib/misc/monoid.hpp
+  - lib/monoid/monoid_trait.hpp
+  - lib/monoid/monoid_add.hpp
   isVerificationFile: true
   path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 11:47:20+08:00'
+  timestamp: '2024-06-14 19:20:52+08:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: verify/ds/point_add_range_sum.test.cpp

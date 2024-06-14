@@ -4,20 +4,11 @@ data:
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: lib/ds/segtree.hpp
-    title: Segment Tree
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/ds/point_add_range_sum.test.cpp
-    title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':x:'
-    path: verify/ds/point_set_range_composite.test.cpp
-    title: verify/ds/point_set_range_composite.test.cpp
-  _isVerificationFailed: true
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -76,13 +67,10 @@ data:
   - lib/internal.hpp
   isVerificationFile: false
   path: lib/misc/monoid.hpp
-  requiredBy:
-  - lib/ds/segtree.hpp
+  requiredBy: []
   timestamp: '2024-06-14 11:47:20+08:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/ds/point_add_range_sum.test.cpp
-  - verify/ds/point_set_range_composite.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: lib/misc/monoid.hpp
 layout: document
 redirect_from:

@@ -44,9 +44,18 @@ data:
   - icon: ':question:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':x:'
+  - icon: ':warning:'
     path: lib/misc/monoid.hpp
     title: lib/misc/monoid.hpp
+  - icon: ':x:'
+    path: lib/monoid/monoid_add.hpp
+    title: lib/monoid/monoid_add.hpp
+  - icon: ':warning:'
+    path: lib/monoid/monoid_linear_function.hpp
+    title: lib/monoid/monoid_linear_function.hpp
+  - icon: ':x:'
+    path: lib/monoid/monoid_trait.hpp
+    title: lib/monoid/monoid_trait.hpp
   - icon: ':warning:'
     path: lib/str/kmp.hpp
     title: lib/str/kmp.hpp
@@ -134,6 +143,9 @@ data:
   - lib/math/dynamic_modint.hpp
   - lib/math/lucas.hpp
   - lib/math/static_modint.hpp
+  - lib/monoid/monoid_trait.hpp
+  - lib/monoid/monoid_add.hpp
+  - lib/monoid/monoid_linear_function.hpp
   - lib/str/kmp.hpp
   timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_SOME_WA

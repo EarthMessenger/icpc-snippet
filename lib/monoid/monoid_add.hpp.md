@@ -4,9 +4,6 @@ data:
   - icon: ':question:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
-    path: lib/misc/bitop.hpp
-    title: Bit Manipulation
   - icon: ':x:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
@@ -15,14 +12,10 @@ data:
   - icon: ':x:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  - icon: ':x:'
-    path: verify/ds/point_set_range_composite.test.cpp
-    title: verify/ds/point_set_range_composite.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
   attributes:
-    document_title: Segment Tree
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -33,36 +26,33 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "#pragma once\n#include \"lib/internal.hpp\"\n#include \"lib/misc/bitop.hpp\"\
-    \n#include \"lib/monoid/monoid_trait.hpp\"\n/**\n * @brief Segment Tree\n *\n\
-    \ * @tparam M Monoid\n */\ntemplate <typename M> struct SegmentTree\n{\n  using\
-    \ S = typename M::S;\n\n  u32 m;\n  vec<S> t;\n\n  SegmentTree() {}\n  SegmentTree(u32\
-    \ n): m(btc(n)), t(m * 2, M::un()) { ; }\n  template <typename I>\n  SegmentTree(u32\
-    \ n, const I &f): m(btc(n)), t(m * 2, M::un())\n  {\n    for (u32 i = 0; i < n;\
-    \ i++) t[i + m] = f(i);\n    for (u32 i = m - 1; ~i; i--) t[i] = M::op(t[i * 2],\
-    \ t[i * 2 + 1]);\n  }\n\n  void set(u32 p, const S &v)\n  {\n    t[p += m] = v;\n\
-    \    for (p /= 2; p; p /= 2) t[p] = M::op(t[p * 2], t[p * 2 + 1]);\n  }\n\n  S\
-    \ get(u32 p) { return t[p + m]; }\n  S prod(u32 l, u32 r)\n  {\n    S lans = M::un(),\
-    \ rans = M::un();\n    for (l += m, r += m; l < r; l /= 2, r /= 2) {\n      if\
-    \ (l & 1) lans = M::op(lans, t[l++]);\n      if (r & 1) rans = M::op(t[--r], rans);\n\
-    \    }\n    return M::op(lans, rans);\n  }\n  S all_prod() { return t[1]; }\n\
-    };"
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n#include \"monoid_trait.hpp\"\
+    \n\nnamespace mono {\n\ntemplate <typename T>\nstruct MonoidAdd : MonoidTrait<T,\
+    \ ftf<std::plus<T>, const T, const T>>\n{};\n\ntemplate <typename T1, typename\
+    \ T2> struct MonoidAdd<std::pair<T1, T2>>\n{\n  using S = std::pair<T1, T2>;\n\
+    \  static constexpr S op(const S &x, const S &y)\n  {\n    return S{x.first +\
+    \ y.first, x.second + y.second};\n  }\n  static constexpr const S un() { return\
+    \ S{T1(), T2()}; }\n  static constexpr S iv(const S &x) { return S{-x.first, -x.second};\
+    \ }\n  static constexpr S pw(const S &x, u64 y)\n  {\n    return S{x.first * y,\
+    \ x.second * y};\n  }\n  static constexpr bool cm = false;\n};\n\ntemplate <typename\
+    \ T, auto None = cintf<-1ll>> struct MonoidAssign\n{\n  using S = T;\n  static\
+    \ constexpr S s_none = S(None);\n  static constexpr S op(const S &x, const S &y)\
+    \ { return y == s_none ? x : y; }\n  static constexpr const S un() { return s_none;\
+    \ }\n  static constexpr bool cm = false;\n};\n\n} // namespace mono"
   dependsOn:
   - lib/internal.hpp
-  - lib/misc/bitop.hpp
   - lib/monoid/monoid_trait.hpp
   isVerificationFile: false
-  path: lib/ds/segtree.hpp
+  path: lib/monoid/monoid_add.hpp
   requiredBy: []
   timestamp: '2024-06-14 19:20:52+08:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp
-  - verify/ds/point_set_range_composite.test.cpp
-documentation_of: lib/ds/segtree.hpp
+documentation_of: lib/monoid/monoid_add.hpp
 layout: document
 redirect_from:
-- /library/lib/ds/segtree.hpp
-- /library/lib/ds/segtree.hpp.html
-title: Segment Tree
+- /library/lib/monoid/monoid_add.hpp
+- /library/lib/monoid/monoid_add.hpp.html
+title: lib/monoid/monoid_add.hpp
 ---

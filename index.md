@@ -65,9 +65,20 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/misc/mo.hpp
       title: Mo's Algorithm
-    - icon: ':x:'
+    - icon: ':warning:'
       path: lib/misc/monoid.hpp
       title: lib/misc/monoid.hpp
+  - name: lib/monoid
+    pages:
+    - icon: ':x:'
+      path: lib/monoid/monoid_add.hpp
+      title: lib/monoid/monoid_add.hpp
+    - icon: ':warning:'
+      path: lib/monoid/monoid_linear_function.hpp
+      title: lib/monoid/monoid_linear_function.hpp
+    - icon: ':x:'
+      path: lib/monoid/monoid_trait.hpp
+      title: lib/monoid/monoid_trait.hpp
   - name: lib/str
     pages:
     - icon: ':warning:'

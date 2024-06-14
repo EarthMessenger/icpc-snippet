@@ -30,11 +30,11 @@ data:
     \n    def expand_lib(self, lib_file_path: Path) -> List[str]:\n        if lib_file_path\
     \ in self.included:\n            logger.info('already included: {}'.format(lib_file_path.name))\n\
     \            return []\n        self.included.add(lib_file_path)\n        logger.info('include:\
-    \ {}'.format(lib_file_path.name))\n\n        lib_source = open(str(lib_file_path)).read()\n\
-    \n        result = []  # type: List[str]\n        for line in lib_source.splitlines():\n\
-    \            if self.is_ignored_line(line):\n                continue\n\n    \
-    \        m = self.lib_include.match(line)\n            if m:\n               \
-    \ name = m.group(1)\n                result.extend(self.expand_lib(self.find_lib(name)))\n\
+    \ {}'.format(lib_file_path.name))\n\n        lib_source = open(str(lib_file_path),\
+    \ encoding='utf-8').read()\n\n        result = []  # type: List[str]\n       \
+    \ for line in lib_source.splitlines():\n            if self.is_ignored_line(line):\n\
+    \                continue\n\n            m = self.lib_include.match(line)\n  \
+    \          if m:\n                name = m.group(1)\n                result.extend(self.expand_lib(self.find_lib(name)))\n\
     \                continue\n\n            result.append(line)\n        return result\n\
     \n    def expand(self, source: str) -> str:\n        self.included = set()\n \
     \       result = []  # type: List[str]\n        for line in source.splitlines():\n\
@@ -56,12 +56,13 @@ data:
     \     lib_paths.append(Path(p))\n    if 'CPLUS_INCLUDE_PATH' in environ:\n   \
     \     lib_paths.extend(\n            map(Path, filter(None, environ['CPLUS_INCLUDE_PATH'].split(pathsep))))\n\
     \    lib_paths.append(Path.cwd())\n    lib_names = opts.libname\n\n    expander\
-    \ = Expander(lib_paths, lib_names[-1])\n    output = expander.expand(open(opts.source).read())\n\
-    \    while len(lib_names) > 1:\n        lib_names.pop()\n        expander = Expander(lib_paths,\
-    \ lib_names[-1])\n        output = expander.expand(output)\n\n    if opts.console:\n\
-    \        print(output)\n    else:\n        if opts.inplace:\n            with\
-    \ open(opts.source, 'w') as f:\n                f.write(output)\n        else:\n\
-    \            with open(opts.output, 'w') as f:\n                f.write(output)\n"
+    \ = Expander(lib_paths, lib_names[-1])\n    output = expander.expand(open(opts.source,\
+    \ encoding='utf-8').read())\n    while len(lib_names) > 1:\n        lib_names.pop()\n\
+    \        expander = Expander(lib_paths, lib_names[-1])\n        output = expander.expand(output)\n\
+    \n    if opts.console:\n        print(output)\n    else:\n        if opts.inplace:\n\
+    \            with open(opts.source, 'w', encoding='utf-8') as f:\n           \
+    \     f.write(output)\n        else:\n            with open(opts.output, 'w',\
+    \ encoding='utf-8') as f:\n                f.write(output)\n"
   dependsOn: []
   isVerificationFile: false
   path: tools/libexp.py

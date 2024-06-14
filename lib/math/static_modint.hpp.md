@@ -59,7 +59,11 @@ data:
     \ a.inv(); }\n\n  friend mint operator+(mint a, mint b) { return a += b; }\n \
     \ friend mint operator-(mint a, mint b) { return a -= b; }\n  friend mint operator*(mint\
     \ a, mint b) { return a *= b; }\n  friend mint operator/(mint a, mint b) { return\
-    \ a /= b; }\n\n  mint pow(u64 n) const\n  {\n    mint res = 1, base = *this;\n\
+    \ a /= b; }\n  friend bool operator==(mint a, mint b) { return a.val() == b.val();\
+    \ }\n  friend bool operator!=(mint a, mint b) { return a.val() != b.val(); }\n\
+    \  friend std::istream operator>>(std::istream &in, mint x) { return in >> x.v;\
+    \ }\n  friend std::ostream operator>>(std::ostream &out, mint x)\n  {\n    return\
+    \ out << x.v;\n  }\n\n  mint pow(u64 n) const\n  {\n    mint res = 1, base = *this;\n\
     \    while (n) {\n      if (n & 1) res *= base;\n      base *= base;\n      n\
     \ >>= 1;\n    }\n    return res;\n  }\n\n  mint inv() const { return pow(UM -\
     \ 2); }\n};\n"
@@ -68,7 +72,7 @@ data:
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-14 09:23:51+08:00'
+  timestamp: '2024-06-14 19:20:52+08:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
