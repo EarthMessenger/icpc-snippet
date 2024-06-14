@@ -93,6 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/str/sa.hpp
       title: lib/str/sa.hpp
+    - icon: ':heavy_check_mark:'
+      path: lib/str/z.hpp
+      title: lib/str/z.hpp
   - name: tools
     pages:
     - icon: ':warning:'
@@ -161,5 +164,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/str/suffixarray.test.cpp
       title: verify/str/suffixarray.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/str/zalgorithm.test.cpp
+      title: verify/str/zalgorithm.test.cpp
 layout: toppage
 ---
