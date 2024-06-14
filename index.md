@@ -93,6 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: lib/str/sa.hpp
       title: lib/str/sa.hpp
+    - icon: ':warning:'
+      path: lib/str/sam.hpp
+      title: lib/str/sam.hpp
     - icon: ':heavy_check_mark:'
       path: lib/str/z.hpp
       title: lib/str/z.hpp

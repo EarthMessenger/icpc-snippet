@@ -14,8 +14,10 @@ data:
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "#!/usr/bin/python\n\nfrom sys import argv\nfrom os import chdir\nfrom pathlib\
     \ import Path\nfrom subprocess import run\nfrom pygments.lexers import get_lexer_for_filename\n\
-    \nEXCLUDED_FILES = [\n    'splay.hpp',\n]\n\ndef main():\n    print(r'''\n\\documentclass{article}\n\
-    \n\\usepackage{ctex}\n\\usepackage{geometry}\n\\usepackage{minted}\n\n\\title{\u6A21\
+    \nEXCLUDED_FILES = [\n    'splay.hpp',\n    'dyn_segtree.hpp',\n    'depque.hpp',\n\
+    \    'lucas.hpp',\n    'static_modint.hpp',\n    'custom_hash.hpp',\n    'monoid',\n\
+    ]\n\ndef main():\n    print(r'''\n\\documentclass{article}\n\n\\usepackage{ctex}\n\
+    \\usepackage{geometry}\n\\usepackage{minted}\n\\usepackage{hyperref}\n\n\\title{\u6A21\
     \u677F}\n\\author{emsger, robinyqc}\n\\date{\\today}\n\\geometry{a4paper, scale=0.8}\n\
     \\usemintedstyle{bw}\n\n\\begin{document}\n\n\\maketitle\n\\tableofcontents\n\\\
     clearpage\n    ''')\n\n    def dfs_dir(path, dep = -1):\n        if path.name\
