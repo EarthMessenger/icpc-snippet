@@ -5,8 +5,8 @@
 
 template <typename M> struct LazySegtree
 {
-  using GS = typename M::GS;
-  using GA = typename M::GA;
+  using MS = typename M::MS;
+  using MA = typename M::MA;
   using S = typename M::S;
   using A = typename M::A;
 
@@ -15,31 +15,31 @@ template <typename M> struct LazySegtree
   std::vector<S> s;
   std::vector<A> t;
 
-  void update(u32 p) { s[p] = GS::op(s[p * 2], s[p * 2 + 1]); }
+  void update(u32 p) { s[p] = MS::op(s[p * 2], s[p * 2 + 1]); }
 
   void apply_at(u32 p, const A &a)
   {
     u32 len = size >> lg2(p);
     s[p] = M::act(a, s[p], len);
-    if (p < size) t[p] = GA::op(t[p], a);
+    if (p < size) t[p] = MA::op(t[p], a);
   }
 
   void push(u32 p)
   {
     apply_at(p * 2, t[p]);
     apply_at(p * 2 + 1, t[p]);
-    t[p] = GA::un();
+    t[p] = MA::un();
   }
 
   template <typename F>
   LazySegtree(u32 n, F &&f)
-      : n(n), size(btc(n)), log(ctz(size)), s(size * 2, GS::un()), t(size, GA::un())
+      : n(n), size(btc(n)), log(ctz(size)), s(size * 2, MS::un()), t(size, MA::un())
   {
     for (u32 i = 0; i < n; i++) s[i + size] = f(i);
     for (u32 i = size; i--;) update(i);
   }
 
-  LazySegtree(u32 n) : LazySegtree(n, [](u32) { return GS::un(); }) {}
+  LazySegtree(u32 n) : LazySegtree(n, [](u32) { return MS::un(); }) {}
   LazySegtree(u32 n, const std::vector<S> &a)
       : LazySegtree(n, [&](u32 i) { return a[i]; })
   {
@@ -55,15 +55,15 @@ template <typename M> struct LazySegtree
       if (((r >> i) << i) != l) push((r - 1) >> i);
     }
 
-    auto ls = GS::unit(), rs = GS::unit();
+    auto ls = MS::unit(), rs = MS::unit();
     while (l < r) {
-      if (l & 1) ls = GS::op(ls, s[l++]);
-      if (r & 1) rs = GS::op(s[--r], rs);
+      if (l & 1) ls = MS::op(ls, s[l++]);
+      if (r & 1) rs = MS::op(s[--r], rs);
       l >>= 1;
       r >>= 1;
     }
 
-    return GS::op(ls, rs);
+    return MS::op(ls, rs);
   }
 
   S prod_all() const { return s[1]; }

@@ -1,29 +1,31 @@
 #pragma once
 #include "lib/internal.hpp"
+#include "lib/monoid/monoid_trait.hpp"
 
 /**
  * @brief Link Cut Tree
  *
- * @tparam T typename
+ * @tparam BM Bidir Monoid
  */
-template <typename T> struct LinkCutTree
+template <typename BM> struct LinkCutTree
 {
+  using S = typename BM::S;
   struct Splay
   {
     using ptr = Splay *;
 
     u32 size;
     bool reversed;
-    T val, prod;
+    S val, prod;
     ptr fa, ch[2];
 
     Splay()
-        : size(0), reversed(false), val(), prod(), fa(nullptr),
+        : size(0), reversed(false), val(BM::un()), prod(BM::un()), fa(nullptr),
           ch{nullptr, nullptr}
     {
     }
-    Splay(const T &val)
-        : size(1), reversed(false), val(val), prod(val), fa(nullptr),
+    Splay(const S &_val)
+        : size(1), reversed(false), val(_val), prod(val), fa(nullptr),
           ch{nullptr, nullptr}
     {
     }
@@ -35,7 +37,7 @@ template <typename T> struct LinkCutTree
       for (auto c : ch) {
         if (!c) continue;
         size += c->size;
-        prod = prod * c->prod;
+        prod = BM::op(prod, c->prod);
       }
     }
 
@@ -43,9 +45,10 @@ template <typename T> struct LinkCutTree
     {
       reversed = !reversed;
       std::swap(ch[0], ch[1]);
+      prod = BM::ts(prod);
     }
 
-    void set(const T &v)
+    void set(const S &v)
     {
       val = v;
       update();
@@ -152,7 +155,7 @@ template <typename T> struct LinkCutTree
     yp->ch[0] = xp->fa = nullptr;
   }
 
-  T prod(int x, int y)
+  S prod(int x, int y)
   {
     auto xp = ptrs[x], yp = ptrs[y];
     xp->make_root();
@@ -160,19 +163,19 @@ template <typename T> struct LinkCutTree
     return yp->prod;
   }
 
-  void set(int x, const T &v)
+  void set(int x, const S &v)
   {
     auto xp = ptrs[x];
     xp->splay();
     xp->set(v);
   }
 
-  void multiply(int x, const T &v)
+  void multiply(int x, const S &v)
   {
     auto xp = ptrs[x];
     xp->splay();
-    xp->set(xp->val * v);
+    xp->set(BM::op(xp->val, v));
   }
 
-  T get(int x) { return ptrs[x]->val; }
+  S get(int x) { return ptrs[x]->val; }
 };

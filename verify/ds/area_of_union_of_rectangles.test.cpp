@@ -8,6 +8,7 @@ constexpr int INF = std::numeric_limits<int>::max() / 2;
 
 struct MinCnt
 {
+  using MS = MinCnt;
   struct S
   {
     int min, cnt;
@@ -28,6 +29,7 @@ struct MinCnt
 
 struct Add
 {
+  using MS = Add;
   using S = int;
 
   static S op(S x, S y) { return x + y; }
@@ -36,10 +38,10 @@ struct Add
 
 struct Monoid
 {
-  using GS = MinCnt;
-  using GA = Add;
-  using S = GS::S;
-  using A = GA::S;
+  using MS = MinCnt;
+  using MA = Add;
+  using S = MS::S;
+  using A = MA::S;
   static S act(A a, S s, u32)
   {
     return {s.min + a, s.cnt};

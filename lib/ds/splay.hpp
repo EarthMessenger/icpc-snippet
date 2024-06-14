@@ -4,11 +4,13 @@
 /**
  * @brief Splay Tree
  *
- * @tparam S
- * @tparam T
+ * @tparam BAM bidirected_acted_monoid
  */
-template <typename S, typename T> struct Splay
+template <typename BAM> struct Splay
 {
+  using S = typename BAM::S;
+  using A = typename BAM::A;
+  using AP = typename BAM::MA;
   struct node_t
   {
     bool reversed;
@@ -16,19 +18,19 @@ template <typename S, typename T> struct Splay
 
     S prod;
     S m;
-    T tag;
+    A tag;
 
     using pnode_t = node_t *;
     pnode_t fa;
     pnode_t ch[2];
 
     node_t()
-        : reversed(false), size(0), prod(), m(), tag(), fa(nullptr),
+        : reversed(false), size(0), prod(BAM::un()), m(BAM::un()), tag(AP::un()), fa(nullptr),
           ch{nullptr, nullptr}
     {
     }
     node_t(S m)
-        : reversed(false), size(1), prod(m), m(m), tag(), fa(nullptr),
+        : reversed(false), size(1), prod(m), m(m), tag(AP::un()), fa(nullptr),
           ch{nullptr, nullptr}
     {
     }
@@ -40,7 +42,7 @@ template <typename S, typename T> struct Splay
       for (auto c : ch) {
         if (!c) continue;
         size += c->size;
-        prod = prod * c->prod;
+        prod = BAM::op(prod, c->prod);
       }
     }
 
@@ -48,13 +50,14 @@ template <typename S, typename T> struct Splay
     {
       reversed = !reversed;
       std::swap(ch[0], ch[1]);
+      prod = BAM::ts(prod);
     }
 
-    void apply(const T &t)
+    void apply(const A &t)
     {
-      prod = t(prod, size);
-      m = t(m, 1);
-      tag = tag * t;
+      prod = BAM::act(t, prod, size);
+      m = BAM::act(t, m, 1);
+      tag = AP::op(tag, t);
     }
 
     void push()
@@ -62,10 +65,10 @@ template <typename S, typename T> struct Splay
       for (auto c : ch) {
         if (!c) continue;
         if (reversed) c->reverse();
-        if (!tag.is_unit()) c->apply(tag);
+        if (tag != AP::un()) c->apply(tag);
       }
       reversed = false;
-      tag = T();
+      tag = AP::un();
     }
 
     u32 which_child() const { return this->fa->ch[1] == this; }
@@ -209,7 +212,7 @@ template <typename S, typename T> struct Splay
     root = join3(lp, mp, rp);
   }
 
-  void apply(u32 l, u32 r, T m)
+  void apply(u32 l, u32 r, A m)
   {
     auto [lp, mp, rp] = split3(l, r);
     if (mp) mp->apply(m);

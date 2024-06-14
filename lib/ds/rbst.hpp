@@ -4,27 +4,29 @@
 /**
  * @brief Random Binary Search Tree
  *
- * @tparam AM acted_monoid
+ * @tparam BAM bidirected_acted_monoid
  */
-template <typename AM> struct RBST
+template <typename BAM> struct RBST
 {
-  using S = typename AM::S;
+  using S = typename BAM::S;
+  using A = typename BAM::A;
   struct node_t
   {
     bool reverse;
-    T tag;
+    A tag;
     u32 size;
     S prod;
     S m;
     node_t *lc, *rc;
 
     node_t()
-        : reverse(false), tag(), size(0), prod(), m(), lc(nullptr), rc(nullptr)
+        : reverse(false), tag(BAM::MA::un()), size(0), prod(BAM::un()),
+          m(BAM::un()), lc(nullptr), rc(nullptr)
     {
     }
-    node_t(S m)
-        : reverse(false), tag(), size(1), prod(m), m(m), lc(nullptr),
-          rc(nullptr)
+    node_t(S _m)
+        : reverse(false), tag(BAM::MA::un()), size(1), prod(_m), m(_m),
+          lc(nullptr), rc(nullptr)
     {
     }
 
@@ -34,11 +36,11 @@ template <typename AM> struct RBST
       prod = m;
       if (lc) {
         size = size + lc->size;
-        prod = prod * lc->prod;
+        prod = BAM::op(prod, lc->prod);
       }
       if (rc) {
         size = size + rc->size;
-        prod = prod * rc->prod;
+        prod = BAM::op(prod, rc->prod);
       }
     }
 
@@ -46,13 +48,14 @@ template <typename AM> struct RBST
     {
       reverse = !reverse;
       std::swap(lc, rc);
+      prod = BAM::ts(prod);
     }
 
-    void apply(const T &t)
+    void apply(const A &t)
     {
-      prod = t(prod, size);
-      m = t(m, 1);
-      tag = tag * t;
+      prod = BAM::act(t, prod, size);
+      m = BAM::act(t, m, 1);
+      tag = BAM::MA::op(tag, t);
     }
 
     void push()
@@ -62,10 +65,10 @@ template <typename AM> struct RBST
         if (rc) rc->toggle_reverse();
         reverse = false;
       }
-      if (!tag.is_unit()) {
+      if (tag != BAM::MA::un()) {
         if (lc) lc->apply(tag);
         if (rc) rc->apply(tag);
-        tag = T{};
+        tag = BAM::MA::un();
       }
     }
   };
@@ -165,7 +168,7 @@ template <typename AM> struct RBST
     root = join3(lp, mp, rp);
   }
 
-  void apply(u32 l, u32 r, const T &m)
+  void apply(u32 l, u32 r, const A &m)
   {
     auto [lp, mrp] = split(l, root);
     auto [mp, rp] = split(r - l, mrp);
@@ -183,17 +186,17 @@ template <typename AM> struct RBST
       p->push();
 
       u32 mid = ll + (p->lc ? p->lc->size : 0);
-      S res;
-      if (l < mid) res = res * prod(l, r, ll, mid, p->lc);
-      if (l <= mid && mid < r) res = res * p->m;
-      if (mid + 1 < r) res = res * prod(l, r, mid + 1, rr, p->rc);
+      S res = BAM::un();
+      if (l < mid) res = BAM::op(res, prod(l, r, ll, mid, p->lc));
+      if (l <= mid && mid < r) res = BAM::op(res, p->m);
+      if (mid + 1 < r) res = BAM::op(res, prod(l, r, mid + 1, rr, p->rc));
       return res;
     }
   }
 
   S prod(u32 l, u32 r) const
   {
-    if (root == nullptr) return {};
+    if (root == nullptr) return BAM::un();
     return prod(l, r, 0, root->size, root);
   }
 };

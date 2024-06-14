@@ -2,7 +2,6 @@
 #include "lib/monoid/monoid_add.hpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 
-
 signed main()
 {
     using namespace std;

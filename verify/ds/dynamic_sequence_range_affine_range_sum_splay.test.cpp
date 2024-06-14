@@ -15,36 +15,15 @@ using u128 = __uint128_t;
 
 #include "lib/ds/splay.hpp"
 #include "lib/math/static_modint.hpp"
+#include "lib/monoid/monoid_add.hpp"
+#include "lib/monoid/monoid_linear_function.hpp"
 
 using mint = static_modint<998'244'353>;
 
-struct SumMonoid
+mint operator*(const std::pair<mint, mint> &a, const mint &b)
 {
-  mint sum;
-  SumMonoid() : sum(0) {}
-  SumMonoid(mint sum) : sum(sum) {}
-
-  SumMonoid operator*(const SumMonoid &s) const { return sum + s.sum; };
-};
-
-struct AddTimesMonoid
-{
-  mint k, b;
-  AddTimesMonoid() : k(1), b(0) {}
-  AddTimesMonoid(mint k, mint b) : k(k), b(b) {}
-
-  AddTimesMonoid operator*(const AddTimesMonoid &a) const
-  {
-    return {k * a.k, b * a.k + a.b};
-  };
-
-  SumMonoid operator()(const SumMonoid &s, u32 size) const
-  {
-    return {s.sum * k + b * size};
-  }
-
-  bool is_unit() const { return k.val() == 1 && b.val() == 0; }
-};
+  return a.first * b + a.second;
+}
 
 int main()
 {
@@ -60,7 +39,9 @@ int main()
     i = v;
   }
 
-  Splay<SumMonoid, AddTimesMonoid> t(n, [&a](u32 x) { return a[x]; });
+  Splay<mono::BidirActedMonoidTrait<mono::ActedMonoidTrait<
+      mono::MonoidLinearFunc<mint>, mono::MonoidAdd<mint>>>>
+      t(n, [&a](u32 x) { return a[x]; });
 
   for (int i = 0; i < Q; i++) {
     int op;
@@ -68,7 +49,7 @@ int main()
     if (op == 0) {
       int i, x;
       std::cin >> i >> x;
-      t.insert(i, SumMonoid(x));
+      t.insert(i, x);
     } else if (op == 1) {
       int i;
       std::cin >> i;
@@ -80,11 +61,11 @@ int main()
     } else if (op == 3) {
       int l, r, b, c;
       std::cin >> l >> r >> b >> c;
-      t.apply(l, r, AddTimesMonoid(b, c));
+      t.apply(l, r, {b, c});
     } else if (op == 4) {
       int l, r;
       std::cin >> l >> r;
-      std::cout << t.prod(l, r).sum.val() << "\n";
+      std::cout << t.prod(l, r).val() << "\n";
     }
   }
 }

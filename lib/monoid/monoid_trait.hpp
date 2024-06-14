@@ -2,7 +2,7 @@
 
 #include "lib/internal.hpp"
 
-// Transfer functor into function to avoid errors under c++20.
+// Transfer functor into function to avoid errors under c++20 above c++11.
 template <typename Functor, class... Args> auto ftf(Args &&...args)
 {
   static Functor f;
@@ -38,7 +38,7 @@ template <i64 V> constexpr i64 cintf() { return V; }
 // default act funcion (similar to std::invoke)
 template <typename A, typename B> B dactf(const A &&a, const B &&b, u64 &&len)
 {
-  return a(std::forward<const B>(b), std::forward<u64>(len));
+  return a * b;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -47,20 +47,22 @@ namespace mono {
 
 #if __cplusplus >= 202000U
 
-template <typename T, auto O = std::multiplies(), auto E = dunf<T>,
-          auto P = dpwf<T, O, E>, auto I = nullptr, bool C = false>
+template <typename _S, bool C = false, auto O = std::multiplies(),
+          auto E = dunf<_S>, auto P = dpwf<_S, O, E>, auto I = nullptr>
 
 #else
 
-template <typename T,
-          T (*O)(const T &&, const T &&) =
-              ftf<std::multiplies<T>, const T, const T>,
-          const T (*E)() = dunf<T>, T (*P)(const T &&, u64 &&) = dpwf<T, O, E>,
-          T (*I)(const T &&) = nullptr, bool C = false>
+template <typename _S, bool C = false,
+          _S (*O)(const _S &&, const _S &&) =
+              ftf<std::multiplies<_S>, const _S, const _S>,
+          const _S (*E)() = dunf<_S>,
+          _S (*P)(const _S &&, u64 &&) = dpwf<_S, O, E>,
+          _S (*I)(const _S &&) = nullptr>
 #endif
 struct MonoidTrait
 {
-  using S = T;
+  using S = _S;
+  using MS = MonoidTrait;
   static constexpr S op(const S &x, const S &y)
   {
     return O(std::forward<const S>(x), std::forward<const S>(y));
@@ -75,14 +77,15 @@ struct MonoidTrait
 };
 
 #if __cplusplus >= 202000U
-template <typename _MA, typename _MS, auto _AP = dactf<_MA, _MS>>
+template <typename _MA, typename _MS,
+          auto _AP = dactf<typename _MA::S, typename _MS::S>>
 #else
 template <typename _MA, typename _MS,
           typename _MS::S (*_AP)(const typename _MA::S &&,
                                  const typename _MS::S &&, u64 &&) =
-              dactf<_MA, _MS>>
+              dactf<typename _MA::S, typename _MS::S>>
 #endif
-struct ActedMonoidTrait
+struct ActedMonoidTrait : _MS
 {
   using MA = _MA;
   using MS = _MS;
@@ -95,67 +98,71 @@ struct ActedMonoidTrait
   }
 };
 
-template <typename _M, bool _cm = _M::cm> struct BidirMonoidTrait {};
+template <typename _M, bool _cm = _M::cm> struct BidirMonoidTrait
+{};
 
 template <typename _M> struct BidirMonoidTrait<_M, true>
 {
-  using M = _M;
-  using BS = typename M::S;
+  using MS = typename _M::MS;
+  using BS = typename MS::S;
   using S = BS;
   static constexpr S ts(const S &x) { return x; }
-  static constexpr S op(const S &x, const S &y)
-  {
-    return M::op(std::forward<const S>(x), std::forward<const S>(y));
-  }
-  static constexpr const S un() { return M::un(); }
-  static constexpr S iv(const S &x)
-  {
-    return M::iv(std::forward<const S>(x));
-  }
-  static constexpr S pw(const S &x, u64 y)
-  {
-    return M::pw(std::forward<const S>(x), std::forward<u64>(y));
-  }
+  static constexpr S op(const S &x, const S &y) { return MS::op(x, y); }
+  static constexpr const S un() { return MS::un(); }
+  static constexpr S iv(const S &x) { return MS::iv(x); }
+  static constexpr S pw(const S &x, u64 y) { return MS::pw(x, y); }
   static constexpr bool cm = true;
 };
 
 template <typename _M> struct BidirMonoidTrait<_M, false>
 {
-  using M = _M;
-  using BS = typename M::S;
+  using MS = typename _M::MS;
+  using BS = typename MS::S;
   using S = std::pair<BS, BS>;
   static constexpr S ts(const S &x) { return S(x.second, x.first); }
   static constexpr S op(const S &x, const S &y)
   {
-    return S{
-        M::op(std::forward<const S>(x.first), std::forward<const S>(y.first)),
-        M::op(std::forward<const S>(y.second),
-              std::forward<const S>(x.second))};
+    return S{MS::op(x.first, y.first), MS::op(y.second, x.second)};
   }
-  static constexpr const S un() { return S{M::un(), M::un()}; }
+  static constexpr const S un() { return S{MS::un(), MS::un()}; }
   static constexpr S iv(const S &x)
   {
-    return S{M::iv(std::forward<const S>(x.first)),
-             M::iv(std::forward<const S>(x.second))};
+    return S{MS::iv(x.first), MS::iv(x.second)};
   }
   static constexpr S pw(const S &x, u64 y)
   {
-    return S{M::pw(std::forward<const S>(x.first), std::forward<u64>(y)),
-    M::pw(std::forward<const S>(x.first), std::forward<u64>(y))};
+    return S{MS::pw(x.first, y), MS::pw(x.second, y)};
   }
   static constexpr bool cm = false;
 };
 
-template<typename _M, bool _cm = _M::cm> struct BidirActedMonoidTrait { };
-template<typename _M> struct BidirActedMonoidTrait<_M, true> : BidirMonoidTrait<_M, true>
+template <typename _M, bool _cm = _M::cm> struct BidirActedMonoidTrait
+{};
+template <typename _M>
+struct BidirActedMonoidTrait<_M, true> : BidirMonoidTrait<_M, true>
 {
-  using A = typename M::A;
+  using MA = typename _M::MA;
+  using A = typename MA::S;
+  using MS = typename BidirMonoidTrait<_M, true>::MS;
+  using BS = typename BidirMonoidTrait<_M, true>::BS;
+  using S = typename BidirMonoidTrait<_M, true>::S;
   static constexpr S act(const A &a, const S &s, u64 len)
   {
-    return M::act(std::forward<const A>(a), std::forward<const S>(s),
-               std::forward<u64>(len));
+    return _M::act(a, s, len);
   }
-
+};
+template <typename _M>
+struct BidirActedMonoidTrait<_M, false> : BidirMonoidTrait<_M, false>
+{
+  using MA = typename _M::MA;
+  using A = typename MA::S;
+  using MS = typename BidirMonoidTrait<_M, false>::MS;
+  using BS = typename BidirMonoidTrait<_M, false>::BS;
+  using S = typename BidirMonoidTrait<_M, false>::S;
+  static constexpr S act(const A &a, const S &s, u64 len)
+  {
+    return S{_M::act(a, s.first, len), _M::act(a, s.second, len)};
+  }
 };
 
 } // namespace mono

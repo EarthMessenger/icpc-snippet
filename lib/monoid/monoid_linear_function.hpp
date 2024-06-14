@@ -1,6 +1,6 @@
 #pragma once
 #include "lib/internal.hpp"
-#include "monoid_trait.hpp"
+#include "lib/monoid/monoid_trait.hpp"
 
 namespace mono {
 

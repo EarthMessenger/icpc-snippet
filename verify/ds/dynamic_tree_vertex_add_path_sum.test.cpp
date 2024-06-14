@@ -3,14 +3,7 @@
 
 #include "lib/ds/lct.hpp"
 #include "lib/internal.hpp"
-
-struct SumMonoid
-{
-  i64 s;
-  SumMonoid() : s(0) {}
-  SumMonoid(i64 s) : s(s) {}
-  friend SumMonoid operator*(SumMonoid a, SumMonoid b) { return a.s + b.s; }
-};
+#include "lib/monoid/monoid_add.hpp"
 
 int main()
 {
@@ -25,7 +18,7 @@ int main()
   for (int i = 0; i < n; i++)
     std::cin >> a[i];
 
-  LinkCutTree<SumMonoid> lct(n, [&a](int x) { return SumMonoid(a[x]); });
+  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<int>>> lct(n, [&a](int x) { return a[x]; });
   for (int i = 1; i < n; i++) {
     int u, v;
     std::cin >> u >> v;
@@ -47,7 +40,7 @@ int main()
     } else if (op == 2) {
       int u, v;
       std::cin >> u >> v;
-      std::cout << lct.prod(u, v).s << "\n";
+      std::cout << lct.prod(u, v) << "\n";
     }
   }
 }
