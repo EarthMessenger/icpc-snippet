@@ -20,10 +20,7 @@ using u128 = __uint128_t;
 
 using mint = static_modint<998'244'353>;
 
-mint operator*(const std::pair<mint, mint> &a, const mint &b)
-{
-  return a.first * b + a.second;
-}
+mint act(const std::pair<mint, mint> &&a, const mint &&b, u64 &&c) { return a.first * b + a.second * c; }
 
 int main()
 {
@@ -40,7 +37,7 @@ int main()
   }
 
   Splay<mono::BidirActedMonoidTrait<mono::ActedMonoidTrait<
-      mono::MonoidLinearFunc<mint>, mono::MonoidAdd<mint>>>>
+      mono::MonoidLinearFunc<mint>, mono::MonoidAdd<mint>, act>>>
       t(n, [&a](u32 x) { return a[x]; });
 
   for (int i = 0; i < Q; i++) {

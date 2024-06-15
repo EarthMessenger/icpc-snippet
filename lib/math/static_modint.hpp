@@ -60,8 +60,11 @@ template <int M> struct static_modint
   friend mint operator/(mint a, mint b) { return a /= b; }
   friend bool operator==(mint a, mint b) { return a.val() == b.val(); }
   friend bool operator!=(mint a, mint b) { return a.val() != b.val(); }
-  friend std::istream operator>>(std::istream &in, mint x) { return in >> x.v; }
-  friend std::ostream operator>>(std::ostream &out, mint x)
+  friend std::istream &operator>>(std::istream &in, mint x)
+  {
+    return in >> x.v;
+  }
+  friend std::ostream &operator<<(std::ostream &out, mint x)
   {
     return out << x.v;
   }

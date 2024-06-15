@@ -18,7 +18,7 @@ int main()
   for (int i = 0; i < n; i++)
     std::cin >> a[i];
 
-  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<int>>> lct(n, [&a](int x) { return a[x]; });
+  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<i64>>> lct(n, [&a](int x) { return a[x]; });
   for (int i = 1; i < n; i++) {
     int u, v;
     std::cin >> u >> v;

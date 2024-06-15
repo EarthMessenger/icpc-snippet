@@ -48,7 +48,7 @@ namespace mono {
 #if __cplusplus >= 202000U
 
 template <typename _S, bool C = false, auto O = std::multiplies(),
-          auto E = dunf<_S>, auto P = dpwf<_S, O, E>, auto I = nullptr>
+          auto E = dunf<_S>, auto P = dpwf<_S, O, E>, auto I = divf<_S>>
 
 #else
 
@@ -57,12 +57,12 @@ template <typename _S, bool C = false,
               ftf<std::multiplies<_S>, const _S, const _S>,
           const _S (*E)() = dunf<_S>,
           _S (*P)(const _S &&, u64 &&) = dpwf<_S, O, E>,
-          _S (*I)(const _S &&) = nullptr>
+          _S (*I)(const _S &&) = divf<_S>>
 #endif
-struct MonoidTrait
+struct GroupTrait
 {
   using S = _S;
-  using MS = MonoidTrait;
+  using MS = GroupTrait;
   static constexpr S op(const S &x, const S &y)
   {
     return O(std::forward<const S>(x), std::forward<const S>(y));
@@ -74,6 +74,25 @@ struct MonoidTrait
     return P(std::forward<const S>(x), std::forward<u64>(y));
   }
   static constexpr bool cm = C;
+};
+
+#if __cplusplus >= 202000U
+
+template <typename _S, bool C = false, auto O = std::multiplies(),
+          auto E = dunf<_S>, auto P = dpwf<_S, O, E>>
+
+#else
+
+template <typename _S, bool C = false,
+          _S (*O)(const _S &&, const _S &&) =
+              ftf<std::multiplies<_S>, const _S, const _S>,
+          const _S (*E)() = dunf<_S>,
+          _S (*P)(const _S &&, u64 &&) = dpwf<_S, O, E>>
+#endif
+struct MonoidTrait: GroupTrait<_S, C, O, E, P, nullptr>
+{
+  using S = _S;
+  using MS = MonoidTrait;
 };
 
 #if __cplusplus >= 202000U

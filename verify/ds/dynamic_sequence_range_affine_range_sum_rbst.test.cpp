@@ -23,7 +23,7 @@ using mint = static_modint<998'244'353>;
 using SumMonoid = mono::MonoidAdd<mint>;
 using LFMonoid = mono::MonoidLinearFunc<mint>;
 
-mint act(const std::pair<mint, mint> &&a, const mint &&b, u64 &&c) { return a.first * b + a.second; }
+mint act(const std::pair<mint, mint> &&a, const mint &&b, u64 &&c) { return a.first * b + a.second * c; }
 
 int main()
 {
