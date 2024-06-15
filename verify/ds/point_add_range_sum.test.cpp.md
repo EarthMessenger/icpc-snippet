@@ -4,16 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: verify/ds/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
+  timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/point_add_range_sum.test.cpp

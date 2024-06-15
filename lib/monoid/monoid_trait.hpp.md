@@ -1,33 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
   - icon: ':heavy_check_mark:'
     path: lib/ds/segtree.hpp
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
-  - icon: ':warning:'
-    path: lib/monoid/monoid_affine.hpp
-    title: lib/monoid/monoid_affine.hpp
-  - icon: ':x:'
-    path: lib/monoid/monoid_linear_function.hpp
-    title: lib/monoid/monoid_linear_function.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/ds/point_set_range_composite.test.cpp
     title: verify/ds/point_set_range_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -67,47 +61,54 @@ data:
     \ &&a, const B &&b, u64 &&len)\n{\n  return a * b;\n}\n\n//////////////////////////////////////////////////////////////////////////\n\
     \nnamespace mono {\n\n#if __cplusplus >= 202000U\n\ntemplate <typename _S, bool\
     \ C = false, auto O = std::multiplies(),\n          auto E = dunf<_S>, auto P\
-    \ = dpwf<_S, O, E>, auto I = nullptr>\n\n#else\n\ntemplate <typename _S, bool\
+    \ = dpwf<_S, O, E>, auto I = divf<_S>>\n\n#else\n\ntemplate <typename _S, bool\
     \ C = false,\n          _S (*O)(const _S &&, const _S &&) =\n              ftf<std::multiplies<_S>,\
     \ const _S, const _S>,\n          const _S (*E)() = dunf<_S>,\n          _S (*P)(const\
-    \ _S &&, u64 &&) = dpwf<_S, O, E>,\n          _S (*I)(const _S &&) = nullptr>\n\
-    #endif\nstruct MonoidTrait\n{\n  using S = _S;\n  using MS = MonoidTrait;\n  static\
+    \ _S &&, u64 &&) = dpwf<_S, O, E>,\n          _S (*I)(const _S &&) = divf<_S>>\n\
+    #endif\nstruct GroupTrait\n{\n  using S = _S;\n  using MS = GroupTrait;\n  static\
     \ constexpr S op(const S &x, const S &y)\n  {\n    return O(std::forward<const\
     \ S>(x), std::forward<const S>(y));\n  }\n  static constexpr const S un() { return\
     \ E(); }\n  static constexpr S iv(const S &x) { return I(std::forward<const S>(x));\
     \ }\n  static constexpr S pw(const S &x, u64 y)\n  {\n    return P(std::forward<const\
     \ S>(x), std::forward<u64>(y));\n  }\n  static constexpr bool cm = C;\n};\n\n\
-    #if __cplusplus >= 202000U\ntemplate <typename _MA, typename _MS,\n          auto\
-    \ _AP = dactf<typename _MA::S, typename _MS::S>>\n#else\ntemplate <typename _MA,\
-    \ typename _MS,\n          typename _MS::S (*_AP)(const typename _MA::S &&,\n\
-    \                                 const typename _MS::S &&, u64 &&) =\n      \
-    \        dactf<typename _MA::S, typename _MS::S>>\n#endif\nstruct ActedMonoidTrait\
-    \ : _MS\n{\n  using MA = _MA;\n  using MS = _MS;\n  using A = typename MA::S;\n\
-    \  using S = typename MS::S;\n  static constexpr S act(const A &a, const S &s,\
-    \ u64 len)\n  {\n    return _AP(std::forward<const A>(a), std::forward<const S>(s),\n\
-    \               std::forward<u64>(len));\n  }\n};\n\ntemplate <typename _M, bool\
-    \ _cm = _M::cm> struct BidirMonoidTrait\n{};\n\ntemplate <typename _M> struct\
-    \ BidirMonoidTrait<_M, true>\n{\n  using MS = typename _M::MS;\n  using BS = typename\
-    \ MS::S;\n  using S = BS;\n  static constexpr S ts(const S &x) { return x; }\n\
-    \  static constexpr S op(const S &x, const S &y) { return MS::op(x, y); }\n  static\
-    \ constexpr const S un() { return MS::un(); }\n  static constexpr S iv(const S\
-    \ &x) { return MS::iv(x); }\n  static constexpr S pw(const S &x, u64 y) { return\
-    \ MS::pw(x, y); }\n  static constexpr bool cm = true;\n};\n\ntemplate <typename\
-    \ _M> struct BidirMonoidTrait<_M, false>\n{\n  using MS = typename _M::MS;\n \
-    \ using BS = typename MS::S;\n  using S = std::pair<BS, BS>;\n  static constexpr\
-    \ S ts(const S &x) { return S(x.second, x.first); }\n  static constexpr S op(const\
-    \ S &x, const S &y)\n  {\n    return S{MS::op(x.first, y.first), MS::op(y.second,\
-    \ x.second)};\n  }\n  static constexpr const S un() { return S{MS::un(), MS::un()};\
-    \ }\n  static constexpr S iv(const S &x)\n  {\n    return S{MS::iv(x.first), MS::iv(x.second)};\n\
-    \  }\n  static constexpr S pw(const S &x, u64 y)\n  {\n    return S{MS::pw(x.first,\
-    \ y), MS::pw(x.second, y)};\n  }\n  static constexpr bool cm = false;\n};\n\n\
-    template <typename _M, bool _cm = _M::cm> struct BidirActedMonoidTrait\n{};\n\
-    template <typename _M>\nstruct BidirActedMonoidTrait<_M, true> : BidirMonoidTrait<_M,\
-    \ true>\n{\n  using MA = typename _M::MA;\n  using A = typename MA::S;\n  using\
-    \ MS = typename BidirMonoidTrait<_M, true>::MS;\n  using BS = typename BidirMonoidTrait<_M,\
-    \ true>::BS;\n  using S = typename BidirMonoidTrait<_M, true>::S;\n  static constexpr\
-    \ S act(const A &a, const S &s, u64 len)\n  {\n    return _M::act(a, s, len);\n\
-    \  }\n};\ntemplate <typename _M>\nstruct BidirActedMonoidTrait<_M, false> : BidirMonoidTrait<_M,\
+    #if __cplusplus >= 202000U\n\ntemplate <typename _S, bool C = false, auto O =\
+    \ std::multiplies(),\n          auto E = dunf<_S>, auto P = dpwf<_S, O, E>>\n\n\
+    #else\n\ntemplate <typename _S, bool C = false,\n          _S (*O)(const _S &&,\
+    \ const _S &&) =\n              ftf<std::multiplies<_S>, const _S, const _S>,\n\
+    \          const _S (*E)() = dunf<_S>,\n          _S (*P)(const _S &&, u64 &&)\
+    \ = dpwf<_S, O, E>>\n#endif\nstruct MonoidTrait: GroupTrait<_S, C, O, E, P, nullptr>\n\
+    {\n  using S = _S;\n  using MS = MonoidTrait;\n};\n\n#if __cplusplus >= 202000U\n\
+    template <typename _MA, typename _MS,\n          auto _AP = dactf<typename _MA::S,\
+    \ typename _MS::S>>\n#else\ntemplate <typename _MA, typename _MS,\n          typename\
+    \ _MS::S (*_AP)(const typename _MA::S &&,\n                                 const\
+    \ typename _MS::S &&, u64 &&) =\n              dactf<typename _MA::S, typename\
+    \ _MS::S>>\n#endif\nstruct ActedMonoidTrait : _MS\n{\n  using MA = _MA;\n  using\
+    \ MS = _MS;\n  using A = typename MA::S;\n  using S = typename MS::S;\n  static\
+    \ constexpr S act(const A &a, const S &s, u64 len)\n  {\n    return _AP(std::forward<const\
+    \ A>(a), std::forward<const S>(s),\n               std::forward<u64>(len));\n\
+    \  }\n};\n\ntemplate <typename _M, bool _cm = _M::cm> struct BidirMonoidTrait\n\
+    {};\n\ntemplate <typename _M> struct BidirMonoidTrait<_M, true>\n{\n  using MS\
+    \ = typename _M::MS;\n  using BS = typename MS::S;\n  using S = BS;\n  static\
+    \ constexpr S ts(const S &x) { return x; }\n  static constexpr S op(const S &x,\
+    \ const S &y) { return MS::op(x, y); }\n  static constexpr const S un() { return\
+    \ MS::un(); }\n  static constexpr S iv(const S &x) { return MS::iv(x); }\n  static\
+    \ constexpr S pw(const S &x, u64 y) { return MS::pw(x, y); }\n  static constexpr\
+    \ bool cm = true;\n};\n\ntemplate <typename _M> struct BidirMonoidTrait<_M, false>\n\
+    {\n  using MS = typename _M::MS;\n  using BS = typename MS::S;\n  using S = std::pair<BS,\
+    \ BS>;\n  static constexpr S ts(const S &x) { return S(x.second, x.first); }\n\
+    \  static constexpr S op(const S &x, const S &y)\n  {\n    return S{MS::op(x.first,\
+    \ y.first), MS::op(y.second, x.second)};\n  }\n  static constexpr const S un()\
+    \ { return S{MS::un(), MS::un()}; }\n  static constexpr S iv(const S &x)\n  {\n\
+    \    return S{MS::iv(x.first), MS::iv(x.second)};\n  }\n  static constexpr S pw(const\
+    \ S &x, u64 y)\n  {\n    return S{MS::pw(x.first, y), MS::pw(x.second, y)};\n\
+    \  }\n  static constexpr bool cm = false;\n};\n\ntemplate <typename _M, bool _cm\
+    \ = _M::cm> struct BidirActedMonoidTrait\n{};\ntemplate <typename _M>\nstruct\
+    \ BidirActedMonoidTrait<_M, true> : BidirMonoidTrait<_M, true>\n{\n  using MA\
+    \ = typename _M::MA;\n  using A = typename MA::S;\n  using MS = typename BidirMonoidTrait<_M,\
+    \ true>::MS;\n  using BS = typename BidirMonoidTrait<_M, true>::BS;\n  using S\
+    \ = typename BidirMonoidTrait<_M, true>::S;\n  static constexpr S act(const A\
+    \ &a, const S &s, u64 len)\n  {\n    return _M::act(a, s, len);\n  }\n};\ntemplate\
+    \ <typename _M>\nstruct BidirActedMonoidTrait<_M, false> : BidirMonoidTrait<_M,\
     \ false>\n{\n  using MA = typename _M::MA;\n  using A = typename MA::S;\n  using\
     \ MS = typename BidirMonoidTrait<_M, false>::MS;\n  using BS = typename BidirMonoidTrait<_M,\
     \ false>::BS;\n  using S = typename BidirMonoidTrait<_M, false>::S;\n  static\
@@ -120,11 +121,9 @@ data:
   requiredBy:
   - lib/ds/lct.hpp
   - lib/ds/segtree.hpp
-  - lib/monoid/monoid_affine.hpp
   - lib/monoid/monoid_add.hpp
-  - lib/monoid/monoid_linear_function.hpp
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/point_add_range_sum.test.cpp

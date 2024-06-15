@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: lib/ds/depque.hpp
     title: Double Ended Priority Queue
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy: []

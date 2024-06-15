@@ -7,21 +7,21 @@ data:
       path: lib/ds/depque.hpp
       title: Double Ended Priority Queue
     - icon: ':warning:'
-      path: lib/ds/dyn_segtree.hpp
-      title: lib/ds/dyn_segtree.hpp
+      path: lib/ds/dynsegtree.hpp
+      title: lib/ds/dynsegtree.hpp
     - icon: ':heavy_check_mark:'
       path: lib/ds/lazysegtree.hpp
       title: lib/ds/lazysegtree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/lct.hpp
       title: Link Cut Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/rbst.hpp
       title: Random Binary Search Tree
     - icon: ':heavy_check_mark:'
       path: lib/ds/segtree.hpp
       title: Segment Tree
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/ds/splay.hpp
       title: Splay Tree
     - icon: ':warning:'
@@ -37,7 +37,7 @@ data:
       title: Strongly Connected Components
   - name: lib
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/internal.hpp
       title: Internal Definition
   - name: lib/math
@@ -51,7 +51,7 @@ data:
     - icon: ':warning:'
       path: lib/math/lucas.hpp
       title: Lucas Theorem
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/math/static_modint.hpp
       title: Static Modint
     - icon: ':warning:'
@@ -70,16 +70,16 @@ data:
       title: Mo's Algorithm
   - name: lib/monoid
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/monoid/monoid_add.hpp
       title: lib/monoid/monoid_add.hpp
     - icon: ':warning:'
       path: lib/monoid/monoid_affine.hpp
       title: lib/monoid/monoid_affine.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: lib/monoid/monoid_linear_function.hpp
       title: lib/monoid/monoid_linear_function.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: lib/monoid/monoid_trait.hpp
       title: lib/monoid/monoid_trait.hpp
   - name: lib/str
@@ -119,13 +119,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/ds/double_ended_priority_queue.test.cpp
       title: verify/ds/double_ended_priority_queue.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
       title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
       title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     - icon: ':heavy_check_mark:'

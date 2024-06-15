@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   - icon: ':heavy_check_mark:'
     path: lib/math/convolution.hpp
     title: Polynomial Convolution
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: Static Modint
   _extendedRequiredBy: []
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: verify/math/bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
+  timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/math/bitwise_xor_convolution.test.cpp

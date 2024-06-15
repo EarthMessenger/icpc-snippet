@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/ds/point_add_range_sum.test.cpp
     title: verify/ds/point_add_range_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -51,8 +51,8 @@ data:
   isVerificationFile: false
   path: lib/monoid/monoid_add.hpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   - verify/ds/point_add_range_sum.test.cpp

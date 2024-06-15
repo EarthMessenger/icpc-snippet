@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy: []
@@ -34,15 +34,15 @@ data:
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
-  path: lib/ds/dyn_segtree.hpp
+  path: lib/ds/dynsegtree.hpp
   requiredBy: []
-  timestamp: '2024-06-14 09:23:51+08:00'
+  timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: lib/ds/dyn_segtree.hpp
+documentation_of: lib/ds/dynsegtree.hpp
 layout: document
 redirect_from:
-- /library/lib/ds/dyn_segtree.hpp
-- /library/lib/ds/dyn_segtree.hpp.html
-title: lib/ds/dyn_segtree.hpp
+- /library/lib/ds/dynsegtree.hpp
+- /library/lib/ds/dynsegtree.hpp.html
+title: lib/ds/dynsegtree.hpp
 ---

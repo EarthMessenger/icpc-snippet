@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy: []
@@ -44,18 +44,18 @@ data:
     \ base = *this;\n    while (y) {\n      if (y & 1) res *= base;\n      base *=\
     \ base;\n      y >>= 1;\n    }\n    return res;\n  }\n\n  mint inv() const { return\
     \ pow(mod() - 2); }\n\n  mint &operator/=(mint x) { return *this *= x.inv(); }\n\
-    \  friend mint operator/(mint x, mint y) { return x *= y.inv(); }\n  \n  friend\
+    \  friend mint operator/(mint x, mint y) { return x *= y.inv(); }\n\n  friend\
     \ bool operator==(mint a, mint b) { return a.val() == b.val(); }\n  friend bool\
     \ operator!=(mint a, mint b) { return a.val() != b.val(); }\n  friend std::istream\
-    \ operator>>(std::istream &in, mint x) { return in >> x.v; }\n  friend std::ostream\
-    \ operator>>(std::ostream &out, mint x)\n  {\n    return out << x.v;\n  }\n};\n\
-    \ntemplate <int id> barrett dynamic_modint<id>::b;\n"
+    \ &operator>>(std::istream &in, mint x)\n  {\n    return in >> x.v;\n  }\n  friend\
+    \ std::ostream &operator<<(std::ostream &out, mint x)\n  {\n    return out <<\
+    \ x.v;\n  }\n};\n\ntemplate <int id> barrett dynamic_modint<id>::b;\n"
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
   path: lib/math/dynamic_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
+  timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: lib/math/dynamic_modint.hpp

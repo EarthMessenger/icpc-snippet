@@ -1,23 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
-    path: lib/monoid/monoid_trait.hpp
-    title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/home/runner/.local/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -29,23 +26,21 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ lib/internal.hpp: line 4: #pragma once found in a non-first line\n"
-  code: "#pragma once\n#include \"lib/internal.hpp\"\n#include \"lib/monoid/monoid_trait.hpp\"\
-    \n\nnamespace mono {\n\ntemplate <typename T> struct MonoidLinearFunc\n{\n  using\
-    \ S = std::pair<T, T>;\n  static constexpr S op(const S &x, const S &y)\n  {\n\
-    \    return S{x.first * y.first, x.second * y.first + y.second};\n  }\n  static\
-    \ constexpr const S un() { return S{1, 0}; }\n  static constexpr S iv(const S\
-    \ &x)\n  {\n    return S{T(1) / x.first, -x.second / x.first};\n  }\n  static\
-    \ constexpr S pw(const S &x, u64 y)\n  {\n    return dpwf<S, op, un>(std::forward<const\
-    \ S>(x), std::forward<u64>(y));\n  }\n  static constexpr bool cm = false;\n};\n\
-    \n} // namespace mono"
+  code: "#pragma once\n#include \"lib/internal.hpp\"\n\nnamespace mono {\n\ntemplate\
+    \ <typename T> struct MonoidLinearFunc\n{\n  using S = std::pair<T, T>;\n  static\
+    \ constexpr S op(const S &x, const S &y)\n  {\n    return S{x.first * y.first,\
+    \ x.second * y.first + y.second};\n  }\n  static constexpr const S un() { return\
+    \ S{1, 0}; }\n  static constexpr S iv(const S &x)\n  {\n    return S{T(1) / x.first,\
+    \ -x.second / x.first};\n  }\n  static constexpr S pw(const S &x, u64 y)\n  {\n\
+    \    return dpwf<S, op, un>(std::forward<const S>(x), std::forward<u64>(y));\n\
+    \  }\n  static constexpr bool cm = false;\n};\n\n} // namespace mono"
   dependsOn:
   - lib/internal.hpp
-  - lib/monoid/monoid_trait.hpp
   isVerificationFile: false
   path: lib/monoid/monoid_linear_function.hpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

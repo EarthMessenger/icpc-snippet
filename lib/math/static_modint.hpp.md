@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
     title: verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - icon: ':heavy_check_mark:'
@@ -27,9 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/math/subset_convolution.test.cpp
     title: verify/math/subset_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Static Modint
     links: []
@@ -61,19 +61,19 @@ data:
     \ a, mint b) { return a *= b; }\n  friend mint operator/(mint a, mint b) { return\
     \ a /= b; }\n  friend bool operator==(mint a, mint b) { return a.val() == b.val();\
     \ }\n  friend bool operator!=(mint a, mint b) { return a.val() != b.val(); }\n\
-    \  friend std::istream operator>>(std::istream &in, mint x) { return in >> x.v;\
-    \ }\n  friend std::ostream operator>>(std::ostream &out, mint x)\n  {\n    return\
-    \ out << x.v;\n  }\n\n  mint pow(u64 n) const\n  {\n    mint res = 1, base = *this;\n\
-    \    while (n) {\n      if (n & 1) res *= base;\n      base *= base;\n      n\
-    \ >>= 1;\n    }\n    return res;\n  }\n\n  mint inv() const { return pow(UM -\
-    \ 2); }\n};\n"
+    \  friend std::istream &operator>>(std::istream &in, mint x)\n  {\n    return\
+    \ in >> x.v;\n  }\n  friend std::ostream &operator<<(std::ostream &out, mint x)\n\
+    \  {\n    return out << x.v;\n  }\n\n  mint pow(u64 n) const\n  {\n    mint res\
+    \ = 1, base = *this;\n    while (n) {\n      if (n & 1) res *= base;\n      base\
+    \ *= base;\n      n >>= 1;\n    }\n    return res;\n  }\n\n  mint inv() const\
+    \ { return pow(UM - 2); }\n};\n"
   dependsOn:
   - lib/internal.hpp
   isVerificationFile: false
   path: lib/math/static_modint.hpp
   requiredBy: []
-  timestamp: '2024-06-14 19:20:52+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp

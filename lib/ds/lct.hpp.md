@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
     title: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Link Cut Tree
     links: []
@@ -76,8 +76,8 @@ data:
   isVerificationFile: false
   path: lib/ds/lct.hpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
 documentation_of: lib/ds/lct.hpp

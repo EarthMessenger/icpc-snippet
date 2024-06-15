@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
   - icon: ':heavy_check_mark:'
     path: lib/misc/bitop.hpp
     title: Bit Manipulation
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: lib/ds/segtree.hpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
+  timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp

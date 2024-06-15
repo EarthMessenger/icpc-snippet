@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/rbst.hpp
     title: Random Binary Search Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/math/static_modint.hpp
     title: Static Modint
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_linear_function.hpp
     title: lib/monoid/monoid_linear_function.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum
@@ -49,9 +49,9 @@ data:
     \ \"lib/monoid/monoid_add.hpp\"\n#include \"lib/monoid/monoid_linear_function.hpp\"\
     \n\nusing mint = static_modint<998'244'353>;\n\nusing SumMonoid = mono::MonoidAdd<mint>;\n\
     using LFMonoid = mono::MonoidLinearFunc<mint>;\n\nmint act(const std::pair<mint,\
-    \ mint> &&a, const mint &&b, u64 &&c) { return a.first * b + a.second; }\n\nint\
-    \ main()\n{\n  std::ios::sync_with_stdio(false);\n  std::cin.tie(nullptr);\n\n\
-    \  int n, Q;\n  std::cin >> n >> Q;\n  std::vector<mint> a(n);\n  for (auto &i\
+    \ mint> &&a, const mint &&b, u64 &&c) { return a.first * b + a.second * c; }\n\
+    \nint main()\n{\n  std::ios::sync_with_stdio(false);\n  std::cin.tie(nullptr);\n\
+    \n  int n, Q;\n  std::cin >> n >> Q;\n  std::vector<mint> a(n);\n  for (auto &i\
     \ : a) {\n    int v;\n    std::cin >> v;\n    i = v;\n  }\n  RBST<mono::BidirActedMonoidTrait<mono::ActedMonoidTrait<\n\
     \      LFMonoid, SumMonoid, act>>>\n      t(n, [&a](u32 x) { return a[x]; });\n\
     \n  for (int i = 0; i < Q; i++) {\n    int op;\n    std::cin >> op;\n    if (op\
@@ -72,8 +72,8 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
 layout: document

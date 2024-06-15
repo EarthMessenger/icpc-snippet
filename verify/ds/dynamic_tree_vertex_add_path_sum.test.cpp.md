@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: lib/ds/lct.hpp
     title: Link Cut Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/internal.hpp
     title: Internal Definition
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_add.hpp
     title: lib/monoid/monoid_add.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: lib/monoid/monoid_trait.hpp
     title: lib/monoid/monoid_trait.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/dynamic_tree_vertex_add_path_sum
@@ -39,7 +39,7 @@ data:
     \n\n#include \"lib/ds/lct.hpp\"\n#include \"lib/internal.hpp\"\n#include \"lib/monoid/monoid_add.hpp\"\
     \n\nint main()\n{\n  std::cin.tie(nullptr);\n  std::ios::sync_with_stdio(false);\n\
     \  std::clog << std::boolalpha;\n\n  int n, q;\n  std::cin >> n >> q;\n\n  std::vector<int>\
-    \ a(n);\n  for (int i = 0; i < n; i++)\n    std::cin >> a[i];\n\n  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<int>>>\
+    \ a(n);\n  for (int i = 0; i < n; i++)\n    std::cin >> a[i];\n\n  LinkCutTree<mono::BidirMonoidTrait<mono::MonoidAdd<i64>>>\
     \ lct(n, [&a](int x) { return a[x]; });\n  for (int i = 1; i < n; i++) {\n   \
     \ int u, v;\n    std::cin >> u >> v;\n    lct.link(u, v);\n  }\n\n  for (int i\
     \ = 0; i < q; i++) {\n    int op;\n    std::cin >> op;\n    if (op == 0) {\n \
@@ -56,8 +56,8 @@ data:
   isVerificationFile: true
   path: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-15 17:22:49+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/ds/dynamic_tree_vertex_add_path_sum.test.cpp
 layout: document
