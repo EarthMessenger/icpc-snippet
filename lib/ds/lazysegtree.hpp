@@ -52,7 +52,7 @@ template <typename M> struct LazySegtree
 
     for (u32 i = log; i >= 1; i--) {
       if (((l >> i) << i) != l) push(l >> i);
-      if (((r >> i) << i) != l) push((r - 1) >> i);
+      if (((r >> i) << i) != r) push((r - 1) >> i);
     }
 
     auto ls = MS::unit(), rs = MS::unit();
