@@ -42,8 +42,8 @@ data:
   timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
   - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
 documentation_of: lib/monoid/monoid_linear_function.hpp
 layout: document
 redirect_from:

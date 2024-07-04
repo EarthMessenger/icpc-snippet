@@ -41,7 +41,7 @@ data:
     \  LazySegtree(u32 n, const std::vector<S> &a)\n      : LazySegtree(n, [&](u32\
     \ i) { return a[i]; })\n  {\n  }\n\n  S prod(u32 l, u32 r)\n  {\n    l += size;\n\
     \    r += size;\n\n    for (u32 i = log; i >= 1; i--) {\n      if (((l >> i) <<\
-    \ i) != l) push(l >> i);\n      if (((r >> i) << i) != l) push((r - 1) >> i);\n\
+    \ i) != l) push(l >> i);\n      if (((r >> i) << i) != r) push((r - 1) >> i);\n\
     \    }\n\n    auto ls = MS::unit(), rs = MS::unit();\n    while (l < r) {\n  \
     \    if (l & 1) ls = MS::op(ls, s[l++]);\n      if (r & 1) rs = MS::op(s[--r],\
     \ rs);\n      l >>= 1;\n      r >>= 1;\n    }\n\n    return MS::op(ls, rs);\n\
@@ -64,7 +64,7 @@ data:
   isVerificationFile: false
   path: lib/ds/lazysegtree.hpp
   requiredBy: []
-  timestamp: '2024-06-14 21:22:57+08:00'
+  timestamp: '2024-07-04 16:49:19+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/area_of_union_of_rectangles.test.cpp

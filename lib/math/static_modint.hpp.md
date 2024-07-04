@@ -75,13 +75,13 @@ data:
   timestamp: '2024-06-15 17:22:49+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
-  - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
   - verify/ds/point_set_range_composite.test.cpp
+  - verify/ds/dynamic_sequence_range_affine_range_sum_rbst.test.cpp
+  - verify/ds/dynamic_sequence_range_affine_range_sum_splay.test.cpp
+  - verify/math/subset_convolution.test.cpp
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp
   - verify/math/bitwise_xor_convolution.test.cpp
-  - verify/math/subset_convolution.test.cpp
 documentation_of: lib/math/static_modint.hpp
 layout: document
 redirect_from:

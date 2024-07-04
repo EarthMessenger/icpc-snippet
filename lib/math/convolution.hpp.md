@@ -62,10 +62,10 @@ data:
   timestamp: '2024-06-14 09:23:51+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/math/subset_convolution.test.cpp
   - verify/math/convolution.test.cpp
   - verify/math/bitwise_and_convolution.test.cpp
   - verify/math/bitwise_xor_convolution.test.cpp
-  - verify/math/subset_convolution.test.cpp
 documentation_of: lib/math/convolution.hpp
 layout: document
 redirect_from:

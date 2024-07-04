@@ -55,8 +55,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/ds/point_add_range_sum.test.cpp
-  - verify/ds/area_of_union_of_rectangles.test.cpp
   - verify/ds/point_set_range_composite.test.cpp
+  - verify/ds/area_of_union_of_rectangles.test.cpp
   - verify/math/convolution.test.cpp
 documentation_of: lib/misc/bitop.hpp
 layout: document
